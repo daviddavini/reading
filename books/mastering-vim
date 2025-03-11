@@ -5,32 +5,32 @@ Mastering Vim: 2nd Edition
     Table of Contents
     Preface
     Chapter 1: Getting Started
-        Technical requirements
-        A brief history lesson
-        Let’s start a conversation (about modal interfaces)
-        Installation
-            Setting up on Linux and Unix-like systems
-            Setting up on macOS
-            Setting up on Windows
-            Setting up on ChromeOS
-            Verifying and troubleshooting the installation
-        Vanilla Vim versus gVim
-        Configuring Vim with your .vimrc
-        Common operations (or, how to exit Vim)
-            Opening files
-            Changing text
-            Saving and closing files
-        Moving around – talk to your editor
-        Making simple edits in insert mode
-        Persistent undo and repeat
-        Read the Vim manual using :help
-        Summary
-    Chapter 2: Advanced Editing\n and Navigation
-        Technical requirements
-        Installing plugins
-        Organizing the workspace
-            Buffers
-            Plugin spotlight – unimpaired
+x       Technical requirements
+x       A brief history lesson
+x       Let’s start a conversation (about modal interfaces)
+x       Installation
+x           Setting up on Linux and Unix-like systems
+x           Setting up on macOS
+x           Setting up on Windows
+x           Setting up on ChromeOS
+x           Verifying and troubleshooting the installation
+x       Vanilla Vim versus gVim
+x       Configuring Vim with your .vimrc
+x       Common operations (or, how to exit Vim)
+x           Opening files
+x           Changing text
+x           Saving and closing files
+x       Moving around – talk to your editor
+x       Making simple edits in insert mode
+x       Persistent undo and repeat
+x       Read the Vim manual using :help
+x       Summary
+x   Chapter 2: Advanced Editing\n and Navigation
+x       Technical requirements
+x       Installing plugins
+x       Organizing the workspace
+x           Buffers
+x           Plugin spotlight – unimpaired
             Windows
             Tabs
             Folds
