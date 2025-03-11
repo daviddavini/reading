@@ -1,0 +1,2159 @@
+ECMAScript Language Specification
+    About this Specification
+    Contributing to this Specification
+    Introduction
+    1 Scope
+    2 Conformance
+        2.1 Example Normative Optional Clause Heading
+        2.2 Example Legacy Clause Heading
+        2.3 Example Legacy Normative Optional Clause Heading
+    3 Normative References
+    4 Overview
+        4.1 Web Scripting
+        4.2 Hosts and Implementations
+        4.3 ECMAScript Overview
+            4.3.1 Objects
+            4.3.2 The Strict Variant of ECMAScript
+        4.4 Terms and Definitions
+            4.4.1 implementation-approximated
+            4.4.2 implementation-defined
+            4.4.3 host-defined
+            4.4.4 type
+            4.4.5 primitive value
+            4.4.6 object
+            4.4.7 constructor
+            4.4.8 prototype
+            4.4.9 ordinary object
+            4.4.10 exotic object
+            4.4.11 standard object
+            4.4.12 built-in object
+            4.4.13 undefined value
+            4.4.14 Undefined type
+            4.4.15 null value
+            4.4.16 Null type
+            4.4.17 Boolean value
+            4.4.18 Boolean type
+            4.4.19 Boolean object
+            4.4.20 String value
+            4.4.21 String type
+            4.4.22 String object
+            4.4.23 Number value
+            4.4.24 Number type
+            4.4.25 Number object
+            4.4.26 Infinity
+            4.4.27 NaN
+            4.4.28 BigInt value
+            4.4.29 BigInt type
+            4.4.30 BigInt object
+            4.4.31 Symbol value
+            4.4.32 Symbol type
+            4.4.33 Symbol object
+            4.4.34 function
+            4.4.35 built-in function
+            4.4.36 built-in constructor
+            4.4.37 property
+            4.4.38 method
+            4.4.39 built-in method
+            4.4.40 attribute
+            4.4.41 own property
+            4.4.42 inherited property
+        4.5 Organization of This Specification
+    5 Notational Conventions
+        5.1 Syntactic and Lexical Grammars
+            5.1.1 Context-Free Grammars
+            5.1.2 The Lexical and RegExp Grammars
+            5.1.3 The Numeric String Grammar
+            5.1.4 The Syntactic Grammar
+            5.1.5 Grammar Notation
+                5.1.5.1 Terminal Symbols
+                5.1.5.2 Nonterminal Symbols and Productions
+                5.1.5.3 Optional Symbols
+                5.1.5.4 Grammatical Parameters
+                5.1.5.5 one of
+                5.1.5.6 [empty]
+                5.1.5.7 Lookahead Restrictions
+                5.1.5.8 [no LineTerminator here]
+                5.1.5.9 but not
+                5.1.5.10 Descriptive Phrases
+        5.2 Algorithm Conventions
+            5.2.1 Abstract Operations
+            5.2.2 Syntax-Directed Operations
+            5.2.3 Runtime Semantics
+                5.2.3.1 Completion ( completionRecord )
+                5.2.3.2 Throw an Exception
+                5.2.3.3 ReturnIfAbrupt
+                5.2.3.4 ReturnIfAbrupt Shorthands
+                5.2.3.5 Implicit Normal Completion
+            5.2.4 Static Semantics
+            5.2.5 Mathematical Operations
+            5.2.6 Value Notation
+            5.2.7 Identity
+    6 ECMAScript Data Types and Values
+        6.1 ECMAScript Language Types
+            6.1.1 The Undefined Type
+            6.1.2 The Null Type
+            6.1.3 The Boolean Type
+            6.1.4 The String Type
+                6.1.4.1 StringIndexOf ( string, searchValue, fromIndex )
+            6.1.5 The Symbol Type
+                6.1.5.1 Well-Known Symbols
+            6.1.6 Numeric Types
+                6.1.6.1 The Number Type
+                    6.1.6.1.1 Number::unaryMinus ( x )
+                    6.1.6.1.2 Number::bitwiseNOT ( x )
+                    6.1.6.1.3 Number::exponentiate ( base, exponent )
+                    6.1.6.1.4 Number::multiply ( x, y )
+                    6.1.6.1.5 Number::divide ( x, y )
+                    6.1.6.1.6 Number::remainder ( n, d )
+                    6.1.6.1.7 Number::add ( x, y )
+                    6.1.6.1.8 Number::subtract ( x, y )
+                    6.1.6.1.9 Number::leftShift ( x, y )
+                    6.1.6.1.10 Number::signedRightShift ( x, y )
+                    6.1.6.1.11 Number::unsignedRightShift ( x, y )
+                    6.1.6.1.12 Number::lessThan ( x, y )
+                    6.1.6.1.13 Number::equal ( x, y )
+                    6.1.6.1.14 Number::sameValue ( x, y )
+                    6.1.6.1.15 Number::sameValueZero ( x, y )
+                    6.1.6.1.16 NumberBitwiseOp ( op, x, y )
+                    6.1.6.1.17 Number::bitwiseAND ( x, y )
+                    6.1.6.1.18 Number::bitwiseXOR ( x, y )
+                    6.1.6.1.19 Number::bitwiseOR ( x, y )
+                    6.1.6.1.20 Number::toString ( x, radix )
+                6.1.6.2 The BigInt Type
+                    6.1.6.2.1 BigInt::unaryMinus ( x )
+                    6.1.6.2.2 BigInt::bitwiseNOT ( x )
+                    6.1.6.2.3 BigInt::exponentiate ( base, exponent )
+                    6.1.6.2.4 BigInt::multiply ( x, y )
+                    6.1.6.2.5 BigInt::divide ( x, y )
+                    6.1.6.2.6 BigInt::remainder ( n, d )
+                    6.1.6.2.7 BigInt::add ( x, y )
+                    6.1.6.2.8 BigInt::subtract ( x, y )
+                    6.1.6.2.9 BigInt::leftShift ( x, y )
+                    6.1.6.2.10 BigInt::signedRightShift ( x, y )
+                    6.1.6.2.11 BigInt::unsignedRightShift ( x, y )
+                    6.1.6.2.12 BigInt::lessThan ( x, y )
+                    6.1.6.2.13 BigInt::equal ( x, y )
+                    6.1.6.2.14 BinaryAnd ( x, y )
+                    6.1.6.2.15 BinaryOr ( x, y )
+                    6.1.6.2.16 BinaryXor ( x, y )
+                    6.1.6.2.17 BigIntBitwiseOp ( op, x, y )
+                    6.1.6.2.18 BigInt::bitwiseAND ( x, y )
+                    6.1.6.2.19 BigInt::bitwiseXOR ( x, y )
+                    6.1.6.2.20 BigInt::bitwiseOR ( x, y )
+                    6.1.6.2.21 BigInt::toString ( x, radix )
+            6.1.7 The Object Type
+                6.1.7.1 Property Attributes
+                6.1.7.2 Object Internal Methods and Internal Slots
+                6.1.7.3 Invariants of the Essential Internal Methods
+                6.1.7.4 Well-Known Intrinsic Objects
+        6.2 ECMAScript Specification Types
+            6.2.1 The Enum Specification Type
+            6.2.2 The List and Record Specification Types
+            6.2.3 The Set and Relation Specification Types
+            6.2.4 The Completion Record Specification Type
+                6.2.4.1 NormalCompletion ( value )
+                6.2.4.2 ThrowCompletion ( value )
+                6.2.4.3 UpdateEmpty ( completionRecord, value )
+            6.2.5 The Reference Record Specification Type
+                6.2.5.1 IsPropertyReference ( V )
+                6.2.5.2 IsUnresolvableReference ( V )
+                6.2.5.3 IsSuperReference ( V )
+                6.2.5.4 IsPrivateReference ( V )
+                6.2.5.5 GetValue ( V )
+                6.2.5.6 PutValue ( V, W )
+                6.2.5.7 GetThisValue ( V )
+                6.2.5.8 InitializeReferencedBinding ( V, W )
+                6.2.5.9 MakePrivateReference ( baseValue, privateIdentifier )
+            6.2.6 The Property Descriptor Specification Type
+                6.2.6.1 IsAccessorDescriptor ( Desc )
+                6.2.6.2 IsDataDescriptor ( Desc )
+                6.2.6.3 IsGenericDescriptor ( Desc )
+                6.2.6.4 FromPropertyDescriptor ( Desc )
+                6.2.6.5 ToPropertyDescriptor ( Obj )
+                6.2.6.6 CompletePropertyDescriptor ( Desc )
+            6.2.7 The Environment Record Specification Type
+            6.2.8 The Abstract Closure Specification Type
+            6.2.9 Data Blocks
+                6.2.9.1 CreateByteDataBlock ( size )
+                6.2.9.2 CreateSharedByteDataBlock ( size )
+                6.2.9.3 CopyDataBlockBytes ( toBlock, toIndex, fromBlock, fromIndex, count )
+            6.2.10 The PrivateElement Specification Type
+            6.2.11 The ClassFieldDefinition Record Specification Type
+            6.2.12 Private Names
+            6.2.13 The ClassStaticBlockDefinition Record Specification Type
+    7 Abstract Operations
+        7.1 Type Conversion
+            7.1.1 ToPrimitive ( input [ , preferredType ] )
+                7.1.1.1 OrdinaryToPrimitive ( O, hint )
+            7.1.2 ToBoolean ( argument )
+            7.1.3 ToNumeric ( value )
+            7.1.4 ToNumber ( argument )
+                7.1.4.1 ToNumber Applied to the String Type
+                    7.1.4.1.1 StringToNumber ( str )
+                    7.1.4.1.2 Runtime Semantics: StringNumericValue
+                    7.1.4.1.3 RoundMVResult ( n )
+            7.1.5 ToIntegerOrInfinity ( argument )
+            7.1.6 ToInt32 ( argument )
+            7.1.7 ToUint32 ( argument )
+            7.1.8 ToInt16 ( argument )
+            7.1.9 ToUint16 ( argument )
+            7.1.10 ToInt8 ( argument )
+            7.1.11 ToUint8 ( argument )
+            7.1.12 ToUint8Clamp ( argument )
+            7.1.13 ToBigInt ( argument )
+            7.1.14 StringToBigInt ( str )
+                7.1.14.1 StringIntegerLiteral Grammar
+                7.1.14.2 Runtime Semantics: MV
+            7.1.15 ToBigInt64 ( argument )
+            7.1.16 ToBigUint64 ( argument )
+            7.1.17 ToString ( argument )
+            7.1.18 ToObject ( argument )
+            7.1.19 ToPropertyKey ( argument )
+            7.1.20 ToLength ( argument )
+            7.1.21 CanonicalNumericIndexString ( argument )
+            7.1.22 ToIndex ( value )
+        7.2 Testing and Comparison Operations
+            7.2.1 RequireObjectCoercible ( argument )
+            7.2.2 IsArray ( argument )
+            7.2.3 IsCallable ( argument )
+            7.2.4 IsConstructor ( argument )
+            7.2.5 IsExtensible ( O )
+            7.2.6 IsIntegralNumber ( argument )
+            7.2.7 IsPropertyKey ( argument )
+            7.2.8 IsRegExp ( argument )
+            7.2.9 Static Semantics: IsStringWellFormedUnicode ( string )
+            7.2.10 SameValue ( x, y )
+            7.2.11 SameValueZero ( x, y )
+            7.2.12 SameValueNonNumber ( x, y )
+            7.2.13 IsLessThan ( x, y, LeftFirst )
+            7.2.14 IsLooselyEqual ( x, y )
+            7.2.15 IsStrictlyEqual ( x, y )
+        7.3 Operations on Objects
+            7.3.1 MakeBasicObject ( internalSlotsList )
+            7.3.2 Get ( O, P )
+            7.3.3 GetV ( V, P )
+            7.3.4 Set ( O, P, V, Throw )
+            7.3.5 CreateDataProperty ( O, P, V )
+            7.3.6 CreateDataPropertyOrThrow ( O, P, V )
+            7.3.7 CreateNonEnumerableDataPropertyOrThrow ( O, P, V )
+            7.3.8 DefinePropertyOrThrow ( O, P, desc )
+            7.3.9 DeletePropertyOrThrow ( O, P )
+            7.3.10 GetMethod ( V, P )
+            7.3.11 HasProperty ( O, P )
+            7.3.12 HasOwnProperty ( O, P )
+            7.3.13 Call ( F, V [ , argumentsList ] )
+            7.3.14 Construct ( F [ , argumentsList [ , newTarget ] ] )
+            7.3.15 SetIntegrityLevel ( O, level )
+            7.3.16 TestIntegrityLevel ( O, level )
+            7.3.17 CreateArrayFromList ( elements )
+            7.3.18 LengthOfArrayLike ( obj )
+            7.3.19 CreateListFromArrayLike ( obj [ , elementTypes ] )
+            7.3.20 Invoke ( V, P [ , argumentsList ] )
+            7.3.21 OrdinaryHasInstance ( C, O )
+            7.3.22 SpeciesConstructor ( O, defaultConstructor )
+            7.3.23 EnumerableOwnProperties ( O, kind )
+            7.3.24 GetFunctionRealm ( obj )
+            7.3.25 CopyDataProperties ( target, source, excludedItems )
+            7.3.26 PrivateElementFind ( O, P )
+            7.3.27 PrivateFieldAdd ( O, P, value )
+            7.3.28 PrivateMethodOrAccessorAdd ( O, method )
+            7.3.29 HostEnsureCanAddPrivateElement ( O )
+            7.3.30 PrivateGet ( O, P )
+            7.3.31 PrivateSet ( O, P, value )
+            7.3.32 DefineField ( receiver, fieldRecord )
+            7.3.33 InitializeInstanceElements ( O, constructor )
+            7.3.34 AddValueToKeyedGroup ( groups, key, value )
+            7.3.35 GroupBy ( items, callbackfn, keyCoercion )
+        7.4 Operations on Iterator Objects
+            7.4.1 Iterator Records
+            7.4.2 GetIteratorFromMethod ( obj, method )
+            7.4.3 GetIterator ( obj, kind )
+            7.4.4 IteratorNext ( iteratorRecord [ , value ] )
+            7.4.5 IteratorComplete ( iterResult )
+            7.4.6 IteratorValue ( iterResult )
+            7.4.7 IteratorStep ( iteratorRecord )
+            7.4.8 IteratorStepValue ( iteratorRecord )
+            7.4.9 IteratorClose ( iteratorRecord, completion )
+            7.4.10 IfAbruptCloseIterator ( value, iteratorRecord )
+            7.4.11 AsyncIteratorClose ( iteratorRecord, completion )
+            7.4.12 CreateIterResultObject ( value, done )
+            7.4.13 CreateListIteratorRecord ( list )
+            7.4.14 IteratorToList ( iteratorRecord )
+    8 Syntax-Directed Operations
+        8.1 Runtime Semantics: Evaluation
+        8.2 Scope Analysis
+            8.2.1 Static Semantics: BoundNames
+            8.2.2 Static Semantics: DeclarationPart
+            8.2.3 Static Semantics: IsConstantDeclaration
+            8.2.4 Static Semantics: LexicallyDeclaredNames
+            8.2.5 Static Semantics: LexicallyScopedDeclarations
+            8.2.6 Static Semantics: VarDeclaredNames
+            8.2.7 Static Semantics: VarScopedDeclarations
+            8.2.8 Static Semantics: TopLevelLexicallyDeclaredNames
+            8.2.9 Static Semantics: TopLevelLexicallyScopedDeclarations
+            8.2.10 Static Semantics: TopLevelVarDeclaredNames
+            8.2.11 Static Semantics: TopLevelVarScopedDeclarations
+        8.3 Labels
+            8.3.1 Static Semantics: ContainsDuplicateLabels
+            8.3.2 Static Semantics: ContainsUndefinedBreakTarget
+            8.3.3 Static Semantics: ContainsUndefinedContinueTarget
+        8.4 Function Name Inference
+            8.4.1 Static Semantics: HasName
+            8.4.2 Static Semantics: IsFunctionDefinition
+            8.4.3 Static Semantics: IsAnonymousFunctionDefinition ( expr )
+            8.4.4 Static Semantics: IsIdentifierRef
+            8.4.5 Runtime Semantics: NamedEvaluation
+        8.5 Contains
+            8.5.1 Static Semantics: Contains
+            8.5.2 Static Semantics: ComputedPropertyContains
+        8.6 Miscellaneous
+            8.6.1 Runtime Semantics: InstantiateFunctionObject
+            8.6.2 Runtime Semantics: BindingInitialization
+                8.6.2.1 InitializeBoundName ( name, value, environment )
+            8.6.3 Runtime Semantics: IteratorBindingInitialization
+            8.6.4 Static Semantics: AssignmentTargetType
+            8.6.5 Static Semantics: PropName
+    9 Executable Code and Execution Contexts
+        9.1 Environment Records
+            9.1.1 The Environment Record Type Hierarchy
+                9.1.1.1 Declarative Environment Records
+                    9.1.1.1.1 HasBinding ( N )
+                    9.1.1.1.2 CreateMutableBinding ( N, D )
+                    9.1.1.1.3 CreateImmutableBinding ( N, S )
+                    9.1.1.1.4 InitializeBinding ( N, V )
+                    9.1.1.1.5 SetMutableBinding ( N, V, S )
+                    9.1.1.1.6 GetBindingValue ( N, S )
+                    9.1.1.1.7 DeleteBinding ( N )
+                    9.1.1.1.8 HasThisBinding ( )
+                    9.1.1.1.9 HasSuperBinding ( )
+                    9.1.1.1.10 WithBaseObject ( )
+                9.1.1.2 Object Environment Records
+                    9.1.1.2.1 HasBinding ( N )
+                    9.1.1.2.2 CreateMutableBinding ( N, D )
+                    9.1.1.2.3 CreateImmutableBinding ( N, S )
+                    9.1.1.2.4 InitializeBinding ( N, V )
+                    9.1.1.2.5 SetMutableBinding ( N, V, S )
+                    9.1.1.2.6 GetBindingValue ( N, S )
+                    9.1.1.2.7 DeleteBinding ( N )
+                    9.1.1.2.8 HasThisBinding ( )
+                    9.1.1.2.9 HasSuperBinding ( )
+                    9.1.1.2.10 WithBaseObject ( )
+                9.1.1.3 Function Environment Records
+                    9.1.1.3.1 BindThisValue ( V )
+                    9.1.1.3.2 HasThisBinding ( )
+                    9.1.1.3.3 HasSuperBinding ( )
+                    9.1.1.3.4 GetThisBinding ( )
+                    9.1.1.3.5 GetSuperBase ( )
+                9.1.1.4 Global Environment Records
+                    9.1.1.4.1 HasBinding ( N )
+                    9.1.1.4.2 CreateMutableBinding ( N, D )
+                    9.1.1.4.3 CreateImmutableBinding ( N, S )
+                    9.1.1.4.4 InitializeBinding ( N, V )
+                    9.1.1.4.5 SetMutableBinding ( N, V, S )
+                    9.1.1.4.6 GetBindingValue ( N, S )
+                    9.1.1.4.7 DeleteBinding ( N )
+                    9.1.1.4.8 HasThisBinding ( )
+                    9.1.1.4.9 HasSuperBinding ( )
+                    9.1.1.4.10 WithBaseObject ( )
+                    9.1.1.4.11 GetThisBinding ( )
+                    9.1.1.4.12 HasVarDeclaration ( N )
+                    9.1.1.4.13 HasLexicalDeclaration ( N )
+                    9.1.1.4.14 HasRestrictedGlobalProperty ( N )
+                    9.1.1.4.15 CanDeclareGlobalVar ( N )
+                    9.1.1.4.16 CanDeclareGlobalFunction ( N )
+                    9.1.1.4.17 CreateGlobalVarBinding ( N, D )
+                    9.1.1.4.18 CreateGlobalFunctionBinding ( N, V, D )
+                9.1.1.5 Module Environment Records
+                    9.1.1.5.1 GetBindingValue ( N, S )
+                    9.1.1.5.2 DeleteBinding ( N )
+                    9.1.1.5.3 HasThisBinding ( )
+                    9.1.1.5.4 GetThisBinding ( )
+                    9.1.1.5.5 CreateImportBinding ( N, M, N2 )
+            9.1.2 Environment Record Operations
+                9.1.2.1 GetIdentifierReference ( env, name, strict )
+                9.1.2.2 NewDeclarativeEnvironment ( E )
+                9.1.2.3 NewObjectEnvironment ( O, W, E )
+                9.1.2.4 NewFunctionEnvironment ( F, newTarget )
+                9.1.2.5 NewGlobalEnvironment ( G, thisValue )
+                9.1.2.6 NewModuleEnvironment ( E )
+        9.2 PrivateEnvironment Records
+            9.2.1 PrivateEnvironment Record Operations
+                9.2.1.1 NewPrivateEnvironment ( outerPrivEnv )
+                9.2.1.2 ResolvePrivateIdentifier ( privEnv, identifier )
+        9.3 Realms
+            9.3.1 CreateRealm ( )
+            9.3.2 CreateIntrinsics ( realmRec )
+            9.3.3 SetRealmGlobalObject ( realmRec, globalObj, thisValue )
+            9.3.4 SetDefaultGlobalBindings ( realmRec )
+        9.4 Execution Contexts
+            9.4.1 GetActiveScriptOrModule ( )
+            9.4.2 ResolveBinding ( name [ , env ] )
+            9.4.3 GetThisEnvironment ( )
+            9.4.4 ResolveThisBinding ( )
+            9.4.5 GetNewTarget ( )
+            9.4.6 GetGlobalObject ( )
+        9.5 Jobs and Host Operations to Enqueue Jobs
+            9.5.1 JobCallback Records
+            9.5.2 HostMakeJobCallback ( callback )
+            9.5.3 HostCallJobCallback ( jobCallback, V, argumentsList )
+            9.5.4 HostEnqueueGenericJob ( job, realm )
+            9.5.5 HostEnqueuePromiseJob ( job, realm )
+            9.5.6 HostEnqueueTimeoutJob ( timeoutJob, realm, milliseconds )
+        9.6 InitializeHostDefinedRealm ( )
+        9.7 Agents
+            9.7.1 AgentSignifier ( )
+            9.7.2 AgentCanSuspend ( )
+        9.8 Agent Clusters
+        9.9 Forward Progress
+        9.10 Processing Model of WeakRef and FinalizationRegistry Targets
+            9.10.1 Objectives
+            9.10.2 Liveness
+            9.10.3 Execution
+            9.10.4 Host Hooks
+                9.10.4.1 HostEnqueueFinalizationRegistryCleanupJob ( finalizationRegistry )
+        9.11 ClearKeptObjects ( )
+        9.12 AddToKeptObjects ( value )
+        9.13 CleanupFinalizationRegistry ( finalizationRegistry )
+        9.14 CanBeHeldWeakly ( v )
+    10 Ordinary and Exotic Objects Behaviours
+        10.1 Ordinary Object Internal Methods and Internal Slots
+            10.1.1 [[GetPrototypeOf]] ( )
+                10.1.1.1 OrdinaryGetPrototypeOf ( O )
+            10.1.2 [[SetPrototypeOf]] ( V )
+                10.1.2.1 OrdinarySetPrototypeOf ( O, V )
+            10.1.3 [[IsExtensible]] ( )
+                10.1.3.1 OrdinaryIsExtensible ( O )
+            10.1.4 [[PreventExtensions]] ( )
+                10.1.4.1 OrdinaryPreventExtensions ( O )
+            10.1.5 [[GetOwnProperty]] ( P )
+                10.1.5.1 OrdinaryGetOwnProperty ( O, P )
+            10.1.6 [[DefineOwnProperty]] ( P, Desc )
+                10.1.6.1 OrdinaryDefineOwnProperty ( O, P, Desc )
+                10.1.6.2 IsCompatiblePropertyDescriptor ( Extensible, Desc, Current )
+                10.1.6.3 ValidateAndApplyPropertyDescriptor ( O, P, extensible, Desc, current )
+            10.1.7 [[HasProperty]] ( P )
+                10.1.7.1 OrdinaryHasProperty ( O, P )
+            10.1.8 [[Get]] ( P, Receiver )
+                10.1.8.1 OrdinaryGet ( O, P, Receiver )
+            10.1.9 [[Set]] ( P, V, Receiver )
+                10.1.9.1 OrdinarySet ( O, P, V, Receiver )
+                10.1.9.2 OrdinarySetWithOwnDescriptor ( O, P, V, Receiver, ownDesc )
+            10.1.10 [[Delete]] ( P )
+                10.1.10.1 OrdinaryDelete ( O, P )
+            10.1.11 [[OwnPropertyKeys]] ( )
+                10.1.11.1 OrdinaryOwnPropertyKeys ( O )
+            10.1.12 OrdinaryObjectCreate ( proto [ , additionalInternalSlotsList ] )
+            10.1.13 OrdinaryCreateFromConstructor ( constructor, intrinsicDefaultProto [ , internalSlotsList ] )
+            10.1.14 GetPrototypeFromConstructor ( constructor, intrinsicDefaultProto )
+            10.1.15 RequireInternalSlot ( O, internalSlot )
+        10.2 ECMAScript Function Objects
+            10.2.1 [[Call]] ( thisArgument, argumentsList )
+                10.2.1.1 PrepareForOrdinaryCall ( F, newTarget )
+                10.2.1.2 OrdinaryCallBindThis ( F, calleeContext, thisArgument )
+                10.2.1.3 Runtime Semantics: EvaluateBody
+                10.2.1.4 OrdinaryCallEvaluateBody ( F, argumentsList )
+            10.2.2 [[Construct]] ( argumentsList, newTarget )
+            10.2.3 OrdinaryFunctionCreate ( functionPrototype, sourceText, ParameterList, Body, thisMode, env, privateEnv )
+            10.2.4 AddRestrictedFunctionProperties ( F, realm )
+                10.2.4.1 %ThrowTypeError% ( )
+            10.2.5 MakeConstructor ( F [ , writablePrototype [ , prototype ] ] )
+            10.2.6 MakeClassConstructor ( F )
+            10.2.7 MakeMethod ( F, homeObject )
+            10.2.8 DefineMethodProperty ( homeObject, key, closure, enumerable )
+            10.2.9 SetFunctionName ( F, name [ , prefix ] )
+            10.2.10 SetFunctionLength ( F, length )
+            10.2.11 FunctionDeclarationInstantiation ( func, argumentsList )
+        10.3 Built-in Function Objects
+            10.3.1 [[Call]] ( thisArgument, argumentsList )
+            10.3.2 [[Construct]] ( argumentsList, newTarget )
+            10.3.3 BuiltinCallOrConstruct ( F, thisArgument, argumentsList, newTarget )
+            10.3.4 CreateBuiltinFunction ( behaviour, length, name, additionalInternalSlotsList [ , realm [ , prototype [ , prefix ] ] ] )
+        10.4 Built-in Exotic Object Internal Methods and Slots
+            10.4.1 Bound Function Exotic Objects
+                10.4.1.1 [[Call]] ( thisArgument, argumentsList )
+                10.4.1.2 [[Construct]] ( argumentsList, newTarget )
+                10.4.1.3 BoundFunctionCreate ( targetFunction, boundThis, boundArgs )
+            10.4.2 Array Exotic Objects
+                10.4.2.1 [[DefineOwnProperty]] ( P, Desc )
+                10.4.2.2 ArrayCreate ( length [ , proto ] )
+                10.4.2.3 ArraySpeciesCreate ( originalArray, length )
+                10.4.2.4 ArraySetLength ( A, Desc )
+            10.4.3 String Exotic Objects
+                10.4.3.1 [[GetOwnProperty]] ( P )
+                10.4.3.2 [[DefineOwnProperty]] ( P, Desc )
+                10.4.3.3 [[OwnPropertyKeys]] ( )
+                10.4.3.4 StringCreate ( value, prototype )
+                10.4.3.5 StringGetOwnProperty ( S, P )
+            10.4.4 Arguments Exotic Objects
+                10.4.4.1 [[GetOwnProperty]] ( P )
+                10.4.4.2 [[DefineOwnProperty]] ( P, Desc )
+                10.4.4.3 [[Get]] ( P, Receiver )
+                10.4.4.4 [[Set]] ( P, V, Receiver )
+                10.4.4.5 [[Delete]] ( P )
+                10.4.4.6 CreateUnmappedArgumentsObject ( argumentsList )
+                10.4.4.7 CreateMappedArgumentsObject ( func, formals, argumentsList, env )
+                    10.4.4.7.1 MakeArgGetter ( name, env )
+                    10.4.4.7.2 MakeArgSetter ( name, env )
+            10.4.5 TypedArray Exotic Objects
+                10.4.5.1 [[GetOwnProperty]] ( P )
+                10.4.5.2 [[HasProperty]] ( P )
+                10.4.5.3 [[DefineOwnProperty]] ( P, Desc )
+                10.4.5.4 [[Get]] ( P, Receiver )
+                10.4.5.5 [[Set]] ( P, V, Receiver )
+                10.4.5.6 [[Delete]] ( P )
+                10.4.5.7 [[OwnPropertyKeys]] ( )
+                10.4.5.8 TypedArray With Buffer Witness Records
+                10.4.5.9 MakeTypedArrayWithBufferWitnessRecord ( obj, order )
+                10.4.5.10 TypedArrayCreate ( prototype )
+                10.4.5.11 TypedArrayByteLength ( taRecord )
+                10.4.5.12 TypedArrayLength ( taRecord )
+                10.4.5.13 IsTypedArrayOutOfBounds ( taRecord )
+                10.4.5.14 IsValidIntegerIndex ( O, index )
+                10.4.5.15 TypedArrayGetElement ( O, index )
+                10.4.5.16 TypedArraySetElement ( O, index, value )
+                10.4.5.17 IsArrayBufferViewOutOfBounds ( O )
+            10.4.6 Module Namespace Exotic Objects
+                10.4.6.1 [[GetPrototypeOf]] ( )
+                10.4.6.2 [[SetPrototypeOf]] ( V )
+                10.4.6.3 [[IsExtensible]] ( )
+                10.4.6.4 [[PreventExtensions]] ( )
+                10.4.6.5 [[GetOwnProperty]] ( P )
+                10.4.6.6 [[DefineOwnProperty]] ( P, Desc )
+                10.4.6.7 [[HasProperty]] ( P )
+                10.4.6.8 [[Get]] ( P, Receiver )
+                10.4.6.9 [[Set]] ( P, V, Receiver )
+                10.4.6.10 [[Delete]] ( P )
+                10.4.6.11 [[OwnPropertyKeys]] ( )
+                10.4.6.12 ModuleNamespaceCreate ( module, exports )
+            10.4.7 Immutable Prototype Exotic Objects
+                10.4.7.1 [[SetPrototypeOf]] ( V )
+                10.4.7.2 SetImmutablePrototype ( O, V )
+        10.5 Proxy Object Internal Methods and Internal Slots
+            10.5.1 [[GetPrototypeOf]] ( )
+            10.5.2 [[SetPrototypeOf]] ( V )
+            10.5.3 [[IsExtensible]] ( )
+            10.5.4 [[PreventExtensions]] ( )
+            10.5.5 [[GetOwnProperty]] ( P )
+            10.5.6 [[DefineOwnProperty]] ( P, Desc )
+            10.5.7 [[HasProperty]] ( P )
+            10.5.8 [[Get]] ( P, Receiver )
+            10.5.9 [[Set]] ( P, V, Receiver )
+            10.5.10 [[Delete]] ( P )
+            10.5.11 [[OwnPropertyKeys]] ( )
+            10.5.12 [[Call]] ( thisArgument, argumentsList )
+            10.5.13 [[Construct]] ( argumentsList, newTarget )
+            10.5.14 ValidateNonRevokedProxy ( proxy )
+            10.5.15 ProxyCreate ( target, handler )
+    11 ECMAScript Language: Source Text
+        11.1 Source Text
+            11.1.1 Static Semantics: UTF16EncodeCodePoint ( cp )
+            11.1.2 Static Semantics: CodePointsToString ( text )
+            11.1.3 Static Semantics: UTF16SurrogatePairToCodePoint ( lead, trail )
+            11.1.4 Static Semantics: CodePointAt ( string, position )
+            11.1.5 Static Semantics: StringToCodePoints ( string )
+            11.1.6 Static Semantics: ParseText ( sourceText, goalSymbol )
+        11.2 Types of Source Code
+            11.2.1 Directive Prologues and the Use Strict Directive
+            11.2.2 Strict Mode Code
+            11.2.3 Non-ECMAScript Functions
+    12 ECMAScript Language: Lexical Grammar
+        12.1 Unicode Format-Control Characters
+        12.2 White Space
+        12.3 Line Terminators
+        12.4 Comments
+        12.5 Hashbang Comments
+        12.6 Tokens
+        12.7 Names and Keywords
+            12.7.1 Identifier Names
+                12.7.1.1 Static Semantics: Early Errors
+                12.7.1.2 Static Semantics: IdentifierCodePoints
+                12.7.1.3 Static Semantics: IdentifierCodePoint
+            12.7.2 Keywords and Reserved Words
+        12.8 Punctuators
+        12.9 Literals
+            12.9.1 Null Literals
+            12.9.2 Boolean Literals
+            12.9.3 Numeric Literals
+                12.9.3.1 Static Semantics: Early Errors
+                12.9.3.2 Static Semantics: MV
+                12.9.3.3 Static Semantics: NumericValue
+            12.9.4 String Literals
+                12.9.4.1 Static Semantics: Early Errors
+                12.9.4.2 Static Semantics: SV
+                12.9.4.3 Static Semantics: MV
+            12.9.5 Regular Expression Literals
+                12.9.5.1 Static Semantics: BodyText
+                12.9.5.2 Static Semantics: FlagText
+            12.9.6 Template Literal Lexical Components
+                12.9.6.1 Static Semantics: TV
+                12.9.6.2 Static Semantics: TRV
+        12.10 Automatic Semicolon Insertion
+            12.10.1 Rules of Automatic Semicolon Insertion
+            12.10.2 Examples of Automatic Semicolon Insertion
+            12.10.3 Interesting Cases of Automatic Semicolon Insertion
+                12.10.3.1 Interesting Cases of Automatic Semicolon Insertion in Statement Lists
+                12.10.3.2 Cases of Automatic Semicolon Insertion and “[no LineTerminator here]”
+                    12.10.3.2.1 List of Grammar Productions with Optional Operands and “[no LineTerminator here]”
+    13 ECMAScript Language: Expressions
+        13.1 Identifiers
+            13.1.1 Static Semantics: Early Errors
+            13.1.2 Static Semantics: StringValue
+            13.1.3 Runtime Semantics: Evaluation
+        13.2 Primary Expression
+            13.2.1 The this Keyword
+                13.2.1.1 Runtime Semantics: Evaluation
+            13.2.2 Identifier Reference
+            13.2.3 Literals
+                13.2.3.1 Runtime Semantics: Evaluation
+            13.2.4 Array Initializer
+                13.2.4.1 Runtime Semantics: ArrayAccumulation
+                13.2.4.2 Runtime Semantics: Evaluation
+            13.2.5 Object Initializer
+                13.2.5.1 Static Semantics: Early Errors
+                13.2.5.2 Static Semantics: IsComputedPropertyKey
+                13.2.5.3 Static Semantics: PropertyNameList
+                13.2.5.4 Runtime Semantics: Evaluation
+                13.2.5.5 Runtime Semantics: PropertyDefinitionEvaluation
+            13.2.6 Function Defining Expressions
+            13.2.7 Regular Expression Literals
+                13.2.7.1 Static Semantics: Early Errors
+                13.2.7.2 Static Semantics: IsValidRegularExpressionLiteral ( literal )
+                13.2.7.3 Runtime Semantics: Evaluation
+            13.2.8 Template Literals
+                13.2.8.1 Static Semantics: Early Errors
+                13.2.8.2 Static Semantics: TemplateStrings
+                13.2.8.3 Static Semantics: TemplateString ( templateToken, raw )
+                13.2.8.4 GetTemplateObject ( templateLiteral )
+                13.2.8.5 Runtime Semantics: SubstitutionEvaluation
+                13.2.8.6 Runtime Semantics: Evaluation
+            13.2.9 The Grouping Operator
+                13.2.9.1 Static Semantics: Early Errors
+                13.2.9.2 Runtime Semantics: Evaluation
+        13.3 Left-Hand-Side Expressions
+            13.3.1 Static Semantics
+                13.3.1.1 Static Semantics: Early Errors
+            13.3.2 Property Accessors
+                13.3.2.1 Runtime Semantics: Evaluation
+            13.3.3 EvaluatePropertyAccessWithExpressionKey ( baseValue, expression, strict )
+            13.3.4 EvaluatePropertyAccessWithIdentifierKey ( baseValue, identifierName, strict )
+            13.3.5 The new Operator
+                13.3.5.1 Runtime Semantics: Evaluation
+                    13.3.5.1.1 EvaluateNew ( constructExpr, arguments )
+            13.3.6 Function Calls
+                13.3.6.1 Runtime Semantics: Evaluation
+                13.3.6.2 EvaluateCall ( func, ref, arguments, tailPosition )
+            13.3.7 The super Keyword
+                13.3.7.1 Runtime Semantics: Evaluation
+                13.3.7.2 GetSuperConstructor ( )
+                13.3.7.3 MakeSuperPropertyReference ( actualThis, propertyKey, strict )
+            13.3.8 Argument Lists
+                13.3.8.1 Runtime Semantics: ArgumentListEvaluation
+            13.3.9 Optional Chains
+                13.3.9.1 Runtime Semantics: Evaluation
+                13.3.9.2 Runtime Semantics: ChainEvaluation
+            13.3.10 Import Calls
+                13.3.10.1 Runtime Semantics: Evaluation
+                    13.3.10.1.1 ContinueDynamicImport ( promiseCapability, moduleCompletion )
+            13.3.11 Tagged Templates
+                13.3.11.1 Runtime Semantics: Evaluation
+            13.3.12 Meta Properties
+                13.3.12.1 Runtime Semantics: Evaluation
+                    13.3.12.1.1 HostGetImportMetaProperties ( moduleRecord )
+                    13.3.12.1.2 HostFinalizeImportMeta ( importMeta, moduleRecord )
+        13.4 Update Expressions
+            13.4.1 Static Semantics: Early Errors
+            13.4.2 Postfix Increment Operator
+                13.4.2.1 Runtime Semantics: Evaluation
+            13.4.3 Postfix Decrement Operator
+                13.4.3.1 Runtime Semantics: Evaluation
+            13.4.4 Prefix Increment Operator
+                13.4.4.1 Runtime Semantics: Evaluation
+            13.4.5 Prefix Decrement Operator
+                13.4.5.1 Runtime Semantics: Evaluation
+        13.5 Unary Operators
+            13.5.1 The delete Operator
+                13.5.1.1 Static Semantics: Early Errors
+                13.5.1.2 Runtime Semantics: Evaluation
+            13.5.2 The void Operator
+                13.5.2.1 Runtime Semantics: Evaluation
+            13.5.3 The typeof Operator
+                13.5.3.1 Runtime Semantics: Evaluation
+            13.5.4 Unary + Operator
+                13.5.4.1 Runtime Semantics: Evaluation
+            13.5.5 Unary - Operator
+                13.5.5.1 Runtime Semantics: Evaluation
+            13.5.6 Bitwise NOT Operator ( ~ )
+                13.5.6.1 Runtime Semantics: Evaluation
+            13.5.7 Logical NOT Operator ( ! )
+                13.5.7.1 Runtime Semantics: Evaluation
+        13.6 Exponentiation Operator
+            13.6.1 Runtime Semantics: Evaluation
+        13.7 Multiplicative Operators
+            13.7.1 Runtime Semantics: Evaluation
+        13.8 Additive Operators
+            13.8.1 The Addition Operator ( + )
+                13.8.1.1 Runtime Semantics: Evaluation
+            13.8.2 The Subtraction Operator ( - )
+                13.8.2.1 Runtime Semantics: Evaluation
+        13.9 Bitwise Shift Operators
+            13.9.1 The Left Shift Operator ( << )
+                13.9.1.1 Runtime Semantics: Evaluation
+            13.9.2 The Signed Right Shift Operator ( >> )
+                13.9.2.1 Runtime Semantics: Evaluation
+            13.9.3 The Unsigned Right Shift Operator ( >>> )
+                13.9.3.1 Runtime Semantics: Evaluation
+        13.10 Relational Operators
+            13.10.1 Runtime Semantics: Evaluation
+            13.10.2 InstanceofOperator ( V, target )
+        13.11 Equality Operators
+            13.11.1 Runtime Semantics: Evaluation
+        13.12 Binary Bitwise Operators
+            13.12.1 Runtime Semantics: Evaluation
+        13.13 Binary Logical Operators
+            13.13.1 Runtime Semantics: Evaluation
+        13.14 Conditional Operator ( ? : )
+            13.14.1 Runtime Semantics: Evaluation
+        13.15 Assignment Operators
+            13.15.1 Static Semantics: Early Errors
+            13.15.2 Runtime Semantics: Evaluation
+            13.15.3 ApplyStringOrNumericBinaryOperator ( lval, opText, rval )
+            13.15.4 EvaluateStringOrNumericBinaryExpression ( leftOperand, opText, rightOperand )
+            13.15.5 Destructuring Assignment
+                13.15.5.1 Static Semantics: Early Errors
+                13.15.5.2 Runtime Semantics: DestructuringAssignmentEvaluation
+                13.15.5.3 Runtime Semantics: PropertyDestructuringAssignmentEvaluation
+                13.15.5.4 Runtime Semantics: RestDestructuringAssignmentEvaluation
+                13.15.5.5 Runtime Semantics: IteratorDestructuringAssignmentEvaluation
+                13.15.5.6 Runtime Semantics: KeyedDestructuringAssignmentEvaluation
+        13.16 Comma Operator ( , )
+            13.16.1 Runtime Semantics: Evaluation
+    14 ECMAScript Language: Statements and Declarations
+        14.1 Statement Semantics
+            14.1.1 Runtime Semantics: Evaluation
+        14.2 Block
+            14.2.1 Static Semantics: Early Errors
+            14.2.2 Runtime Semantics: Evaluation
+            14.2.3 BlockDeclarationInstantiation ( code, env )
+        14.3 Declarations and the Variable Statement
+            14.3.1 Let and Const Declarations
+                14.3.1.1 Static Semantics: Early Errors
+                14.3.1.2 Runtime Semantics: Evaluation
+            14.3.2 Variable Statement
+                14.3.2.1 Runtime Semantics: Evaluation
+            14.3.3 Destructuring Binding Patterns
+                14.3.3.1 Runtime Semantics: PropertyBindingInitialization
+                14.3.3.2 Runtime Semantics: RestBindingInitialization
+                14.3.3.3 Runtime Semantics: KeyedBindingInitialization
+        14.4 Empty Statement
+            14.4.1 Runtime Semantics: Evaluation
+        14.5 Expression Statement
+            14.5.1 Runtime Semantics: Evaluation
+        14.6 The if Statement
+            14.6.1 Static Semantics: Early Errors
+            14.6.2 Runtime Semantics: Evaluation
+        14.7 Iteration Statements
+            14.7.1 Semantics
+                14.7.1.1 LoopContinues ( completion, labelSet )
+                14.7.1.2 Runtime Semantics: LoopEvaluation
+            14.7.2 The do-while Statement
+                14.7.2.1 Static Semantics: Early Errors
+                14.7.2.2 Runtime Semantics: DoWhileLoopEvaluation
+            14.7.3 The while Statement
+                14.7.3.1 Static Semantics: Early Errors
+                14.7.3.2 Runtime Semantics: WhileLoopEvaluation
+            14.7.4 The for Statement
+                14.7.4.1 Static Semantics: Early Errors
+                14.7.4.2 Runtime Semantics: ForLoopEvaluation
+                14.7.4.3 ForBodyEvaluation ( test, increment, stmt, perIterationBindings, labelSet )
+                14.7.4.4 CreatePerIterationEnvironment ( perIterationBindings )
+            14.7.5 The for-in, for-of, and for-await-of Statements
+                14.7.5.1 Static Semantics: Early Errors
+                14.7.5.2 Static Semantics: IsDestructuring
+                14.7.5.3 Runtime Semantics: ForDeclarationBindingInitialization
+                14.7.5.4 Runtime Semantics: ForDeclarationBindingInstantiation
+                14.7.5.5 Runtime Semantics: ForInOfLoopEvaluation
+                14.7.5.6 ForIn/OfHeadEvaluation ( uninitializedBoundNames, expr, iterationKind )
+                14.7.5.7 ForIn/OfBodyEvaluation ( lhs, stmt, iteratorRecord, iterationKind, lhsKind, labelSet [ , iteratorKind ] )
+                14.7.5.8 Runtime Semantics: Evaluation
+                14.7.5.9 EnumerateObjectProperties ( O )
+                14.7.5.10 For-In Iterator Objects
+                    14.7.5.10.1 CreateForInIterator ( object )
+                    14.7.5.10.2 The %ForInIteratorPrototype% Object
+                        14.7.5.10.2.1 %ForInIteratorPrototype%.next ( )
+                    14.7.5.10.3 Properties of For-In Iterator Instances
+        14.8 The continue Statement
+            14.8.1 Static Semantics: Early Errors
+            14.8.2 Runtime Semantics: Evaluation
+        14.9 The break Statement
+            14.9.1 Static Semantics: Early Errors
+            14.9.2 Runtime Semantics: Evaluation
+        14.10 The return Statement
+            14.10.1 Runtime Semantics: Evaluation
+        14.11 The with Statement
+            14.11.1 Static Semantics: Early Errors
+            14.11.2 Runtime Semantics: Evaluation
+        14.12 The switch Statement
+            14.12.1 Static Semantics: Early Errors
+            14.12.2 Runtime Semantics: CaseBlockEvaluation
+            14.12.3 CaseClauseIsSelected ( C, input )
+            14.12.4 Runtime Semantics: Evaluation
+        14.13 Labelled Statements
+            14.13.1 Static Semantics: Early Errors
+            14.13.2 Static Semantics: IsLabelledFunction ( stmt )
+            14.13.3 Runtime Semantics: Evaluation
+            14.13.4 Runtime Semantics: LabelledEvaluation
+        14.14 The throw Statement
+            14.14.1 Runtime Semantics: Evaluation
+        14.15 The try Statement
+            14.15.1 Static Semantics: Early Errors
+            14.15.2 Runtime Semantics: CatchClauseEvaluation
+            14.15.3 Runtime Semantics: Evaluation
+        14.16 The debugger Statement
+            14.16.1 Runtime Semantics: Evaluation
+    15 ECMAScript Language: Functions and Classes
+        15.1 Parameter Lists
+            15.1.1 Static Semantics: Early Errors
+            15.1.2 Static Semantics: ContainsExpression
+            15.1.3 Static Semantics: IsSimpleParameterList
+            15.1.4 Static Semantics: HasInitializer
+            15.1.5 Static Semantics: ExpectedArgumentCount
+        15.2 Function Definitions
+            15.2.1 Static Semantics: Early Errors
+            15.2.2 Static Semantics: FunctionBodyContainsUseStrict
+            15.2.3 Runtime Semantics: EvaluateFunctionBody
+            15.2.4 Runtime Semantics: InstantiateOrdinaryFunctionObject
+            15.2.5 Runtime Semantics: InstantiateOrdinaryFunctionExpression
+            15.2.6 Runtime Semantics: Evaluation
+        15.3 Arrow Function Definitions
+            15.3.1 Static Semantics: Early Errors
+            15.3.2 Static Semantics: ConciseBodyContainsUseStrict
+            15.3.3 Runtime Semantics: EvaluateConciseBody
+            15.3.4 Runtime Semantics: InstantiateArrowFunctionExpression
+            15.3.5 Runtime Semantics: Evaluation
+        15.4 Method Definitions
+            15.4.1 Static Semantics: Early Errors
+            15.4.2 Static Semantics: HasDirectSuper
+            15.4.3 Static Semantics: SpecialMethod
+            15.4.4 Runtime Semantics: DefineMethod
+            15.4.5 Runtime Semantics: MethodDefinitionEvaluation
+        15.5 Generator Function Definitions
+            15.5.1 Static Semantics: Early Errors
+            15.5.2 Runtime Semantics: EvaluateGeneratorBody
+            15.5.3 Runtime Semantics: InstantiateGeneratorFunctionObject
+            15.5.4 Runtime Semantics: InstantiateGeneratorFunctionExpression
+            15.5.5 Runtime Semantics: Evaluation
+        15.6 Async Generator Function Definitions
+            15.6.1 Static Semantics: Early Errors
+            15.6.2 Runtime Semantics: EvaluateAsyncGeneratorBody
+            15.6.3 Runtime Semantics: InstantiateAsyncGeneratorFunctionObject
+            15.6.4 Runtime Semantics: InstantiateAsyncGeneratorFunctionExpression
+            15.6.5 Runtime Semantics: Evaluation
+        15.7 Class Definitions
+            15.7.1 Static Semantics: Early Errors
+            15.7.2 Static Semantics: ClassElementKind
+            15.7.3 Static Semantics: ConstructorMethod
+            15.7.4 Static Semantics: IsStatic
+            15.7.5 Static Semantics: NonConstructorElements
+            15.7.6 Static Semantics: PrototypePropertyNameList
+            15.7.7 Static Semantics: AllPrivateIdentifiersValid
+            15.7.8 Static Semantics: PrivateBoundIdentifiers
+            15.7.9 Static Semantics: ContainsArguments
+            15.7.10 Runtime Semantics: ClassFieldDefinitionEvaluation
+            15.7.11 Runtime Semantics: ClassStaticBlockDefinitionEvaluation
+            15.7.12 Runtime Semantics: EvaluateClassStaticBlockBody
+            15.7.13 Runtime Semantics: ClassElementEvaluation
+            15.7.14 Runtime Semantics: ClassDefinitionEvaluation
+            15.7.15 Runtime Semantics: BindingClassDeclarationEvaluation
+            15.7.16 Runtime Semantics: Evaluation
+        15.8 Async Function Definitions
+            15.8.1 Static Semantics: Early Errors
+            15.8.2 Runtime Semantics: InstantiateAsyncFunctionObject
+            15.8.3 Runtime Semantics: InstantiateAsyncFunctionExpression
+            15.8.4 Runtime Semantics: EvaluateAsyncFunctionBody
+            15.8.5 Runtime Semantics: Evaluation
+        15.9 Async Arrow Function Definitions
+            15.9.1 Static Semantics: Early Errors
+            15.9.2 Static Semantics: AsyncConciseBodyContainsUseStrict
+            15.9.3 Runtime Semantics: EvaluateAsyncConciseBody
+            15.9.4 Runtime Semantics: InstantiateAsyncArrowFunctionExpression
+            15.9.5 Runtime Semantics: Evaluation
+        15.10 Tail Position Calls
+            15.10.1 Static Semantics: IsInTailPosition ( call )
+            15.10.2 Static Semantics: HasCallInTailPosition
+            15.10.3 PrepareForTailCall ( )
+    16 ECMAScript Language: Scripts and Modules
+        16.1 Scripts
+            16.1.1 Static Semantics: Early Errors
+            16.1.2 Static Semantics: IsStrict
+            16.1.3 Runtime Semantics: Evaluation
+            16.1.4 Script Records
+            16.1.5 ParseScript ( sourceText, realm, hostDefined )
+            16.1.6 ScriptEvaluation ( scriptRecord )
+            16.1.7 GlobalDeclarationInstantiation ( script, env )
+        16.2 Modules
+            16.2.1 Module Semantics
+                16.2.1.1 Static Semantics: Early Errors
+                16.2.1.2 Static Semantics: ImportedLocalNames ( importEntries )
+                16.2.1.3 Static Semantics: ModuleRequests
+                16.2.1.4 Abstract Module Records
+                16.2.1.5 Cyclic Module Records
+                    16.2.1.5.1 LoadRequestedModules ( [ hostDefined ] )
+                        16.2.1.5.1.1 InnerModuleLoading ( state, module )
+                        16.2.1.5.1.2 ContinueModuleLoading ( state, moduleCompletion )
+                    16.2.1.5.2 Link ( )
+                        16.2.1.5.2.1 InnerModuleLinking ( module, stack, index )
+                    16.2.1.5.3 Evaluate ( )
+                        16.2.1.5.3.1 InnerModuleEvaluation ( module, stack, index )
+                        16.2.1.5.3.2 ExecuteAsyncModule ( module )
+                        16.2.1.5.3.3 GatherAvailableAncestors ( module, execList )
+                        16.2.1.5.3.4 AsyncModuleExecutionFulfilled ( module )
+                        16.2.1.5.3.5 AsyncModuleExecutionRejected ( module, error )
+                    16.2.1.5.4 Example Cyclic Module Record Graphs
+                16.2.1.6 Source Text Module Records
+                    16.2.1.6.1 ParseModule ( sourceText, realm, hostDefined )
+                    16.2.1.6.2 GetExportedNames ( [ exportStarSet ] )
+                    16.2.1.6.3 ResolveExport ( exportName [ , resolveSet ] )
+                    16.2.1.6.4 InitializeEnvironment ( )
+                    16.2.1.6.5 ExecuteModule ( [ capability ] )
+                16.2.1.7 GetImportedModule ( referrer, specifier )
+                16.2.1.8 HostLoadImportedModule ( referrer, specifier, hostDefined, payload )
+                16.2.1.9 FinishLoadingImportedModule ( referrer, specifier, payload, result )
+                16.2.1.10 GetModuleNamespace ( module )
+                16.2.1.11 Runtime Semantics: Evaluation
+            16.2.2 Imports
+                16.2.2.1 Static Semantics: Early Errors
+                16.2.2.2 Static Semantics: ImportEntries
+                16.2.2.3 Static Semantics: ImportEntriesForModule
+            16.2.3 Exports
+                16.2.3.1 Static Semantics: Early Errors
+                16.2.3.2 Static Semantics: ExportedBindings
+                16.2.3.3 Static Semantics: ExportedNames
+                16.2.3.4 Static Semantics: ExportEntries
+                16.2.3.5 Static Semantics: ExportEntriesForModule
+                16.2.3.6 Static Semantics: ReferencedBindings
+                16.2.3.7 Runtime Semantics: Evaluation
+    17 Error Handling and Language Extensions
+        17.1 Forbidden Extensions
+    18 ECMAScript Standard Built-in Objects
+    19 The Global Object
+        19.1 Value Properties of the Global Object
+            19.1.1 globalThis
+            19.1.2 Infinity
+            19.1.3 NaN
+            19.1.4 undefined
+        19.2 Function Properties of the Global Object
+            19.2.1 eval ( x )
+                19.2.1.1 PerformEval ( x, strictCaller, direct )
+                19.2.1.2 HostEnsureCanCompileStrings ( calleeRealm, parameterStrings, bodyString, direct )
+                19.2.1.3 EvalDeclarationInstantiation ( body, varEnv, lexEnv, privateEnv, strict )
+            19.2.2 isFinite ( number )
+            19.2.3 isNaN ( number )
+            19.2.4 parseFloat ( string )
+            19.2.5 parseInt ( string, radix )
+            19.2.6 URI Handling Functions
+                19.2.6.1 decodeURI ( encodedURI )
+                19.2.6.2 decodeURIComponent ( encodedURIComponent )
+                19.2.6.3 encodeURI ( uri )
+                19.2.6.4 encodeURIComponent ( uriComponent )
+                19.2.6.5 Encode ( string, extraUnescaped )
+                19.2.6.6 Decode ( string, preserveEscapeSet )
+                19.2.6.7 ParseHexOctet ( string, position )
+        19.3 Constructor Properties of the Global Object
+            19.3.1 AggregateError ( . . . )
+            19.3.2 Array ( . . . )
+            19.3.3 ArrayBuffer ( . . . )
+            19.3.4 BigInt ( . . . )
+            19.3.5 BigInt64Array ( . . . )
+            19.3.6 BigUint64Array ( . . . )
+            19.3.7 Boolean ( . . . )
+            19.3.8 DataView ( . . . )
+            19.3.9 Date ( . . . )
+            19.3.10 Error ( . . . )
+            19.3.11 EvalError ( . . . )
+            19.3.12 FinalizationRegistry ( . . . )
+            19.3.13 Float32Array ( . . . )
+            19.3.14 Float64Array ( . . . )
+            19.3.15 Function ( . . . )
+            19.3.16 Int8Array ( . . . )
+            19.3.17 Int16Array ( . . . )
+            19.3.18 Int32Array ( . . . )
+            19.3.19 Map ( . . . )
+            19.3.20 Number ( . . . )
+            19.3.21 Object ( . . . )
+            19.3.22 Promise ( . . . )
+            19.3.23 Proxy ( . . . )
+            19.3.24 RangeError ( . . . )
+            19.3.25 ReferenceError ( . . . )
+            19.3.26 RegExp ( . . . )
+            19.3.27 Set ( . . . )
+            19.3.28 SharedArrayBuffer ( . . . )
+            19.3.29 String ( . . . )
+            19.3.30 Symbol ( . . . )
+            19.3.31 SyntaxError ( . . . )
+            19.3.32 TypeError ( . . . )
+            19.3.33 Uint8Array ( . . . )
+            19.3.34 Uint8ClampedArray ( . . . )
+            19.3.35 Uint16Array ( . . . )
+            19.3.36 Uint32Array ( . . . )
+            19.3.37 URIError ( . . . )
+            19.3.38 WeakMap ( . . . )
+            19.3.39 WeakRef ( . . . )
+            19.3.40 WeakSet ( . . . )
+        19.4 Other Properties of the Global Object
+            19.4.1 Atomics
+            19.4.2 JSON
+            19.4.3 Math
+            19.4.4 Reflect
+    20 Fundamental Objects
+        20.1 Object Objects
+            20.1.1 The Object Constructor
+                20.1.1.1 Object ( [ value ] )
+            20.1.2 Properties of the Object Constructor
+                20.1.2.1 Object.assign ( target, ...sources )
+                20.1.2.2 Object.create ( O, Properties )
+                20.1.2.3 Object.defineProperties ( O, Properties )
+                    20.1.2.3.1 ObjectDefineProperties ( O, Properties )
+                20.1.2.4 Object.defineProperty ( O, P, Attributes )
+                20.1.2.5 Object.entries ( O )
+                20.1.2.6 Object.freeze ( O )
+                20.1.2.7 Object.fromEntries ( iterable )
+                20.1.2.8 Object.getOwnPropertyDescriptor ( O, P )
+                20.1.2.9 Object.getOwnPropertyDescriptors ( O )
+                20.1.2.10 Object.getOwnPropertyNames ( O )
+                20.1.2.11 Object.getOwnPropertySymbols ( O )
+                    20.1.2.11.1 GetOwnPropertyKeys ( O, type )
+                20.1.2.12 Object.getPrototypeOf ( O )
+                20.1.2.13 Object.groupBy ( items, callbackfn )
+                20.1.2.14 Object.hasOwn ( O, P )
+                20.1.2.15 Object.is ( value1, value2 )
+                20.1.2.16 Object.isExtensible ( O )
+                20.1.2.17 Object.isFrozen ( O )
+                20.1.2.18 Object.isSealed ( O )
+                20.1.2.19 Object.keys ( O )
+                20.1.2.20 Object.preventExtensions ( O )
+                20.1.2.21 Object.prototype
+                20.1.2.22 Object.seal ( O )
+                20.1.2.23 Object.setPrototypeOf ( O, proto )
+                20.1.2.24 Object.values ( O )
+            20.1.3 Properties of the Object Prototype Object
+                20.1.3.1 Object.prototype.constructor
+                20.1.3.2 Object.prototype.hasOwnProperty ( V )
+                20.1.3.3 Object.prototype.isPrototypeOf ( V )
+                20.1.3.4 Object.prototype.propertyIsEnumerable ( V )
+                20.1.3.5 Object.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                20.1.3.6 Object.prototype.toString ( )
+                20.1.3.7 Object.prototype.valueOf ( )
+                20.1.3.8 Object.prototype.__proto__
+                    20.1.3.8.1 get Object.prototype.__proto__
+                    20.1.3.8.2 set Object.prototype.__proto__
+                20.1.3.9 Legacy Object.prototype Accessor Methods
+                    20.1.3.9.1 Object.prototype.__defineGetter__ ( P, getter )
+                    20.1.3.9.2 Object.prototype.__defineSetter__ ( P, setter )
+                    20.1.3.9.3 Object.prototype.__lookupGetter__ ( P )
+                    20.1.3.9.4 Object.prototype.__lookupSetter__ ( P )
+            20.1.4 Properties of Object Instances
+        20.2 Function Objects
+            20.2.1 The Function Constructor
+                20.2.1.1 Function ( ...parameterArgs, bodyArg )
+                    20.2.1.1.1 CreateDynamicFunction ( constructor, newTarget, kind, parameterArgs, bodyArg )
+            20.2.2 Properties of the Function Constructor
+                20.2.2.1 Function.prototype
+            20.2.3 Properties of the Function Prototype Object
+                20.2.3.1 Function.prototype.apply ( thisArg, argArray )
+                20.2.3.2 Function.prototype.bind ( thisArg, ...args )
+                20.2.3.3 Function.prototype.call ( thisArg, ...args )
+                20.2.3.4 Function.prototype.constructor
+                20.2.3.5 Function.prototype.toString ( )
+                20.2.3.6 Function.prototype [ @@hasInstance ] ( V )
+            20.2.4 Function Instances
+                20.2.4.1 length
+                20.2.4.2 name
+                20.2.4.3 prototype
+            20.2.5 HostHasSourceTextAvailable ( func )
+        20.3 Boolean Objects
+            20.3.1 The Boolean Constructor
+                20.3.1.1 Boolean ( value )
+            20.3.2 Properties of the Boolean Constructor
+                20.3.2.1 Boolean.prototype
+            20.3.3 Properties of the Boolean Prototype Object
+                20.3.3.1 Boolean.prototype.constructor
+                20.3.3.2 Boolean.prototype.toString ( )
+                20.3.3.3 Boolean.prototype.valueOf ( )
+                    20.3.3.3.1 ThisBooleanValue ( value )
+            20.3.4 Properties of Boolean Instances
+        20.4 Symbol Objects
+            20.4.1 The Symbol Constructor
+                20.4.1.1 Symbol ( [ description ] )
+            20.4.2 Properties of the Symbol Constructor
+                20.4.2.1 Symbol.asyncIterator
+                20.4.2.2 Symbol.for ( key )
+                20.4.2.3 Symbol.hasInstance
+                20.4.2.4 Symbol.isConcatSpreadable
+                20.4.2.5 Symbol.iterator
+                20.4.2.6 Symbol.keyFor ( sym )
+                20.4.2.7 Symbol.match
+                20.4.2.8 Symbol.matchAll
+                20.4.2.9 Symbol.prototype
+                20.4.2.10 Symbol.replace
+                20.4.2.11 Symbol.search
+                20.4.2.12 Symbol.species
+                20.4.2.13 Symbol.split
+                20.4.2.14 Symbol.toPrimitive
+                20.4.2.15 Symbol.toStringTag
+                20.4.2.16 Symbol.unscopables
+            20.4.3 Properties of the Symbol Prototype Object
+                20.4.3.1 Symbol.prototype.constructor
+                20.4.3.2 get Symbol.prototype.description
+                20.4.3.3 Symbol.prototype.toString ( )
+                    20.4.3.3.1 SymbolDescriptiveString ( sym )
+                20.4.3.4 Symbol.prototype.valueOf ( )
+                    20.4.3.4.1 ThisSymbolValue ( value )
+                20.4.3.5 Symbol.prototype [ @@toPrimitive ] ( hint )
+                20.4.3.6 Symbol.prototype [ @@toStringTag ]
+            20.4.4 Properties of Symbol Instances
+            20.4.5 Abstract Operations for Symbols
+                20.4.5.1 KeyForSymbol ( sym )
+        20.5 Error Objects
+            20.5.1 The Error Constructor
+                20.5.1.1 Error ( message [ , options ] )
+            20.5.2 Properties of the Error Constructor
+                20.5.2.1 Error.prototype
+            20.5.3 Properties of the Error Prototype Object
+                20.5.3.1 Error.prototype.constructor
+                20.5.3.2 Error.prototype.message
+                20.5.3.3 Error.prototype.name
+                20.5.3.4 Error.prototype.toString ( )
+            20.5.4 Properties of Error Instances
+            20.5.5 Native Error Types Used in This Standard
+                20.5.5.1 EvalError
+                20.5.5.2 RangeError
+                20.5.5.3 ReferenceError
+                20.5.5.4 SyntaxError
+                20.5.5.5 TypeError
+                20.5.5.6 URIError
+            20.5.6 NativeError Object Structure
+                20.5.6.1 The NativeError Constructors
+                    20.5.6.1.1 NativeError ( message [ , options ] )
+                20.5.6.2 Properties of the NativeError Constructors
+                    20.5.6.2.1 NativeError.prototype
+                20.5.6.3 Properties of the NativeError Prototype Objects
+                    20.5.6.3.1 NativeError.prototype.constructor
+                    20.5.6.3.2 NativeError.prototype.message
+                    20.5.6.3.3 NativeError.prototype.name
+                20.5.6.4 Properties of NativeError Instances
+            20.5.7 AggregateError Objects
+                20.5.7.1 The AggregateError Constructor
+                    20.5.7.1.1 AggregateError ( errors, message [ , options ] )
+                20.5.7.2 Properties of the AggregateError Constructor
+                    20.5.7.2.1 AggregateError.prototype
+                20.5.7.3 Properties of the AggregateError Prototype Object
+                    20.5.7.3.1 AggregateError.prototype.constructor
+                    20.5.7.3.2 AggregateError.prototype.message
+                    20.5.7.3.3 AggregateError.prototype.name
+                20.5.7.4 Properties of AggregateError Instances
+            20.5.8 Abstract Operations for Error Objects
+                20.5.8.1 InstallErrorCause ( O, options )
+    21 Numbers and Dates
+        21.1 Number Objects
+            21.1.1 The Number Constructor
+                21.1.1.1 Number ( value )
+            21.1.2 Properties of the Number Constructor
+                21.1.2.1 Number.EPSILON
+                21.1.2.2 Number.isFinite ( number )
+                21.1.2.3 Number.isInteger ( number )
+                21.1.2.4 Number.isNaN ( number )
+                21.1.2.5 Number.isSafeInteger ( number )
+                21.1.2.6 Number.MAX_SAFE_INTEGER
+                21.1.2.7 Number.MAX_VALUE
+                21.1.2.8 Number.MIN_SAFE_INTEGER
+                21.1.2.9 Number.MIN_VALUE
+                21.1.2.10 Number.NaN
+                21.1.2.11 Number.NEGATIVE_INFINITY
+                21.1.2.12 Number.parseFloat ( string )
+                21.1.2.13 Number.parseInt ( string, radix )
+                21.1.2.14 Number.POSITIVE_INFINITY
+                21.1.2.15 Number.prototype
+            21.1.3 Properties of the Number Prototype Object
+                21.1.3.1 Number.prototype.constructor
+                21.1.3.2 Number.prototype.toExponential ( fractionDigits )
+                21.1.3.3 Number.prototype.toFixed ( fractionDigits )
+                21.1.3.4 Number.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                21.1.3.5 Number.prototype.toPrecision ( precision )
+                21.1.3.6 Number.prototype.toString ( [ radix ] )
+                21.1.3.7 Number.prototype.valueOf ( )
+                    21.1.3.7.1 ThisNumberValue ( value )
+            21.1.4 Properties of Number Instances
+        21.2 BigInt Objects
+            21.2.1 The BigInt Constructor
+                21.2.1.1 BigInt ( value )
+                    21.2.1.1.1 NumberToBigInt ( number )
+            21.2.2 Properties of the BigInt Constructor
+                21.2.2.1 BigInt.asIntN ( bits, bigint )
+                21.2.2.2 BigInt.asUintN ( bits, bigint )
+                21.2.2.3 BigInt.prototype
+            21.2.3 Properties of the BigInt Prototype Object
+                21.2.3.1 BigInt.prototype.constructor
+                21.2.3.2 BigInt.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                21.2.3.3 BigInt.prototype.toString ( [ radix ] )
+                21.2.3.4 BigInt.prototype.valueOf ( )
+                    21.2.3.4.1 ThisBigIntValue ( value )
+                21.2.3.5 BigInt.prototype [ @@toStringTag ]
+            21.2.4 Properties of BigInt Instances
+        21.3 The Math Object
+            21.3.1 Value Properties of the Math Object
+                21.3.1.1 Math.E
+                21.3.1.2 Math.LN10
+                21.3.1.3 Math.LN2
+                21.3.1.4 Math.LOG10E
+                21.3.1.5 Math.LOG2E
+                21.3.1.6 Math.PI
+                21.3.1.7 Math.SQRT1_2
+                21.3.1.8 Math.SQRT2
+                21.3.1.9 Math [ @@toStringTag ]
+            21.3.2 Function Properties of the Math Object
+                21.3.2.1 Math.abs ( x )
+                21.3.2.2 Math.acos ( x )
+                21.3.2.3 Math.acosh ( x )
+                21.3.2.4 Math.asin ( x )
+                21.3.2.5 Math.asinh ( x )
+                21.3.2.6 Math.atan ( x )
+                21.3.2.7 Math.atanh ( x )
+                21.3.2.8 Math.atan2 ( y, x )
+                21.3.2.9 Math.cbrt ( x )
+                21.3.2.10 Math.ceil ( x )
+                21.3.2.11 Math.clz32 ( x )
+                21.3.2.12 Math.cos ( x )
+                21.3.2.13 Math.cosh ( x )
+                21.3.2.14 Math.exp ( x )
+                21.3.2.15 Math.expm1 ( x )
+                21.3.2.16 Math.floor ( x )
+                21.3.2.17 Math.fround ( x )
+                21.3.2.18 Math.hypot ( ...args )
+                21.3.2.19 Math.imul ( x, y )
+                21.3.2.20 Math.log ( x )
+                21.3.2.21 Math.log1p ( x )
+                21.3.2.22 Math.log10 ( x )
+                21.3.2.23 Math.log2 ( x )
+                21.3.2.24 Math.max ( ...args )
+                21.3.2.25 Math.min ( ...args )
+                21.3.2.26 Math.pow ( base, exponent )
+                21.3.2.27 Math.random ( )
+                21.3.2.28 Math.round ( x )
+                21.3.2.29 Math.sign ( x )
+                21.3.2.30 Math.sin ( x )
+                21.3.2.31 Math.sinh ( x )
+                21.3.2.32 Math.sqrt ( x )
+                21.3.2.33 Math.tan ( x )
+                21.3.2.34 Math.tanh ( x )
+                21.3.2.35 Math.trunc ( x )
+        21.4 Date Objects
+            21.4.1 Overview of Date Objects and Definitions of Abstract Operations
+                21.4.1.1 Time Values and Time Range
+                21.4.1.2 Time-related Constants
+                21.4.1.3 Day ( t )
+                21.4.1.4 TimeWithinDay ( t )
+                21.4.1.5 DaysInYear ( y )
+                21.4.1.6 DayFromYear ( y )
+                21.4.1.7 TimeFromYear ( y )
+                21.4.1.8 YearFromTime ( t )
+                21.4.1.9 DayWithinYear ( t )
+                21.4.1.10 InLeapYear ( t )
+                21.4.1.11 MonthFromTime ( t )
+                21.4.1.12 DateFromTime ( t )
+                21.4.1.13 WeekDay ( t )
+                21.4.1.14 HourFromTime ( t )
+                21.4.1.15 MinFromTime ( t )
+                21.4.1.16 SecFromTime ( t )
+                21.4.1.17 msFromTime ( t )
+                21.4.1.18 GetUTCEpochNanoseconds ( year, month, day, hour, minute, second, millisecond, microsecond, nanosecond )
+                21.4.1.19 Time Zone Identifiers
+                21.4.1.20 GetNamedTimeZoneEpochNanoseconds ( timeZoneIdentifier, year, month, day, hour, minute, second, millisecond, microsecond, nanosecond )
+                21.4.1.21 GetNamedTimeZoneOffsetNanoseconds ( timeZoneIdentifier, epochNanoseconds )
+                21.4.1.22 Time Zone Identifier Record
+                21.4.1.23 AvailableNamedTimeZoneIdentifiers ( )
+                21.4.1.24 SystemTimeZoneIdentifier ( )
+                21.4.1.25 LocalTime ( t )
+                21.4.1.26 UTC ( t )
+                21.4.1.27 MakeTime ( hour, min, sec, ms )
+                21.4.1.28 MakeDay ( year, month, date )
+                21.4.1.29 MakeDate ( day, time )
+                21.4.1.30 MakeFullYear ( year )
+                21.4.1.31 TimeClip ( time )
+                21.4.1.32 Date Time String Format
+                    21.4.1.32.1 Expanded Years
+                21.4.1.33 Time Zone Offset String Format
+                    21.4.1.33.1 IsTimeZoneOffsetString ( offsetString )
+                    21.4.1.33.2 ParseTimeZoneOffsetString ( offsetString )
+            21.4.2 The Date Constructor
+                21.4.2.1 Date ( ...values )
+            21.4.3 Properties of the Date Constructor
+                21.4.3.1 Date.now ( )
+                21.4.3.2 Date.parse ( string )
+                21.4.3.3 Date.prototype
+                21.4.3.4 Date.UTC ( year [ , month [ , date [ , hours [ , minutes [ , seconds [ , ms ] ] ] ] ] ] )
+            21.4.4 Properties of the Date Prototype Object
+                21.4.4.1 Date.prototype.constructor
+                21.4.4.2 Date.prototype.getDate ( )
+                21.4.4.3 Date.prototype.getDay ( )
+                21.4.4.4 Date.prototype.getFullYear ( )
+                21.4.4.5 Date.prototype.getHours ( )
+                21.4.4.6 Date.prototype.getMilliseconds ( )
+                21.4.4.7 Date.prototype.getMinutes ( )
+                21.4.4.8 Date.prototype.getMonth ( )
+                21.4.4.9 Date.prototype.getSeconds ( )
+                21.4.4.10 Date.prototype.getTime ( )
+                21.4.4.11 Date.prototype.getTimezoneOffset ( )
+                21.4.4.12 Date.prototype.getUTCDate ( )
+                21.4.4.13 Date.prototype.getUTCDay ( )
+                21.4.4.14 Date.prototype.getUTCFullYear ( )
+                21.4.4.15 Date.prototype.getUTCHours ( )
+                21.4.4.16 Date.prototype.getUTCMilliseconds ( )
+                21.4.4.17 Date.prototype.getUTCMinutes ( )
+                21.4.4.18 Date.prototype.getUTCMonth ( )
+                21.4.4.19 Date.prototype.getUTCSeconds ( )
+                21.4.4.20 Date.prototype.setDate ( date )
+                21.4.4.21 Date.prototype.setFullYear ( year [ , month [ , date ] ] )
+                21.4.4.22 Date.prototype.setHours ( hour [ , min [ , sec [ , ms ] ] ] )
+                21.4.4.23 Date.prototype.setMilliseconds ( ms )
+                21.4.4.24 Date.prototype.setMinutes ( min [ , sec [ , ms ] ] )
+                21.4.4.25 Date.prototype.setMonth ( month [ , date ] )
+                21.4.4.26 Date.prototype.setSeconds ( sec [ , ms ] )
+                21.4.4.27 Date.prototype.setTime ( time )
+                21.4.4.28 Date.prototype.setUTCDate ( date )
+                21.4.4.29 Date.prototype.setUTCFullYear ( year [ , month [ , date ] ] )
+                21.4.4.30 Date.prototype.setUTCHours ( hour [ , min [ , sec [ , ms ] ] ] )
+                21.4.4.31 Date.prototype.setUTCMilliseconds ( ms )
+                21.4.4.32 Date.prototype.setUTCMinutes ( min [ , sec [ , ms ] ] )
+                21.4.4.33 Date.prototype.setUTCMonth ( month [ , date ] )
+                21.4.4.34 Date.prototype.setUTCSeconds ( sec [ , ms ] )
+                21.4.4.35 Date.prototype.toDateString ( )
+                21.4.4.36 Date.prototype.toISOString ( )
+                21.4.4.37 Date.prototype.toJSON ( key )
+                21.4.4.38 Date.prototype.toLocaleDateString ( [ reserved1 [ , reserved2 ] ] )
+                21.4.4.39 Date.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                21.4.4.40 Date.prototype.toLocaleTimeString ( [ reserved1 [ , reserved2 ] ] )
+                21.4.4.41 Date.prototype.toString ( )
+                    21.4.4.41.1 TimeString ( tv )
+                    21.4.4.41.2 DateString ( tv )
+                    21.4.4.41.3 TimeZoneString ( tv )
+                    21.4.4.41.4 ToDateString ( tv )
+                21.4.4.42 Date.prototype.toTimeString ( )
+                21.4.4.43 Date.prototype.toUTCString ( )
+                21.4.4.44 Date.prototype.valueOf ( )
+                21.4.4.45 Date.prototype [ @@toPrimitive ] ( hint )
+            21.4.5 Properties of Date Instances
+    22 Text Processing
+        22.1 String Objects
+            22.1.1 The String Constructor
+                22.1.1.1 String ( value )
+            22.1.2 Properties of the String Constructor
+                22.1.2.1 String.fromCharCode ( ...codeUnits )
+                22.1.2.2 String.fromCodePoint ( ...codePoints )
+                22.1.2.3 String.prototype
+                22.1.2.4 String.raw ( template, ...substitutions )
+            22.1.3 Properties of the String Prototype Object
+                22.1.3.1 String.prototype.at ( index )
+                22.1.3.2 String.prototype.charAt ( pos )
+                22.1.3.3 String.prototype.charCodeAt ( pos )
+                22.1.3.4 String.prototype.codePointAt ( pos )
+                22.1.3.5 String.prototype.concat ( ...args )
+                22.1.3.6 String.prototype.constructor
+                22.1.3.7 String.prototype.endsWith ( searchString [ , endPosition ] )
+                22.1.3.8 String.prototype.includes ( searchString [ , position ] )
+                22.1.3.9 String.prototype.indexOf ( searchString [ , position ] )
+                22.1.3.10 String.prototype.isWellFormed ( )
+                22.1.3.11 String.prototype.lastIndexOf ( searchString [ , position ] )
+                22.1.3.12 String.prototype.localeCompare ( that [ , reserved1 [ , reserved2 ] ] )
+                22.1.3.13 String.prototype.match ( regexp )
+                22.1.3.14 String.prototype.matchAll ( regexp )
+                22.1.3.15 String.prototype.normalize ( [ form ] )
+                22.1.3.16 String.prototype.padEnd ( maxLength [ , fillString ] )
+                22.1.3.17 String.prototype.padStart ( maxLength [ , fillString ] )
+                    22.1.3.17.1 StringPaddingBuiltinsImpl ( O, maxLength, fillString, placement )
+                    22.1.3.17.2 StringPad ( S, maxLength, fillString, placement )
+                    22.1.3.17.3 ToZeroPaddedDecimalString ( n, minLength )
+                22.1.3.18 String.prototype.repeat ( count )
+                22.1.3.19 String.prototype.replace ( searchValue, replaceValue )
+                    22.1.3.19.1 GetSubstitution ( matched, str, position, captures, namedCaptures, replacementTemplate )
+                22.1.3.20 String.prototype.replaceAll ( searchValue, replaceValue )
+                22.1.3.21 String.prototype.search ( regexp )
+                22.1.3.22 String.prototype.slice ( start, end )
+                22.1.3.23 String.prototype.split ( separator, limit )
+                22.1.3.24 String.prototype.startsWith ( searchString [ , position ] )
+                22.1.3.25 String.prototype.substring ( start, end )
+                22.1.3.26 String.prototype.toLocaleLowerCase ( [ reserved1 [ , reserved2 ] ] )
+                22.1.3.27 String.prototype.toLocaleUpperCase ( [ reserved1 [ , reserved2 ] ] )
+                22.1.3.28 String.prototype.toLowerCase ( )
+                22.1.3.29 String.prototype.toString ( )
+                22.1.3.30 String.prototype.toUpperCase ( )
+                22.1.3.31 String.prototype.toWellFormed ( )
+                22.1.3.32 String.prototype.trim ( )
+                    22.1.3.32.1 TrimString ( string, where )
+                22.1.3.33 String.prototype.trimEnd ( )
+                22.1.3.34 String.prototype.trimStart ( )
+                22.1.3.35 String.prototype.valueOf ( )
+                    22.1.3.35.1 ThisStringValue ( value )
+                22.1.3.36 String.prototype [ @@iterator ] ( )
+            22.1.4 Properties of String Instances
+                22.1.4.1 length
+            22.1.5 String Iterator Objects
+                22.1.5.1 The %StringIteratorPrototype% Object
+                    22.1.5.1.1 %StringIteratorPrototype%.next ( )
+                    22.1.5.1.2 %StringIteratorPrototype% [ @@toStringTag ]
+        22.2 RegExp (Regular Expression) Objects
+            22.2.1 Patterns
+                22.2.1.1 Static Semantics: Early Errors
+                22.2.1.2 Static Semantics: CountLeftCapturingParensWithin ( node )
+                22.2.1.3 Static Semantics: CountLeftCapturingParensBefore ( node )
+                22.2.1.4 Static Semantics: CapturingGroupNumber
+                22.2.1.5 Static Semantics: IsCharacterClass
+                22.2.1.6 Static Semantics: CharacterValue
+                22.2.1.7 Static Semantics: MayContainStrings
+                22.2.1.8 Static Semantics: GroupSpecifiersThatMatch ( thisGroupName )
+                22.2.1.9 Static Semantics: CapturingGroupName
+                22.2.1.10 Static Semantics: RegExpIdentifierCodePoints
+                22.2.1.11 Static Semantics: RegExpIdentifierCodePoint
+            22.2.2 Pattern Semantics
+                22.2.2.1 Notation
+                    22.2.2.1.1 RegExp Records
+                22.2.2.2 Runtime Semantics: CompilePattern
+                22.2.2.3 Runtime Semantics: CompileSubpattern
+                    22.2.2.3.1 RepeatMatcher ( m, min, max, greedy, x, c, parenIndex, parenCount )
+                    22.2.2.3.2 EmptyMatcher ( )
+                    22.2.2.3.3 MatchTwoAlternatives ( m1, m2 )
+                    22.2.2.3.4 MatchSequence ( m1, m2, direction )
+                22.2.2.4 Runtime Semantics: CompileAssertion
+                    22.2.2.4.1 IsWordChar ( rer, Input, e )
+                22.2.2.5 Runtime Semantics: CompileQuantifier
+                22.2.2.6 Runtime Semantics: CompileQuantifierPrefix
+                22.2.2.7 Runtime Semantics: CompileAtom
+                    22.2.2.7.1 CharacterSetMatcher ( rer, A, invert, direction )
+                    22.2.2.7.2 BackreferenceMatcher ( rer, n, direction )
+                    22.2.2.7.3 Canonicalize ( rer, ch )
+                22.2.2.8 Runtime Semantics: CompileCharacterClass
+                22.2.2.9 Runtime Semantics: CompileToCharSet
+                    22.2.2.9.1 CharacterRange ( A, B )
+                    22.2.2.9.2 HasEitherUnicodeFlag ( rer )
+                    22.2.2.9.3 WordCharacters ( rer )
+                    22.2.2.9.4 AllCharacters ( rer )
+                    22.2.2.9.5 MaybeSimpleCaseFolding ( rer, A )
+                    22.2.2.9.6 CharacterComplement ( rer, S )
+                    22.2.2.9.7 UnicodeMatchProperty ( rer, p )
+                    22.2.2.9.8 UnicodeMatchPropertyValue ( p, v )
+                22.2.2.10 Runtime Semantics: CompileClassSetString
+            22.2.3 Abstract Operations for RegExp Creation
+                22.2.3.1 RegExpCreate ( P, F )
+                22.2.3.2 RegExpAlloc ( newTarget )
+                22.2.3.3 RegExpInitialize ( obj, pattern, flags )
+                22.2.3.4 Static Semantics: ParsePattern ( patternText, u, v )
+            22.2.4 The RegExp Constructor
+                22.2.4.1 RegExp ( pattern, flags )
+            22.2.5 Properties of the RegExp Constructor
+                22.2.5.1 RegExp.prototype
+                22.2.5.2 get RegExp [ @@species ]
+            22.2.6 Properties of the RegExp Prototype Object
+                22.2.6.1 RegExp.prototype.constructor
+                22.2.6.2 RegExp.prototype.exec ( string )
+                22.2.6.3 get RegExp.prototype.dotAll
+                22.2.6.4 get RegExp.prototype.flags
+                    22.2.6.4.1 RegExpHasFlag ( R, codeUnit )
+                22.2.6.5 get RegExp.prototype.global
+                22.2.6.6 get RegExp.prototype.hasIndices
+                22.2.6.7 get RegExp.prototype.ignoreCase
+                22.2.6.8 RegExp.prototype [ @@match ] ( string )
+                22.2.6.9 RegExp.prototype [ @@matchAll ] ( string )
+                22.2.6.10 get RegExp.prototype.multiline
+                22.2.6.11 RegExp.prototype [ @@replace ] ( string, replaceValue )
+                22.2.6.12 RegExp.prototype [ @@search ] ( string )
+                22.2.6.13 get RegExp.prototype.source
+                    22.2.6.13.1 EscapeRegExpPattern ( P, F )
+                22.2.6.14 RegExp.prototype [ @@split ] ( string, limit )
+                22.2.6.15 get RegExp.prototype.sticky
+                22.2.6.16 RegExp.prototype.test ( S )
+                22.2.6.17 RegExp.prototype.toString ( )
+                22.2.6.18 get RegExp.prototype.unicode
+                22.2.6.19 get RegExp.prototype.unicodeSets
+            22.2.7 Abstract Operations for RegExp Matching
+                22.2.7.1 RegExpExec ( R, S )
+                22.2.7.2 RegExpBuiltinExec ( R, S )
+                22.2.7.3 AdvanceStringIndex ( S, index, unicode )
+                22.2.7.4 GetStringIndex ( S, codePointIndex )
+                22.2.7.5 Match Records
+                22.2.7.6 GetMatchString ( S, match )
+                22.2.7.7 GetMatchIndexPair ( S, match )
+                22.2.7.8 MakeMatchIndicesIndexPairArray ( S, indices, groupNames, hasGroups )
+            22.2.8 Properties of RegExp Instances
+                22.2.8.1 lastIndex
+            22.2.9 RegExp String Iterator Objects
+                22.2.9.1 CreateRegExpStringIterator ( R, S, global, fullUnicode )
+                22.2.9.2 The %RegExpStringIteratorPrototype% Object
+                    22.2.9.2.1 %RegExpStringIteratorPrototype%.next ( )
+                    22.2.9.2.2 %RegExpStringIteratorPrototype% [ @@toStringTag ]
+    23 Indexed Collections
+        23.1 Array Objects
+            23.1.1 The Array Constructor
+                23.1.1.1 Array ( ...values )
+            23.1.2 Properties of the Array Constructor
+                23.1.2.1 Array.from ( items [ , mapfn [ , thisArg ] ] )
+                23.1.2.2 Array.isArray ( arg )
+                23.1.2.3 Array.of ( ...items )
+                23.1.2.4 Array.prototype
+                23.1.2.5 get Array [ @@species ]
+            23.1.3 Properties of the Array Prototype Object
+                23.1.3.1 Array.prototype.at ( index )
+                23.1.3.2 Array.prototype.concat ( ...items )
+                    23.1.3.2.1 IsConcatSpreadable ( O )
+                23.1.3.3 Array.prototype.constructor
+                23.1.3.4 Array.prototype.copyWithin ( target, start [ , end ] )
+                23.1.3.5 Array.prototype.entries ( )
+                23.1.3.6 Array.prototype.every ( callbackfn [ , thisArg ] )
+                23.1.3.7 Array.prototype.fill ( value [ , start [ , end ] ] )
+                23.1.3.8 Array.prototype.filter ( callbackfn [ , thisArg ] )
+                23.1.3.9 Array.prototype.find ( predicate [ , thisArg ] )
+                23.1.3.10 Array.prototype.findIndex ( predicate [ , thisArg ] )
+                23.1.3.11 Array.prototype.findLast ( predicate [ , thisArg ] )
+                23.1.3.12 Array.prototype.findLastIndex ( predicate [ , thisArg ] )
+                    23.1.3.12.1 FindViaPredicate ( O, len, direction, predicate, thisArg )
+                23.1.3.13 Array.prototype.flat ( [ depth ] )
+                    23.1.3.13.1 FlattenIntoArray ( target, source, sourceLen, start, depth [ , mapperFunction [ , thisArg ] ] )
+                23.1.3.14 Array.prototype.flatMap ( mapperFunction [ , thisArg ] )
+                23.1.3.15 Array.prototype.forEach ( callbackfn [ , thisArg ] )
+                23.1.3.16 Array.prototype.includes ( searchElement [ , fromIndex ] )
+                23.1.3.17 Array.prototype.indexOf ( searchElement [ , fromIndex ] )
+                23.1.3.18 Array.prototype.join ( separator )
+                23.1.3.19 Array.prototype.keys ( )
+                23.1.3.20 Array.prototype.lastIndexOf ( searchElement [ , fromIndex ] )
+                23.1.3.21 Array.prototype.map ( callbackfn [ , thisArg ] )
+                23.1.3.22 Array.prototype.pop ( )
+                23.1.3.23 Array.prototype.push ( ...items )
+                23.1.3.24 Array.prototype.reduce ( callbackfn [ , initialValue ] )
+                23.1.3.25 Array.prototype.reduceRight ( callbackfn [ , initialValue ] )
+                23.1.3.26 Array.prototype.reverse ( )
+                23.1.3.27 Array.prototype.shift ( )
+                23.1.3.28 Array.prototype.slice ( start, end )
+                23.1.3.29 Array.prototype.some ( callbackfn [ , thisArg ] )
+                23.1.3.30 Array.prototype.sort ( comparefn )
+                    23.1.3.30.1 SortIndexedProperties ( obj, len, SortCompare, holes )
+                    23.1.3.30.2 CompareArrayElements ( x, y, comparefn )
+                23.1.3.31 Array.prototype.splice ( start, deleteCount, ...items )
+                23.1.3.32 Array.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                23.1.3.33 Array.prototype.toReversed ( )
+                23.1.3.34 Array.prototype.toSorted ( comparefn )
+                23.1.3.35 Array.prototype.toSpliced ( start, skipCount, ...items )
+                23.1.3.36 Array.prototype.toString ( )
+                23.1.3.37 Array.prototype.unshift ( ...items )
+                23.1.3.38 Array.prototype.values ( )
+                23.1.3.39 Array.prototype.with ( index, value )
+                23.1.3.40 Array.prototype [ @@iterator ] ( )
+                23.1.3.41 Array.prototype [ @@unscopables ]
+            23.1.4 Properties of Array Instances
+                23.1.4.1 length
+            23.1.5 Array Iterator Objects
+                23.1.5.1 CreateArrayIterator ( array, kind )
+                23.1.5.2 The %ArrayIteratorPrototype% Object
+                    23.1.5.2.1 %ArrayIteratorPrototype%.next ( )
+                    23.1.5.2.2 %ArrayIteratorPrototype% [ @@toStringTag ]
+        23.2 TypedArray Objects
+            23.2.1 The %TypedArray% Intrinsic Object
+                23.2.1.1 %TypedArray% ( )
+            23.2.2 Properties of the %TypedArray% Intrinsic Object
+                23.2.2.1 %TypedArray%.from ( source [ , mapfn [ , thisArg ] ] )
+                23.2.2.2 %TypedArray%.of ( ...items )
+                23.2.2.3 %TypedArray%.prototype
+                23.2.2.4 get %TypedArray% [ @@species ]
+            23.2.3 Properties of the %TypedArray% Prototype Object
+                23.2.3.1 %TypedArray%.prototype.at ( index )
+                23.2.3.2 get %TypedArray%.prototype.buffer
+                23.2.3.3 get %TypedArray%.prototype.byteLength
+                23.2.3.4 get %TypedArray%.prototype.byteOffset
+                23.2.3.5 %TypedArray%.prototype.constructor
+                23.2.3.6 %TypedArray%.prototype.copyWithin ( target, start [ , end ] )
+                23.2.3.7 %TypedArray%.prototype.entries ( )
+                23.2.3.8 %TypedArray%.prototype.every ( callbackfn [ , thisArg ] )
+                23.2.3.9 %TypedArray%.prototype.fill ( value [ , start [ , end ] ] )
+                23.2.3.10 %TypedArray%.prototype.filter ( callbackfn [ , thisArg ] )
+                23.2.3.11 %TypedArray%.prototype.find ( predicate [ , thisArg ] )
+                23.2.3.12 %TypedArray%.prototype.findIndex ( predicate [ , thisArg ] )
+                23.2.3.13 %TypedArray%.prototype.findLast ( predicate [ , thisArg ] )
+                23.2.3.14 %TypedArray%.prototype.findLastIndex ( predicate [ , thisArg ] )
+                23.2.3.15 %TypedArray%.prototype.forEach ( callbackfn [ , thisArg ] )
+                23.2.3.16 %TypedArray%.prototype.includes ( searchElement [ , fromIndex ] )
+                23.2.3.17 %TypedArray%.prototype.indexOf ( searchElement [ , fromIndex ] )
+                23.2.3.18 %TypedArray%.prototype.join ( separator )
+                23.2.3.19 %TypedArray%.prototype.keys ( )
+                23.2.3.20 %TypedArray%.prototype.lastIndexOf ( searchElement [ , fromIndex ] )
+                23.2.3.21 get %TypedArray%.prototype.length
+                23.2.3.22 %TypedArray%.prototype.map ( callbackfn [ , thisArg ] )
+                23.2.3.23 %TypedArray%.prototype.reduce ( callbackfn [ , initialValue ] )
+                23.2.3.24 %TypedArray%.prototype.reduceRight ( callbackfn [ , initialValue ] )
+                23.2.3.25 %TypedArray%.prototype.reverse ( )
+                23.2.3.26 %TypedArray%.prototype.set ( source [ , offset ] )
+                    23.2.3.26.1 SetTypedArrayFromTypedArray ( target, targetOffset, source )
+                    23.2.3.26.2 SetTypedArrayFromArrayLike ( target, targetOffset, source )
+                23.2.3.27 %TypedArray%.prototype.slice ( start, end )
+                23.2.3.28 %TypedArray%.prototype.some ( callbackfn [ , thisArg ] )
+                23.2.3.29 %TypedArray%.prototype.sort ( comparefn )
+                23.2.3.30 %TypedArray%.prototype.subarray ( start, end )
+                23.2.3.31 %TypedArray%.prototype.toLocaleString ( [ reserved1 [ , reserved2 ] ] )
+                23.2.3.32 %TypedArray%.prototype.toReversed ( )
+                23.2.3.33 %TypedArray%.prototype.toSorted ( comparefn )
+                23.2.3.34 %TypedArray%.prototype.toString ( )
+                23.2.3.35 %TypedArray%.prototype.values ( )
+                23.2.3.36 %TypedArray%.prototype.with ( index, value )
+                23.2.3.37 %TypedArray%.prototype [ @@iterator ] ( )
+                23.2.3.38 get %TypedArray%.prototype [ @@toStringTag ]
+            23.2.4 Abstract Operations for TypedArray Objects
+                23.2.4.1 TypedArraySpeciesCreate ( exemplar, argumentList )
+                23.2.4.2 TypedArrayCreateFromConstructor ( constructor, argumentList )
+                23.2.4.3 TypedArrayCreateSameType ( exemplar, argumentList )
+                23.2.4.4 ValidateTypedArray ( O, order )
+                23.2.4.5 TypedArrayElementSize ( O )
+                23.2.4.6 TypedArrayElementType ( O )
+                23.2.4.7 CompareTypedArrayElements ( x, y, comparefn )
+            23.2.5 The TypedArray Constructors
+                23.2.5.1 TypedArray ( ...args )
+                    23.2.5.1.1 AllocateTypedArray ( constructorName, newTarget, defaultProto [ , length ] )
+                    23.2.5.1.2 InitializeTypedArrayFromTypedArray ( O, srcArray )
+                    23.2.5.1.3 InitializeTypedArrayFromArrayBuffer ( O, buffer, byteOffset, length )
+                    23.2.5.1.4 InitializeTypedArrayFromList ( O, values )
+                    23.2.5.1.5 InitializeTypedArrayFromArrayLike ( O, arrayLike )
+                    23.2.5.1.6 AllocateTypedArrayBuffer ( O, length )
+            23.2.6 Properties of the TypedArray Constructors
+                23.2.6.1 TypedArray.BYTES_PER_ELEMENT
+                23.2.6.2 TypedArray.prototype
+            23.2.7 Properties of the TypedArray Prototype Objects
+                23.2.7.1 TypedArray.prototype.BYTES_PER_ELEMENT
+                23.2.7.2 TypedArray.prototype.constructor
+            23.2.8 Properties of TypedArray Instances
+    24 Keyed Collections
+        24.1 Map Objects
+            24.1.1 The Map Constructor
+                24.1.1.1 Map ( [ iterable ] )
+                24.1.1.2 AddEntriesFromIterable ( target, iterable, adder )
+            24.1.2 Properties of the Map Constructor
+                24.1.2.1 Map.groupBy ( items, callbackfn )
+                24.1.2.2 Map.prototype
+                24.1.2.3 get Map [ @@species ]
+            24.1.3 Properties of the Map Prototype Object
+                24.1.3.1 Map.prototype.clear ( )
+                24.1.3.2 Map.prototype.constructor
+                24.1.3.3 Map.prototype.delete ( key )
+                24.1.3.4 Map.prototype.entries ( )
+                24.1.3.5 Map.prototype.forEach ( callbackfn [ , thisArg ] )
+                24.1.3.6 Map.prototype.get ( key )
+                24.1.3.7 Map.prototype.has ( key )
+                24.1.3.8 Map.prototype.keys ( )
+                24.1.3.9 Map.prototype.set ( key, value )
+                24.1.3.10 get Map.prototype.size
+                24.1.3.11 Map.prototype.values ( )
+                24.1.3.12 Map.prototype [ @@iterator ] ( )
+                24.1.3.13 Map.prototype [ @@toStringTag ]
+            24.1.4 Properties of Map Instances
+            24.1.5 Map Iterator Objects
+                24.1.5.1 CreateMapIterator ( map, kind )
+                24.1.5.2 The %MapIteratorPrototype% Object
+                    24.1.5.2.1 %MapIteratorPrototype%.next ( )
+                    24.1.5.2.2 %MapIteratorPrototype% [ @@toStringTag ]
+        24.2 Set Objects
+            24.2.1 The Set Constructor
+                24.2.1.1 Set ( [ iterable ] )
+            24.2.2 Properties of the Set Constructor
+                24.2.2.1 Set.prototype
+                24.2.2.2 get Set [ @@species ]
+            24.2.3 Properties of the Set Prototype Object
+                24.2.3.1 Set.prototype.add ( value )
+                24.2.3.2 Set.prototype.clear ( )
+                24.2.3.3 Set.prototype.constructor
+                24.2.3.4 Set.prototype.delete ( value )
+                24.2.3.5 Set.prototype.entries ( )
+                24.2.3.6 Set.prototype.forEach ( callbackfn [ , thisArg ] )
+                24.2.3.7 Set.prototype.has ( value )
+                24.2.3.8 Set.prototype.keys ( )
+                24.2.3.9 get Set.prototype.size
+                24.2.3.10 Set.prototype.values ( )
+                24.2.3.11 Set.prototype [ @@iterator ] ( )
+                24.2.3.12 Set.prototype [ @@toStringTag ]
+            24.2.4 Properties of Set Instances
+            24.2.5 Set Iterator Objects
+                24.2.5.1 CreateSetIterator ( set, kind )
+                24.2.5.2 The %SetIteratorPrototype% Object
+                    24.2.5.2.1 %SetIteratorPrototype%.next ( )
+                    24.2.5.2.2 %SetIteratorPrototype% [ @@toStringTag ]
+        24.3 WeakMap Objects
+            24.3.1 The WeakMap Constructor
+                24.3.1.1 WeakMap ( [ iterable ] )
+            24.3.2 Properties of the WeakMap Constructor
+                24.3.2.1 WeakMap.prototype
+            24.3.3 Properties of the WeakMap Prototype Object
+                24.3.3.1 WeakMap.prototype.constructor
+                24.3.3.2 WeakMap.prototype.delete ( key )
+                24.3.3.3 WeakMap.prototype.get ( key )
+                24.3.3.4 WeakMap.prototype.has ( key )
+                24.3.3.5 WeakMap.prototype.set ( key, value )
+                24.3.3.6 WeakMap.prototype [ @@toStringTag ]
+            24.3.4 Properties of WeakMap Instances
+        24.4 WeakSet Objects
+            24.4.1 The WeakSet Constructor
+                24.4.1.1 WeakSet ( [ iterable ] )
+            24.4.2 Properties of the WeakSet Constructor
+                24.4.2.1 WeakSet.prototype
+            24.4.3 Properties of the WeakSet Prototype Object
+                24.4.3.1 WeakSet.prototype.add ( value )
+                24.4.3.2 WeakSet.prototype.constructor
+                24.4.3.3 WeakSet.prototype.delete ( value )
+                24.4.3.4 WeakSet.prototype.has ( value )
+                24.4.3.5 WeakSet.prototype [ @@toStringTag ]
+            24.4.4 Properties of WeakSet Instances
+    25 Structured Data
+        25.1 ArrayBuffer Objects
+            25.1.1 Notation
+            25.1.2 Fixed-length and Resizable ArrayBuffer Objects
+            25.1.3 Abstract Operations For ArrayBuffer Objects
+                25.1.3.1 AllocateArrayBuffer ( constructor, byteLength [ , maxByteLength ] )
+                25.1.3.2 ArrayBufferByteLength ( arrayBuffer, order )
+                25.1.3.3 ArrayBufferCopyAndDetach ( arrayBuffer, newLength, preserveResizability )
+                25.1.3.4 IsDetachedBuffer ( arrayBuffer )
+                25.1.3.5 DetachArrayBuffer ( arrayBuffer [ , key ] )
+                25.1.3.6 CloneArrayBuffer ( srcBuffer, srcByteOffset, srcLength )
+                25.1.3.7 GetArrayBufferMaxByteLengthOption ( options )
+                25.1.3.8 HostResizeArrayBuffer ( buffer, newByteLength )
+                25.1.3.9 IsFixedLengthArrayBuffer ( arrayBuffer )
+                25.1.3.10 IsUnsignedElementType ( type )
+                25.1.3.11 IsUnclampedIntegerElementType ( type )
+                25.1.3.12 IsBigIntElementType ( type )
+                25.1.3.13 IsNoTearConfiguration ( type, order )
+                25.1.3.14 RawBytesToNumeric ( type, rawBytes, isLittleEndian )
+                25.1.3.15 GetRawBytesFromSharedBlock ( block, byteIndex, type, isTypedArray, order )
+                25.1.3.16 GetValueFromBuffer ( arrayBuffer, byteIndex, type, isTypedArray, order [ , isLittleEndian ] )
+                25.1.3.17 NumericToRawBytes ( type, value, isLittleEndian )
+                25.1.3.18 SetValueInBuffer ( arrayBuffer, byteIndex, type, value, isTypedArray, order [ , isLittleEndian ] )
+                25.1.3.19 GetModifySetValueInBuffer ( arrayBuffer, byteIndex, type, value, op )
+            25.1.4 The ArrayBuffer Constructor
+                25.1.4.1 ArrayBuffer ( length [ , options ] )
+            25.1.5 Properties of the ArrayBuffer Constructor
+                25.1.5.1 ArrayBuffer.isView ( arg )
+                25.1.5.2 ArrayBuffer.prototype
+                25.1.5.3 get ArrayBuffer [ @@species ]
+            25.1.6 Properties of the ArrayBuffer Prototype Object
+                25.1.6.1 get ArrayBuffer.prototype.byteLength
+                25.1.6.2 ArrayBuffer.prototype.constructor
+                25.1.6.3 get ArrayBuffer.prototype.detached
+                25.1.6.4 get ArrayBuffer.prototype.maxByteLength
+                25.1.6.5 get ArrayBuffer.prototype.resizable
+                25.1.6.6 ArrayBuffer.prototype.resize ( newLength )
+                25.1.6.7 ArrayBuffer.prototype.slice ( start, end )
+                25.1.6.8 ArrayBuffer.prototype.transfer ( [ newLength ] )
+                25.1.6.9 ArrayBuffer.prototype.transferToFixedLength ( [ newLength ] )
+                25.1.6.10 ArrayBuffer.prototype [ @@toStringTag ]
+            25.1.7 Properties of ArrayBuffer Instances
+            25.1.8 Resizable ArrayBuffer Guidelines
+        25.2 SharedArrayBuffer Objects
+            25.2.1 Fixed-length and Growable SharedArrayBuffer Objects
+            25.2.2 Abstract Operations for SharedArrayBuffer Objects
+                25.2.2.1 AllocateSharedArrayBuffer ( constructor, byteLength [ , maxByteLength ] )
+                25.2.2.2 IsSharedArrayBuffer ( obj )
+                25.2.2.3 HostGrowSharedArrayBuffer ( buffer, newByteLength )
+            25.2.3 The SharedArrayBuffer Constructor
+                25.2.3.1 SharedArrayBuffer ( length [ , options ] )
+            25.2.4 Properties of the SharedArrayBuffer Constructor
+                25.2.4.1 SharedArrayBuffer.prototype
+                25.2.4.2 get SharedArrayBuffer [ @@species ]
+            25.2.5 Properties of the SharedArrayBuffer Prototype Object
+                25.2.5.1 get SharedArrayBuffer.prototype.byteLength
+                25.2.5.2 SharedArrayBuffer.prototype.constructor
+                25.2.5.3 SharedArrayBuffer.prototype.grow ( newLength )
+                25.2.5.4 get SharedArrayBuffer.prototype.growable
+                25.2.5.5 get SharedArrayBuffer.prototype.maxByteLength
+                25.2.5.6 SharedArrayBuffer.prototype.slice ( start, end )
+                25.2.5.7 SharedArrayBuffer.prototype [ @@toStringTag ]
+            25.2.6 Properties of SharedArrayBuffer Instances
+            25.2.7 Growable SharedArrayBuffer Guidelines
+        25.3 DataView Objects
+            25.3.1 Abstract Operations For DataView Objects
+                25.3.1.1 DataView With Buffer Witness Records
+                25.3.1.2 MakeDataViewWithBufferWitnessRecord ( obj, order )
+                25.3.1.3 GetViewByteLength ( viewRecord )
+                25.3.1.4 IsViewOutOfBounds ( viewRecord )
+                25.3.1.5 GetViewValue ( view, requestIndex, isLittleEndian, type )
+                25.3.1.6 SetViewValue ( view, requestIndex, isLittleEndian, type, value )
+            25.3.2 The DataView Constructor
+                25.3.2.1 DataView ( buffer [ , byteOffset [ , byteLength ] ] )
+            25.3.3 Properties of the DataView Constructor
+                25.3.3.1 DataView.prototype
+            25.3.4 Properties of the DataView Prototype Object
+                25.3.4.1 get DataView.prototype.buffer
+                25.3.4.2 get DataView.prototype.byteLength
+                25.3.4.3 get DataView.prototype.byteOffset
+                25.3.4.4 DataView.prototype.constructor
+                25.3.4.5 DataView.prototype.getBigInt64 ( byteOffset [ , littleEndian ] )
+                25.3.4.6 DataView.prototype.getBigUint64 ( byteOffset [ , littleEndian ] )
+                25.3.4.7 DataView.prototype.getFloat32 ( byteOffset [ , littleEndian ] )
+                25.3.4.8 DataView.prototype.getFloat64 ( byteOffset [ , littleEndian ] )
+                25.3.4.9 DataView.prototype.getInt8 ( byteOffset )
+                25.3.4.10 DataView.prototype.getInt16 ( byteOffset [ , littleEndian ] )
+                25.3.4.11 DataView.prototype.getInt32 ( byteOffset [ , littleEndian ] )
+                25.3.4.12 DataView.prototype.getUint8 ( byteOffset )
+                25.3.4.13 DataView.prototype.getUint16 ( byteOffset [ , littleEndian ] )
+                25.3.4.14 DataView.prototype.getUint32 ( byteOffset [ , littleEndian ] )
+                25.3.4.15 DataView.prototype.setBigInt64 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.16 DataView.prototype.setBigUint64 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.17 DataView.prototype.setFloat32 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.18 DataView.prototype.setFloat64 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.19 DataView.prototype.setInt8 ( byteOffset, value )
+                25.3.4.20 DataView.prototype.setInt16 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.21 DataView.prototype.setInt32 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.22 DataView.prototype.setUint8 ( byteOffset, value )
+                25.3.4.23 DataView.prototype.setUint16 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.24 DataView.prototype.setUint32 ( byteOffset, value [ , littleEndian ] )
+                25.3.4.25 DataView.prototype [ @@toStringTag ]
+            25.3.5 Properties of DataView Instances
+        25.4 The Atomics Object
+            25.4.1 Waiter Record
+            25.4.2 WaiterList Records
+            25.4.3 Abstract Operations for Atomics
+                25.4.3.1 ValidateIntegerTypedArray ( typedArray, waitable )
+                25.4.3.2 ValidateAtomicAccess ( taRecord, requestIndex )
+                25.4.3.3 ValidateAtomicAccessOnIntegerTypedArray ( typedArray, requestIndex [ , waitable ] )
+                25.4.3.4 RevalidateAtomicAccess ( typedArray, byteIndexInBuffer )
+                25.4.3.5 GetWaiterList ( block, i )
+                25.4.3.6 EnterCriticalSection ( WL )
+                25.4.3.7 LeaveCriticalSection ( WL )
+                25.4.3.8 AddWaiter ( WL, waiterRecord )
+                25.4.3.9 RemoveWaiter ( WL, waiterRecord )
+                25.4.3.10 RemoveWaiters ( WL, c )
+                25.4.3.11 SuspendThisAgent ( WL, waiterRecord )
+                25.4.3.12 NotifyWaiter ( WL, waiterRecord )
+                25.4.3.13 EnqueueResolveInAgentJob ( agentSignifier, promiseCapability, resolution )
+                25.4.3.14 DoWait ( mode, typedArray, index, value, timeout )
+                25.4.3.15 EnqueueAtomicsWaitAsyncTimeoutJob ( WL, waiterRecord )
+                25.4.3.16 AtomicCompareExchangeInSharedBlock ( block, byteIndexInBuffer, elementSize, expectedBytes, replacementBytes )
+                25.4.3.17 AtomicReadModifyWrite ( typedArray, index, value, op )
+                25.4.3.18 ByteListBitwiseOp ( op, xBytes, yBytes )
+                25.4.3.19 ByteListEqual ( xBytes, yBytes )
+            25.4.4 Atomics.add ( typedArray, index, value )
+            25.4.5 Atomics.and ( typedArray, index, value )
+            25.4.6 Atomics.compareExchange ( typedArray, index, expectedValue, replacementValue )
+            25.4.7 Atomics.exchange ( typedArray, index, value )
+            25.4.8 Atomics.isLockFree ( size )
+            25.4.9 Atomics.load ( typedArray, index )
+            25.4.10 Atomics.or ( typedArray, index, value )
+            25.4.11 Atomics.store ( typedArray, index, value )
+            25.4.12 Atomics.sub ( typedArray, index, value )
+            25.4.13 Atomics.wait ( typedArray, index, value, timeout )
+            25.4.14 Atomics.waitAsync ( typedArray, index, value, timeout )
+            25.4.15 Atomics.notify ( typedArray, index, count )
+            25.4.16 Atomics.xor ( typedArray, index, value )
+            25.4.17 Atomics [ @@toStringTag ]
+        25.5 The JSON Object
+            25.5.1 JSON.parse ( text [ , reviver ] )
+                25.5.1.1 InternalizeJSONProperty ( holder, name, reviver )
+            25.5.2 JSON.stringify ( value [ , replacer [ , space ] ] )
+                25.5.2.1 JSON Serialization Record
+                25.5.2.2 SerializeJSONProperty ( state, key, holder )
+                25.5.2.3 QuoteJSONString ( value )
+                25.5.2.4 UnicodeEscape ( C )
+                25.5.2.5 SerializeJSONObject ( state, value )
+                25.5.2.6 SerializeJSONArray ( state, value )
+            25.5.3 JSON [ @@toStringTag ]
+    26 Managing Memory
+        26.1 WeakRef Objects
+            26.1.1 The WeakRef Constructor
+                26.1.1.1 WeakRef ( target )
+            26.1.2 Properties of the WeakRef Constructor
+                26.1.2.1 WeakRef.prototype
+            26.1.3 Properties of the WeakRef Prototype Object
+                26.1.3.1 WeakRef.prototype.constructor
+                26.1.3.2 WeakRef.prototype.deref ( )
+                26.1.3.3 WeakRef.prototype [ @@toStringTag ]
+            26.1.4 WeakRef Abstract Operations
+                26.1.4.1 WeakRefDeref ( weakRef )
+            26.1.5 Properties of WeakRef Instances
+        26.2 FinalizationRegistry Objects
+            26.2.1 The FinalizationRegistry Constructor
+                26.2.1.1 FinalizationRegistry ( cleanupCallback )
+            26.2.2 Properties of the FinalizationRegistry Constructor
+                26.2.2.1 FinalizationRegistry.prototype
+            26.2.3 Properties of the FinalizationRegistry Prototype Object
+                26.2.3.1 FinalizationRegistry.prototype.constructor
+                26.2.3.2 FinalizationRegistry.prototype.register ( target, heldValue [ , unregisterToken ] )
+                26.2.3.3 FinalizationRegistry.prototype.unregister ( unregisterToken )
+                26.2.3.4 FinalizationRegistry.prototype [ @@toStringTag ]
+            26.2.4 Properties of FinalizationRegistry Instances
+    27 Control Abstraction Objects
+        27.1 Iteration
+            27.1.1 Common Iteration Interfaces
+                27.1.1.1 The Iterable Interface
+                27.1.1.2 The Iterator Interface
+                27.1.1.3 The AsyncIterable Interface
+                27.1.1.4 The AsyncIterator Interface
+                27.1.1.5 The IteratorResult Interface
+            27.1.2 The %IteratorPrototype% Object
+                27.1.2.1 %IteratorPrototype% [ @@iterator ] ( )
+            27.1.3 The %AsyncIteratorPrototype% Object
+                27.1.3.1 %AsyncIteratorPrototype% [ @@asyncIterator ] ( )
+            27.1.4 Async-from-Sync Iterator Objects
+                27.1.4.1 CreateAsyncFromSyncIterator ( syncIteratorRecord )
+                27.1.4.2 The %AsyncFromSyncIteratorPrototype% Object
+                    27.1.4.2.1 %AsyncFromSyncIteratorPrototype%.next ( [ value ] )
+                    27.1.4.2.2 %AsyncFromSyncIteratorPrototype%.return ( [ value ] )
+                    27.1.4.2.3 %AsyncFromSyncIteratorPrototype%.throw ( [ value ] )
+                27.1.4.3 Properties of Async-from-Sync Iterator Instances
+                27.1.4.4 AsyncFromSyncIteratorContinuation ( result, promiseCapability )
+        27.2 Promise Objects
+            27.2.1 Promise Abstract Operations
+                27.2.1.1 PromiseCapability Records
+                    27.2.1.1.1 IfAbruptRejectPromise ( value, capability )
+                27.2.1.2 PromiseReaction Records
+                27.2.1.3 CreateResolvingFunctions ( promise )
+                    27.2.1.3.1 Promise Reject Functions
+                    27.2.1.3.2 Promise Resolve Functions
+                27.2.1.4 FulfillPromise ( promise, value )
+                27.2.1.5 NewPromiseCapability ( C )
+                27.2.1.6 IsPromise ( x )
+                27.2.1.7 RejectPromise ( promise, reason )
+                27.2.1.8 TriggerPromiseReactions ( reactions, argument )
+                27.2.1.9 HostPromiseRejectionTracker ( promise, operation )
+            27.2.2 Promise Jobs
+                27.2.2.1 NewPromiseReactionJob ( reaction, argument )
+                27.2.2.2 NewPromiseResolveThenableJob ( promiseToResolve, thenable, then )
+            27.2.3 The Promise Constructor
+                27.2.3.1 Promise ( executor )
+            27.2.4 Properties of the Promise Constructor
+                27.2.4.1 Promise.all ( iterable )
+                    27.2.4.1.1 GetPromiseResolve ( promiseConstructor )
+                    27.2.4.1.2 PerformPromiseAll ( iteratorRecord, constructor, resultCapability, promiseResolve )
+                    27.2.4.1.3 Promise.all Resolve Element Functions
+                27.2.4.2 Promise.allSettled ( iterable )
+                    27.2.4.2.1 PerformPromiseAllSettled ( iteratorRecord, constructor, resultCapability, promiseResolve )
+                    27.2.4.2.2 Promise.allSettled Resolve Element Functions
+                    27.2.4.2.3 Promise.allSettled Reject Element Functions
+                27.2.4.3 Promise.any ( iterable )
+                    27.2.4.3.1 PerformPromiseAny ( iteratorRecord, constructor, resultCapability, promiseResolve )
+                    27.2.4.3.2 Promise.any Reject Element Functions
+                27.2.4.4 Promise.prototype
+                27.2.4.5 Promise.race ( iterable )
+                    27.2.4.5.1 PerformPromiseRace ( iteratorRecord, constructor, resultCapability, promiseResolve )
+                27.2.4.6 Promise.reject ( r )
+                27.2.4.7 Promise.resolve ( x )
+                    27.2.4.7.1 PromiseResolve ( C, x )
+                27.2.4.8 Promise.withResolvers ( )
+                27.2.4.9 get Promise [ @@species ]
+            27.2.5 Properties of the Promise Prototype Object
+                27.2.5.1 Promise.prototype.catch ( onRejected )
+                27.2.5.2 Promise.prototype.constructor
+                27.2.5.3 Promise.prototype.finally ( onFinally )
+                27.2.5.4 Promise.prototype.then ( onFulfilled, onRejected )
+                    27.2.5.4.1 PerformPromiseThen ( promise, onFulfilled, onRejected [ , resultCapability ] )
+                27.2.5.5 Promise.prototype [ @@toStringTag ]
+            27.2.6 Properties of Promise Instances
+        27.3 GeneratorFunction Objects
+            27.3.1 The GeneratorFunction Constructor
+                27.3.1.1 GeneratorFunction ( ...parameterArgs, bodyArg )
+            27.3.2 Properties of the GeneratorFunction Constructor
+                27.3.2.1 GeneratorFunction.prototype
+            27.3.3 Properties of the GeneratorFunction Prototype Object
+                27.3.3.1 GeneratorFunction.prototype.constructor
+                27.3.3.2 GeneratorFunction.prototype.prototype
+                27.3.3.3 GeneratorFunction.prototype [ @@toStringTag ]
+            27.3.4 GeneratorFunction Instances
+                27.3.4.1 length
+                27.3.4.2 name
+                27.3.4.3 prototype
+        27.4 AsyncGeneratorFunction Objects
+            27.4.1 The AsyncGeneratorFunction Constructor
+                27.4.1.1 AsyncGeneratorFunction ( ...parameterArgs, bodyArg )
+            27.4.2 Properties of the AsyncGeneratorFunction Constructor
+                27.4.2.1 AsyncGeneratorFunction.prototype
+            27.4.3 Properties of the AsyncGeneratorFunction Prototype Object
+                27.4.3.1 AsyncGeneratorFunction.prototype.constructor
+                27.4.3.2 AsyncGeneratorFunction.prototype.prototype
+                27.4.3.3 AsyncGeneratorFunction.prototype [ @@toStringTag ]
+            27.4.4 AsyncGeneratorFunction Instances
+                27.4.4.1 length
+                27.4.4.2 name
+                27.4.4.3 prototype
+        27.5 Generator Objects
+            27.5.1 Properties of the Generator Prototype Object
+                27.5.1.1 Generator.prototype.constructor
+                27.5.1.2 Generator.prototype.next ( value )
+                27.5.1.3 Generator.prototype.return ( value )
+                27.5.1.4 Generator.prototype.throw ( exception )
+                27.5.1.5 Generator.prototype [ @@toStringTag ]
+            27.5.2 Properties of Generator Instances
+            27.5.3 Generator Abstract Operations
+                27.5.3.1 GeneratorStart ( generator, generatorBody )
+                27.5.3.2 GeneratorValidate ( generator, generatorBrand )
+                27.5.3.3 GeneratorResume ( generator, value, generatorBrand )
+                27.5.3.4 GeneratorResumeAbrupt ( generator, abruptCompletion, generatorBrand )
+                27.5.3.5 GetGeneratorKind ( )
+                27.5.3.6 GeneratorYield ( iterNextObj )
+                27.5.3.7 Yield ( value )
+                27.5.3.8 CreateIteratorFromClosure ( closure, generatorBrand, generatorPrototype )
+        27.6 AsyncGenerator Objects
+            27.6.1 Properties of the AsyncGenerator Prototype Object
+                27.6.1.1 AsyncGenerator.prototype.constructor
+                27.6.1.2 AsyncGenerator.prototype.next ( value )
+                27.6.1.3 AsyncGenerator.prototype.return ( value )
+                27.6.1.4 AsyncGenerator.prototype.throw ( exception )
+                27.6.1.5 AsyncGenerator.prototype [ @@toStringTag ]
+            27.6.2 Properties of AsyncGenerator Instances
+            27.6.3 AsyncGenerator Abstract Operations
+                27.6.3.1 AsyncGeneratorRequest Records
+                27.6.3.2 AsyncGeneratorStart ( generator, generatorBody )
+                27.6.3.3 AsyncGeneratorValidate ( generator, generatorBrand )
+                27.6.3.4 AsyncGeneratorEnqueue ( generator, completion, promiseCapability )
+                27.6.3.5 AsyncGeneratorCompleteStep ( generator, completion, done [ , realm ] )
+                27.6.3.6 AsyncGeneratorResume ( generator, completion )
+                27.6.3.7 AsyncGeneratorUnwrapYieldResumption ( resumptionValue )
+                27.6.3.8 AsyncGeneratorYield ( value )
+                27.6.3.9 AsyncGeneratorAwaitReturn ( generator )
+                27.6.3.10 AsyncGeneratorDrainQueue ( generator )
+                27.6.3.11 CreateAsyncIteratorFromClosure ( closure, generatorBrand, generatorPrototype )
+        27.7 AsyncFunction Objects
+            27.7.1 The AsyncFunction Constructor
+                27.7.1.1 AsyncFunction ( ...parameterArgs, bodyArg )
+            27.7.2 Properties of the AsyncFunction Constructor
+                27.7.2.1 AsyncFunction.prototype
+            27.7.3 Properties of the AsyncFunction Prototype Object
+                27.7.3.1 AsyncFunction.prototype.constructor
+                27.7.3.2 AsyncFunction.prototype [ @@toStringTag ]
+            27.7.4 AsyncFunction Instances
+                27.7.4.1 length
+                27.7.4.2 name
+            27.7.5 Async Functions Abstract Operations
+                27.7.5.1 AsyncFunctionStart ( promiseCapability, asyncFunctionBody )
+                27.7.5.2 AsyncBlockStart ( promiseCapability, asyncBody, asyncContext )
+                27.7.5.3 Await ( value )
+    28 Reflection
+        28.1 The Reflect Object
+            28.1.1 Reflect.apply ( target, thisArgument, argumentsList )
+            28.1.2 Reflect.construct ( target, argumentsList [ , newTarget ] )
+            28.1.3 Reflect.defineProperty ( target, propertyKey, attributes )
+            28.1.4 Reflect.deleteProperty ( target, propertyKey )
+            28.1.5 Reflect.get ( target, propertyKey [ , receiver ] )
+            28.1.6 Reflect.getOwnPropertyDescriptor ( target, propertyKey )
+            28.1.7 Reflect.getPrototypeOf ( target )
+            28.1.8 Reflect.has ( target, propertyKey )
+            28.1.9 Reflect.isExtensible ( target )
+            28.1.10 Reflect.ownKeys ( target )
+            28.1.11 Reflect.preventExtensions ( target )
+            28.1.12 Reflect.set ( target, propertyKey, V [ , receiver ] )
+            28.1.13 Reflect.setPrototypeOf ( target, proto )
+            28.1.14 Reflect [ @@toStringTag ]
+        28.2 Proxy Objects
+            28.2.1 The Proxy Constructor
+                28.2.1.1 Proxy ( target, handler )
+            28.2.2 Properties of the Proxy Constructor
+                28.2.2.1 Proxy.revocable ( target, handler )
+        28.3 Module Namespace Objects
+            28.3.1 @@toStringTag
+    29 Memory Model
+        29.1 Memory Model Fundamentals
+        29.2 Agent Events Records
+        29.3 Chosen Value Records
+        29.4 Candidate Executions
+        29.5 Abstract Operations for the Memory Model
+            29.5.1 EventSet ( execution )
+            29.5.2 SharedDataBlockEventSet ( execution )
+            29.5.3 HostEventSet ( execution )
+            29.5.4 ComposeWriteEventBytes ( execution, byteIndex, Ws )
+            29.5.5 ValueOfReadEvent ( execution, R )
+        29.6 Relations of Candidate Executions
+            29.6.1 agent-order
+            29.6.2 reads-bytes-from
+            29.6.3 reads-from
+            29.6.4 host-synchronizes-with
+            29.6.5 synchronizes-with
+            29.6.6 happens-before
+        29.7 Properties of Valid Executions
+            29.7.1 Valid Chosen Reads
+            29.7.2 Coherent Reads
+            29.7.3 Tear Free Reads
+            29.7.4 Sequentially Consistent Atomics
+            29.7.5 Valid Executions
+        29.8 Races
+        29.9 Data Races
+        29.10 Data Race Freedom
+        29.11 Shared Memory Guidelines
+    Annex A (informative) Grammar Summary
+        A.1 Lexical Grammar
+        A.2 Expressions
+        A.3 Statements
+        A.4 Functions and Classes
+        A.5 Scripts and Modules
+        A.6 Number Conversions
+        A.7 Time Zone Offset String Format
+        A.8 Regular Expressions
+    Annex B (normative) Additional ECMAScript Features for Web Browsers
+        B.1 Additional Syntax
+            B.1.1 HTML-like Comments
+            B.1.2 Regular Expressions Patterns
+                B.1.2.1 Static Semantics: Early Errors
+                B.1.2.2 Static Semantics: CountLeftCapturingParensWithin and CountLeftCapturingParensBefore
+                B.1.2.3 Static Semantics: IsCharacterClass
+                B.1.2.4 Static Semantics: CharacterValue
+                B.1.2.5 Runtime Semantics: CompileSubpattern
+                B.1.2.6 Runtime Semantics: CompileAssertion
+                B.1.2.7 Runtime Semantics: CompileAtom
+                B.1.2.8 Runtime Semantics: CompileToCharSet
+                    B.1.2.8.1 CharacterRangeOrUnion ( rer, A, B )
+                B.1.2.9 Static Semantics: ParsePattern ( patternText, u, v )
+        B.2 Additional Built-in Properties
+            B.2.1 Additional Properties of the Global Object
+                B.2.1.1 escape ( string )
+                B.2.1.2 unescape ( string )
+            B.2.2 Additional Properties of the String.prototype Object
+                B.2.2.1 String.prototype.substr ( start, length )
+                B.2.2.2 String.prototype.anchor ( name )
+                    B.2.2.2.1 CreateHTML ( string, tag, attribute, value )
+                B.2.2.3 String.prototype.big ( )
+                B.2.2.4 String.prototype.blink ( )
+                B.2.2.5 String.prototype.bold ( )
+                B.2.2.6 String.prototype.fixed ( )
+                B.2.2.7 String.prototype.fontcolor ( color )
+                B.2.2.8 String.prototype.fontsize ( size )
+                B.2.2.9 String.prototype.italics ( )
+                B.2.2.10 String.prototype.link ( url )
+                B.2.2.11 String.prototype.small ( )
+                B.2.2.12 String.prototype.strike ( )
+                B.2.2.13 String.prototype.sub ( )
+                B.2.2.14 String.prototype.sup ( )
+                B.2.2.15 String.prototype.trimLeft ( )
+                B.2.2.16 String.prototype.trimRight ( )
+            B.2.3 Additional Properties of the Date.prototype Object
+                B.2.3.1 Date.prototype.getYear ( )
+                B.2.3.2 Date.prototype.setYear ( year )
+                B.2.3.3 Date.prototype.toGMTString ( )
+            B.2.4 Additional Properties of the RegExp.prototype Object
+                B.2.4.1 RegExp.prototype.compile ( pattern, flags )
+        B.3 Other Additional Features
+            B.3.1 Labelled Function Declarations
+            B.3.2 Block-Level Function Declarations Web Legacy Compatibility Semantics
+                B.3.2.1 Changes to FunctionDeclarationInstantiation
+                B.3.2.2 Changes to GlobalDeclarationInstantiation
+                B.3.2.3 Changes to EvalDeclarationInstantiation
+                B.3.2.4 Changes to Block Static Semantics: Early Errors
+                B.3.2.5 Changes to switch Statement Static Semantics: Early Errors
+                B.3.2.6 Changes to BlockDeclarationInstantiation
+            B.3.3 FunctionDeclarations in IfStatement Statement Clauses
+            B.3.4 VariableStatements in Catch Blocks
+            B.3.5 Initializers in ForIn Statement Heads
+            B.3.6 The [[IsHTMLDDA]] Internal Slot
+                B.3.6.1 Changes to ToBoolean
+                B.3.6.2 Changes to IsLooselyEqual
+                B.3.6.3 Changes to the typeof Operator
+            B.3.7 Non-default behaviour in HostMakeJobCallback
+            B.3.8 Non-default behaviour in HostEnsureCanAddPrivateElement
+    Annex C (informative) The Strict Mode of ECMAScript
+    Annex D (informative) Host Layering Points
+        D.1 Host Hooks
+        D.2 Host-defined Fields
+        D.3 Host-defined Objects
+        D.4 Running Jobs
+        D.5 Internal Methods of Exotic Objects
+        D.6 Built-in Objects and Methods
+    Annex E (informative) Corrections and Clarifications in ECMAScript 2015 with Possible Compatibility Impact
+    Annex F (informative) Additions and Changes That Introduce Incompatibilities with Prior Editions
+    Colophon
+    Bibliography
+    Copyright & Software License

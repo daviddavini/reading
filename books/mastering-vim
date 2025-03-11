@@ -1,0 +1,171 @@
+Mastering Vim: 2nd Edition
+    Copyright and credits
+    Dedication
+    Contributors
+    Table of Contents
+    Preface
+    Chapter 1: Getting Started
+        Technical requirements
+        A brief history lesson
+        Let’s start a conversation (about modal interfaces)
+        Installation
+            Setting up on Linux and Unix-like systems
+            Setting up on macOS
+            Setting up on Windows
+            Setting up on ChromeOS
+            Verifying and troubleshooting the installation
+        Vanilla Vim versus gVim
+        Configuring Vim with your .vimrc
+        Common operations (or, how to exit Vim)
+            Opening files
+            Changing text
+            Saving and closing files
+        Moving around – talk to your editor
+        Making simple edits in insert mode
+        Persistent undo and repeat
+        Read the Vim manual using :help
+        Summary
+    Chapter 2: Advanced Editing\n and Navigation
+        Technical requirements
+        Installing plugins
+        Organizing the workspace
+            Buffers
+            Plugin spotlight – unimpaired
+            Windows
+            Tabs
+            Folds
+        Navigating file trees
+            Netrw
+            :e with wildmenu enabled
+            Plugin spotlight – NERDTree
+            Plugin spotlight – Vinegar
+            Plugin spotlight – CtrlP
+        Navigating text
+            Jumping into insert mode
+            Searching with / and ?
+            Utilizing text objects
+            Plugin spotlight – EasyMotion
+        Copying and pasting with registers
+            Where do the registers come in?
+            Copying from outside of Vim
+        Summary
+    Chapter 3: Follow the Leader\n Plugin Management
+        Technical requirements
+        Managing plugins
+            vim-plug
+            Alternatives to vim-plug
+            Profiling slow plugins
+        Deeper dive into modes
+            Normal mode
+            Command-line and ex modes
+            Insert mode
+            Visual and select modes
+            Replace and virtual replace modes
+            Terminal mode
+            Operator-pending mode (bonus)
+        Remapping commands
+            Mode – aware remapping
+        The leader key
+        Configuring plugins
+        Summary
+    Chapter 4: Understanding Structured Text
+        Technical requirements
+        Code autocomplete
+            Built-in autocomplete
+            YouCompleteMe
+        Navigating the code base with tags
+            Exuberant Ctags
+            Automatically updating the tags
+        Visualizing the undo tree
+        Summary
+    Chapter 5: Build, Test, and Execute
+        Technical requirements
+        Working with version control
+            A quick-and-dirty version control and Git introduction
+            Integrating Git with Vim (vim-fugitive)
+        Resolving conflicts with vimdiff
+            Comparing two files
+            vimdiff and Git
+        tmux, screen, and Vim terminal mode
+            tmux
+            Screen
+            Terminal mode
+        Building and testing
+            Quickfix list
+            Location list
+            Building code
+            Testing code
+            Syntax checking code with linters
+        Summary
+    Chapter 6: Refactoring Code with Regex and Macros
+        Technical requirements
+        Search or replace with regular expressions
+            Search and replace
+            Operations across files using arglist
+            Regex basics
+            More about magic
+            Applying the knowledge in practice
+        Recording and playing macros
+            Editing macros
+            Recursive macros
+            Running macros across multiple files
+        Using plugins to do the job
+        Summary
+    Chapter 7: Making Vim Your Own
+        Technical requirements
+        Playing with the Vim UI
+            Color schemes
+            The status line
+            gVim-specific configuration
+        Keeping track of configuration files
+        Healthy Vim customization habits
+            Optimizing your workflow
+            Keeping .vimrc organized
+        Summary
+    Chapter 8: Transcending the Mundane with Vimscript
+        Technical requirements
+        Why Vimscript?
+        How to execute Vimscript
+        Major changes in Vimscript 9
+        Learning the syntax
+            Setting variables
+            Surfacing output
+            Conditional statements
+            Lists
+            Dictionaries
+            Loops
+            Functions
+            Classes (Vim9script)
+            Lambda expressions
+            Map and filter
+            Interacting with Vim
+            File-related commands
+            Prompts
+            Using :help
+        A word about style guides
+        Let’s build a plugin
+            Plugin layout
+            The basics
+            Housekeeping
+            Improving our plugin
+            Distributing the plugin
+            Where to take the plugin from here
+        Further reading
+        Summary
+    Chapter 9: Where to Go from Here
+        Seven habits of effective text editing
+        Modal interfaces everywhere
+            A Vim-like web browsing experience
+            Vim everywhere else
+        Neovim
+            Why make another Vim?
+            Installing and configuring Neovim
+            Checking health
+            Sane defaults
+        Recommended reading and communities
+            Mailing lists
+            IRC
+            Other communities
+            Learning resources
+        A word about Uganda
+        Summary

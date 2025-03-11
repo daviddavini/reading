@@ -1,0 +1,244 @@
+Filesystem Hierarchy Standard
+    1. Introduction
+    
+        1.1. Purpose
+        1.2. Conventions
+    
+    2. The Filesystem
+    3. The Root Filesystem
+    
+        3.1. Purpose
+        3.2. Requirements
+        3.3. Specific Options
+        3.4. /bin : Essential user command binaries (for use by all users)
+    
+            3.4.1. Purpose
+            3.4.2. Requirements
+            3.4.3. Specific Options
+    
+        3.5. /boot : Static files of the boot loader
+    
+            3.5.1. Purpose
+            3.5.2. Specific Options
+    
+        3.6. /dev : Device files
+    
+            3.6.1. Purpose
+            3.6.2. Specific Options
+    
+        3.7. /etc : Host-specific system configuration
+    
+            3.7.1. Purpose
+            3.7.2. Requirements
+            3.7.3. Specific Options
+            3.7.4. /etc/opt : Configuration files for /opt
+            3.7.5. /etc/X11 : Configuration for the X Window System (optional)
+            3.7.6. /etc/sgml : Configuration files for SGML (optional)
+            3.7.7. /etc/xml : Configuration files for XML (optional)
+    
+        3.8. /home : User home directories (optional)
+    
+            3.8.1. Purpose
+            3.8.2. Requirements
+            3.8.3. Home Directory Specifications and Conventions
+    
+        3.9. /lib : Essential shared libraries and kernel modules
+    
+            3.9.1. Purpose
+            3.9.2. Requirements
+            3.9.3. Specific Options
+    
+        3.10. /lib<qual> : Alternate format essential shared libraries (optional)
+    
+            3.10.1. Purpose
+            3.10.2. Requirements
+    
+        3.11. /media : Mount point for removable media
+    
+            3.11.1. Purpose
+            3.11.2. Specific Options
+    
+        3.12. /mnt : Mount point for a temporarily mounted filesystem
+    
+            3.12.1. Purpose
+    
+        3.13. /opt : Add-on application software packages
+    
+            3.13.1. Purpose
+            3.13.2. Requirements
+    
+        3.14. /root : Home directory for the root user (optional)
+    
+            3.14.1. Purpose
+    
+        3.15. /run : Run-time variable data
+    
+            3.15.1. Purpose
+            3.15.2. Requirements
+    
+        3.16. /sbin : System binaries
+    
+            3.16.1. Purpose
+            3.16.2. Requirements
+            3.16.3. Specific Options
+    
+        3.17. /srv : Data for services provided by this system
+    
+            3.17.1. Purpose
+    
+        3.18. /tmp : Temporary files
+    
+            3.18.1. Purpose
+    
+    4. The /usr Hierarchy
+    
+        4.1. Purpose
+        4.2. Requirements
+        4.3. Specific Options
+        4.4. /usr/bin : Most user commands
+    
+            4.4.1. Purpose
+            4.4.2. Requirements
+            4.4.3. Specific Options
+    
+        4.5. /usr/include : Directory for standard include files.
+    
+            4.5.1. Purpose
+            4.5.2. Specific Options
+    
+        4.6. /usr/lib : Libraries for programming and packages
+    
+            4.6.1. Purpose
+            4.6.2. Specific Options
+    
+        4.7. /usr/libexec : Binaries run by other programs (optional)
+    
+            4.7.1. Purpose
+    
+        4.8. /usr/lib<qual> : Alternate format libraries (optional)
+    
+            4.8.1. Purpose
+    
+        4.9. /usr/local : Local hierarchy
+    
+            4.9.1. Purpose
+            4.9.2. Requirements
+            4.9.3. Specific Options
+            4.9.4. /usr/local/share : Local architecture-independent hierarchy
+    
+        4.10. /usr/sbin : Non-essential standard system binaries
+    
+            4.10.1. Purpose
+            4.10.2. Requirements
+    
+        4.11. /usr/share : Architecture-independent data
+    
+            4.11.1. Purpose
+            4.11.2. Requirements
+            4.11.3. Specific Options
+            4.11.4. /usr/share/color : Color management information (optional)
+            4.11.5. /usr/share/dict : Word lists (optional)
+            4.11.6. /usr/share/man : Manual pages
+            4.11.7. /usr/share/misc : Miscellaneous architecture-independent data
+            4.11.8. /usr/share/ppd : Printer definitions (optional)
+            4.11.9. /usr/share/sgml : SGML data (optional)
+            4.11.10. /usr/share/xml : XML data (optional)
+    
+        4.12. /usr/src : Source code (optional)
+    
+            4.12.1. Purpose
+    
+    5. The /var Hierarchy
+    
+        5.1. Purpose
+        5.2. Requirements
+        5.3. Specific Options
+        5.4. /var/account : Process accounting logs (optional)
+    
+            5.4.1. Purpose
+    
+        5.5. /var/cache : Application cache data
+    
+            5.5.1. Purpose
+            5.5.2. Specific Options
+            5.5.3. /var/cache/fonts : Locally-generated fonts (optional)
+            5.5.4. /var/cache/man : Locally-formatted manual pages (optional)
+    
+        5.6. /var/crash : System crash dumps (optional)
+    
+            5.6.1. Purpose
+    
+        5.7. /var/games : Variable game data (optional)
+    
+            5.7.1. Purpose
+    
+        5.8. /var/lib : Variable state information
+    
+            5.8.1. Purpose
+            5.8.2. Requirements
+            5.8.3. Specific Options
+            5.8.4. /var/lib/<editor> : Editor backup files and state (optional)
+            5.8.5. /var/lib/color : Color management information (optional)
+            5.8.6. /var/lib/hwclock : State directory for hwclock (optional)
+            5.8.7. /var/lib/misc : Miscellaneous variable data
+    
+        5.9. /var/lock : Lock files
+    
+            5.9.1. Purpose
+    
+        5.10. /var/log : Log files and directories
+    
+            5.10.1. Purpose
+            5.10.2. Specific Options
+    
+        5.11. /var/mail : User mailbox files (optional)
+    
+            5.11.1. Purpose
+    
+        5.12. /var/opt : Variable data for /opt
+    
+            5.12.1. Purpose
+    
+        5.13. /var/run : Run-time variable data
+    
+            5.13.1. Purpose
+            5.13.2. Requirements
+    
+        5.14. /var/spool : Application spool data
+    
+            5.14.1. Purpose
+            5.14.2. Specific Options
+            5.14.3. /var/spool/lpd : Line-printer daemon print queues (optional)
+            5.14.4. /var/spool/rwho : Rwhod files (optional)
+    
+        5.15. /var/tmp : Temporary files preserved between system reboots
+    
+            5.15.1. Purpose
+    
+        5.16. /var/yp : Network Information Service (NIS) database files (optional)
+    
+            5.16.1. Purpose
+    
+    6. Operating System Specific Annex
+    
+        6.1. Linux
+    
+            6.1.1. / : Root directory
+            6.1.2. /bin : Essential user command binaries (for use by all users)
+            6.1.3. /dev : Devices and special files
+            6.1.4. /etc : Host-specific system configuration
+            6.1.5. /proc : Kernel and process information virtual filesystem
+            6.1.6. /sbin : Essential system binaries
+            6.1.7. /sys : Kernel and system information virtual filesystem
+            6.1.8. /usr/include : Header files included by C programs
+            6.1.9. /usr/src : Source code
+            6.1.10. /var/spool/cron : cron and at jobs
+    
+    7. Appendix
+    
+        7.1. The FHS mailing list
+        7.2. Background of the FHS
+        7.3. General Guidelines
+        7.4. Scope
+        7.5. Acknowledgments
+        7.6. Contributors

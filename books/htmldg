@@ -1,0 +1,1016 @@
+HTML & XHTML: The Definitive Guide
+x   Preface
+x       Our Audience
+x       Text Conventions
+x       Versions and Semantics
+x       HTML Versus XHTML
+x           Deprecated Features
+x           A Definitive Guide
+x       Using Code Examples
+x       Safari® Enabled
+x       Comments and Questions
+x       Acknowledgments
+x   HTML, XHTML, and the World Wide Web
+x       1.1 The Internet
+x           1.1.1 In the Beginning
+x           1.1.2 HTML and the Web
+x           1.1.3 Golden Threads
+x       1.2 Talking the Internet Talk
+x           1.2.1 Clients, Servers, and Browsers
+x           1.2.2 The Flow of Information
+x           1.2.3 Beneath the Web
+x           1.2.4 Standards Organizations
+x               1.2.4.1 The World Wide Web Consortium
+x               1.2.4.2 The Internet Engineering Task Force
+x       1.3 HTML and XHTML: What They Are
+x       1.4 HTML and XHTML: What They Aren’t
+x           1.4.1 Content Versus Appearance
+x       1.5 Standards and Extensions
+x           1.5.1 Nonstandard Extensions
+x           1.5.2 Extensions: Pro and Con
+x           1.5.3 Avoiding Extensions
+x           1.5.4 Extensions Through Modules
+x       1.6 Tools for the Web Designer
+x           1.6.1 Essentials
+x               1.6.1.1 Text processor or WYSIWYG editor?
+x               1.6.1.2 Browser software
+x           1.6.2 An Extended Toolkit
+    Quick Start
+x       2.1 Writing Tools
+x       2.2 A First HTML Document
+x       2.3 Embedded Tags
+x           2.3.1 Start and End Tags
+x       2.4 HTML Skeleton
+x       2.5 The Flesh on an HTML or XHTML Document
+x           2.5.1 Comments
+x           2.5.2 Text
+x           2.5.3 Multimedia
+x       2.6 Text
+x           2.6.1 Appearance of Text
+x               2.6.1.1 Content-based text styles
+x               2.6.1.2 Physical styles
+x               2.6.1.3 Special text characters
+x           2.6.2 Text Structures
+x               2.6.2.1 Divisions, paragraphs, and line breaks
+x               2.6.2.2 Headings
+x               2.6.2.3 Horizontal rules
+x               2.6.2.4 Preformatted text
+        2.7 Hyperlinks
+            2.7.1 URLs
+            2.7.2 Anchors
+            2.7.3 Hyperlink Names and Navigation
+            2.7.4 Anchors Beyond
+        2.8 Images Are Special
+            2.8.1 Inline Images
+            2.8.2 Image Maps
+        2.9 Lists, Searchable Documents, and Forms
+            2.9.1 Unordered, Ordered, and Definition Lists
+            2.9.2 Searchable Documents and Forms
+        2.10 Tables
+        2.11 Frames
+        2.12 Stylesheets and JavaScript
+        2.13 Forging Ahead
+    Anatomy of an HTML Document
+        3.1 Appearances Can Deceive
+        3.2 Structure of an HTML Document
+        3.3 Tags and Attributes
+            3.3.1 The Syntax of a Tag
+            3.3.2 Sample Tags
+            3.3.3 Starting and Ending Tags
+            3.3.4 Proper and Improper Nesting
+            3.3.5 Tags Without Ends
+            3.3.6 Omitting Tags
+            3.3.7 Ignored or Redundant Tags
+        3.4 Well-Formed Documents and XHTML
+        3.5 Document Content
+            3.5.1 Advice Versus Control
+            3.5.2 Character Entities
+            3.5.3 Comments
+        3.6 HTML/XHTML Document Elements
+            3.6.1 The <html> Tag
+                3.6.1.1 The dir attribute
+                3.6.1.2 The lang attribute
+                3.6.1.3 The version attribute
+        3.7 The Document Header
+            3.7.1 The <head> Tag
+                3.7.1.1 The dir and lang attributes
+                3.7.1.2 The profile attribute
+            3.7.2 The <title> Tag
+                3.7.2.1 What’s in a title?
+                3.7.2.2 The dir and lang attributes
+            3.7.3 Related Header Tags
+        3.8 The Document Body
+            3.8.1 The <body> Tag
+            3.8.2 Frames
+        3.9 Editorial Markup
+            3.9.1 The <ins> and <del> Tags
+                3.9.1.1 The cite attribute
+                3.9.1.2 The datetime attribute
+                3.9.1.3 The class, dir, event, id, lang, style, title, and events attributes
+            3.9.2 Using Editorial Markup
+        3.10 The <bdo> Tag
+    Text Basics
+        4.1 Divisions and Paragraphs
+            4.1.1 The <div> Tag
+                4.1.1.1 The align attribute
+                4.1.1.2 The nowrap attribute
+                4.1.1.3 The dir and lang attributes
+                4.1.1.4 The id attribute
+                4.1.1.5 The title attribute
+                4.1.1.6 The class and style attributes
+                4.1.1.7 Event attributes
+            4.1.2 The <p> Tag
+                4.1.2.1 Paragraph rendering
+                4.1.2.2 The align attribute
+                4.1.2.3 The dir and lang attributes
+                4.1.2.4 The class, id, style, and title attributes
+                4.1.2.5 Event attributes
+                4.1.2.6 Allowed paragraph content
+                4.1.2.7 Allowed paragraph usage
+        4.2 Headings
+            4.2.1 Heading Tags
+                4.2.1.1 The align attribute
+                4.2.1.2 The dir and lang attributes
+                4.2.1.3 The class, id, style, and title attributes
+                4.2.1.4 Event attributes
+            4.2.2 Appropriate Use of Headings
+            4.2.3 Using Headings for Smaller Text
+            4.2.4 Allowed Heading Content
+            4.2.5 Allowed Heading Usage
+            4.2.6 Adding Images to Headings
+        4.3 Changing Text Appearance and Meaning
+            4.3.1 Content-Based Styles
+            4.3.2 Physical Styles
+        4.4 Content-Based Style Tags
+            4.4.1 The <abbr> Tag
+            4.4.2 The <acronym> Tag
+            4.4.3 The <cite> Tag
+            4.4.4 The <code> Tag
+            4.4.5 The <dfn> Tag
+            4.4.6 The <em> Tag
+            4.4.7 The <kbd> Tag
+            4.4.8 The <samp> Tag
+            4.4.9 The <strong> Tag
+            4.4.10 The <var> Tag
+            4.4.11 The class, style, id, and title Attributes
+            4.4.12 The dir and lang Attributes
+            4.4.13 Event Attributes
+            4.4.14 Summary of Content-Based Tags
+            4.4.15 Allowed Content
+            4.4.16 Allowed Usage
+            4.4.17 Combining Content-Based Styles
+        4.5 Physical Style Tags
+            4.5.1 The <b> Tag
+            4.5.2 The <big> Tag
+            4.5.3 The <blink> Tag (Obsolete Extension)
+            4.5.4 The <i> Tag
+            4.5.5 The <s> Tag (Deprecated)
+            4.5.6 The <small> Tag
+            4.5.7 The <strike> Tag (Deprecated)
+            4.5.8 The <sub> Tag
+            4.5.9 The <sup> Tag
+            4.5.10 The <tt> Tag
+            4.5.11 The <u> Tag (Deprecated)
+            4.5.12 The dir and lang Attributes
+            4.5.13 The class, style, id, and title Attributes
+            4.5.14 Event Attributes
+            4.5.15 Summary of Physical Style Tags
+            4.5.16 Allowed Content
+            4.5.17 Allowed Usage
+            4.5.18 Combining Physical Styles
+        4.6 Precise Spacing and Layout
+            4.6.1 The <br> Tag
+                4.6.1.1 The clear attribute
+                4.6.1.2 The class, id, style, and title attributes
+            4.6.2 The <nobr> Tag (Extension)
+            4.6.3 The <wbr> Tag (Extension)
+            4.6.4 Better Line-Breaking Rules
+            4.6.5 The <pre> Tag
+                4.6.5.1 Allowable content
+                4.6.5.2 The width attribute
+                4.6.5.3 The dir and lang attributes
+                4.6.5.4 The class, id, style, and title attributes
+                4.6.5.5 Event attributes
+            4.6.6 The <center> Tag (Deprecated)
+                4.6.6.1 The dir and lang attributes
+                4.6.6.2 The class, id, style, and title attributes
+                4.6.6.3 Event attributes
+            4.6.7 The <listing> Tag (Obsolete)
+            4.6.8 The <xmp> Tag (Obsolete)
+            4.6.9 The <plaintext> Tag (Obsolete)
+        4.7 Block Quotes
+            4.7.1 The <blockquote> Tag
+                4.7.1.1 The cite attribute
+                4.7.1.2 The dir and lang attributes
+                4.7.1.3 The class, id, style, and title attributes
+                4.7.1.4 Event attributes
+            4.7.2 The <q> Tag
+                4.7.2.1 The cite attribute
+                4.7.2.2 The dir and lang attributes
+                4.7.2.3 The class, id, style, and title attributes
+                4.7.2.4 Event attributes
+        4.8 Addresses
+            4.8.1 The <address> Tag
+                4.8.1.1 The dir and lang attributes
+                4.8.1.2 The class, id, style, and title attributes
+                4.8.1.3 Event attributes
+        4.9 Special Character Encoding
+            4.9.1 Special Characters
+            4.9.2 Inserting Special Characters
+        4.10 HTML’s Obsolete Expanded Font Handling
+            4.10.1 The Extended Font Size Model
+            4.10.2 The <basefont> Tag (Deprecated)
+            4.10.3 The <font> Tag (Deprecated)
+                4.10.3.1 The size attribute
+                4.10.3.2 The color attribute
+                4.10.3.3 The face attribute
+                4.10.3.4 The dir and lang attributes
+                4.10.3.5 The class, id, style, and title attributes
+    Rules, Images, and Multimedia
+        5.1 Horizontal Rules
+            5.1.1 The <hr> Tag
+                5.1.1.1 The size attribute
+                5.1.1.2 The noshade attribute
+                5.1.1.3 The width attribute
+                5.1.1.4 The align attribute
+                5.1.1.5 The color attribute
+                5.1.1.6 Combining rule attributes
+                5.1.1.7 The class, dir, event, id, lang, style, and title attributes
+            5.1.2 Using Rules to Divide Your Document
+            5.1.3 Using Rules in Headers and Footers
+        5.2 Inserting Images in Your Documents
+            5.2.1 Understanding Image Formats
+                5.2.1.1 GIF
+                5.2.1.2 Interlacing, transparency, and animation
+                5.2.1.3 JPEG
+                5.2.1.4 PNG
+            5.2.2 When to Use Images
+            5.2.3 When to Use Text
+            5.2.4 Speeding Image Downloads
+            5.2.5 JPEG, PNG, or GIF?
+            5.2.6 The <img> Tag
+                5.2.6.1 The src attribute
+                5.2.6.2 The lowsrc attribute
+                5.2.6.3 The alt and longdesc attributes
+                5.2.6.4 The align attribute
+                5.2.6.5 Wrapping text around images
+                5.2.6.6 Centering an image
+                5.2.6.7 Align and <center> are deprecated
+                5.2.6.8 The border attribute
+                5.2.6.9 Removing the image border
+                5.2.6.10 The height and width attributes
+                5.2.6.11 Resizing and flood-filling images
+                5.2.6.12 Problems with height and width
+                5.2.6.13 The hspace and vspace attributes
+                5.2.6.14 The ismap and usemap attributes
+                5.2.6.15 The class, dir, event, id, lang, style, and title attributes
+                5.2.6.16 The name, onAbort, onError, onLoad, and other event attributes
+                5.2.6.17 Combining <img> attributes
+            5.2.7 Video Extensions
+                5.2.7.1 The dynsrc attribute
+                5.2.7.2 The controls attribute
+                5.2.7.3 The loop attribute
+                5.2.7.4 The start attribute
+                5.2.7.5 Combining movie <img> attributes
+        5.3 Document Colors and Background Images
+            5.3.1 Additions and Extensions to the <body> Tag
+                5.3.1.1 The bgcolor attribute
+                5.3.1.2 The background attribute
+                5.3.1.3 The bgproperties attribute
+                5.3.1.4 The text attribute
+                5.3.1.5 The link, vlink, and alink attributes
+                5.3.1.6 The leftmargin attribute
+                5.3.1.7 The topmargin attribute
+                5.3.1.8 The style and class attributes
+                5.3.1.9 Mixing and matching body attributes
+            5.3.2 Extending a Warning
+                5.3.2.1 Problems with background images
+                5.3.2.2 Problems with background, text, and link colors
+                5.3.2.3 And then again
+        5.4 Background Audio
+            5.4.1 The <bgsound> Tag
+                5.4.1.1 The src attribute
+                5.4.1.2 The loop attribute
+            5.4.2 Alternative Audio Support
+        5.5 Animated Text
+            5.5.1 The <marquee> Tag
+                5.5.1.1 The align attribute
+                5.5.1.2 The behavior, direction, and loop attributes
+                5.5.1.3 The bgcolor attribute
+                5.5.1.4 The height and width attributes
+                5.5.1.5 The hspace and vspace attributes
+                5.5.1.6 The scrollamount and scrolldelay attributes
+        5.6 Other Multimedia Content
+            5.6.1 Embedded Versus Referenced Content
+            5.6.2 Referencing Audio, Video, and Images
+            5.6.3 Appropriate Linking Styles
+            5.6.4 Embedding Other Document Types
+    Links and Webs
+        6.1 Hypertext Basics
+        6.2 Referencing Documents: The URL
+            6.2.1 Writing a URL
+                6.2.1.1 Handling reserved and unsafe characters
+            6.2.2 Absolute and Relative URLs
+                6.2.2.1 Relative schemes and servers
+                6.2.2.2 Relative document directories
+                6.2.2.3 Using relative URLs
+            6.2.3 The http URL
+                6.2.3.1 The http server
+                6.2.3.2 The http port
+                6.2.3.3 The http path
+                6.2.3.4 The http document fragment
+                6.2.3.5 The http search parameter
+                6.2.3.6 Sample http URLs
+            6.2.4 The file URL
+                6.2.4.1 The file server
+                6.2.4.2 The file path
+                6.2.4.3 Sample file URLs
+            6.2.5 The mailto URL
+                6.2.5.1 Defining mail header fields
+            6.2.6 The ftp URL
+                6.2.6.1 The ftp user and password
+                6.2.6.2 The ftp server and port
+                6.2.6.3 The ftp path and typecode
+                6.2.6.4 Sample ftp URLs
+            6.2.7 The javascript URL
+                6.2.7.1 The javascript URL arguments
+            6.2.8 The news URL
+                6.2.8.1 Accessing entire newsgroups
+                6.2.8.2 Accessing single messages
+            6.2.9 The nntp URL
+                6.2.9.1 The nntp server and port
+                6.2.9.2 The nntp newsgroup and article
+                6.2.9.3 Sample nntp URLs
+            6.2.10 The telnet URL
+                6.2.10.1 The Telnet user and password
+                6.2.10.2 The Telnet server and port
+            6.2.11 The gopher URL
+                6.2.11.1 The gopher server and port
+                6.2.11.2 The gopher path
+        6.3 Creating Hyperlinks
+            6.3.1 The <a> Tag
+                6.3.1.1 Allowed content
+                6.3.1.2 The href attribute
+                6.3.1.3 The name and id attributes
+                6.3.1.4 The event attributes
+                6.3.1.5 The rel and rev attributes
+                6.3.1.6 The style and class attributes
+                6.3.1.7 The lang and dir attributes
+                6.3.1.8 The target attribute
+                6.3.1.9 The title attribute
+                6.3.1.10 The charset, hreflang, and type attributes
+                6.3.1.11 The coords and shape attributes
+                6.3.1.12 The accesskey and tabindex attributes
+            6.3.2 Linking to Other Documents
+            6.3.3 Linking Within a Document
+        6.4 Creating Effective Links
+            6.4.1 Lists of Links
+            6.4.2 Inline References
+            6.4.3 Linking Dos and Don’ts
+            6.4.4 Using Images and Links
+        6.5 Mouse-Sensitive Images
+            6.5.1 Server-Side Image Maps
+                6.5.1.1 Server-side considerations
+            6.5.2 Client-Side Image Maps
+            6.5.3 The <map> Tag
+                6.5.3.1 The name attribute
+                6.5.3.2 The class, id, style, and title attributes
+                6.5.3.3 The event attributes
+            6.5.4 The <area> Tag
+                6.5.4.1 The alt attribute
+                6.5.4.2 The coords attribute
+                6.5.4.3 The href attribute
+                6.5.4.4 The nohref attribute
+                6.5.4.5 The notab, taborder, and tabindex attributes
+                6.5.4.6 The event attributes
+                6.5.4.7 The shape attribute
+                6.5.4.8 The target attribute
+                6.5.4.9 The title attribute
+                6.5.4.10 The class, dir, id, lang, and style attributes
+            6.5.5 A Client-Side Image-Map Example
+            6.5.6 Handling Other Browsers
+            6.5.7 Effective Use of Mouse-Sensitive Images
+        6.6 Creating Searchable Documents
+            6.6.1 The <isindex> Tag (Deprecated)
+                6.6.1.1 The prompt attribute
+                6.6.1.2 The query URL
+                6.6.1.3 The action attribute
+                6.6.1.4 The class, dir, id, lang, style, and title attributes
+                6.6.1.5 Server dependencies
+        6.7 Relationships
+            6.7.1 The <base> Header Element
+                6.7.1.1 The href attribute
+                6.7.1.2 The target attribute
+                6.7.1.3 Using <base>
+            6.7.2 The <link> Header Element
+                6.7.2.1 The href attribute
+                6.7.2.2 The rel and rev attributes
+                6.7.2.3 The title attribute
+                6.7.2.4 The type attribute
+                6.7.2.5 How browsers might use <link>
+                6.7.2.6 Other <link> attributes
+        6.8 Supporting Document Automation
+            6.8.1 The <meta> Header Element
+                6.8.1.1 The name attribute
+                6.8.1.2 The content attribute
+                6.8.1.3 The http-equiv attribute
+                6.8.1.4 The charset attribute
+                6.8.1.5 The scheme attribute
+            6.8.2 The <nextid> Header Element (Archaic)
+                6.8.2.1 The n attribute
+    Formatted Lists
+        7.1 Unordered Lists
+            7.1.1 The <ul> Tag
+                7.1.1.1 The type attribute
+                7.1.1.2 Compact unordered lists
+                7.1.1.3 The style and class attributes
+                7.1.1.4 The lang and dir attributes
+                7.1.1.5 The id and title attributes
+                7.1.1.6 The event attributes
+        7.2 Ordered Lists
+            7.2.1 The <ol> Tag
+                7.2.1.1 The start attribute
+                7.2.1.2 The type attribute
+                7.2.1.3 Compact ordered lists
+                7.2.1.4 The class, dir, id, lang, event, style, and title attributes
+        7.3 The <li> Tag
+            7.3.1 Changing the Style and Sequence of Individual List Items
+                7.3.1.1 The type attribute
+                7.3.1.2 The value attribute
+                7.3.1.3 The style and class attributes
+                7.3.1.4 The class, dir, id, lang, event, style, and title attributes
+        7.4 Nesting Lists
+            7.4.1 Nested Unordered Lists
+            7.4.2 Nested Ordered Lists
+        7.5 Definition Lists
+            7.5.1 The <dl> Tag
+                7.5.1.1 More compact definition lists
+                7.5.1.2 The class, dir, id, lang, style, title, and event attributes
+            7.5.2 The <dt> Tag
+                7.5.2.1 Formatting text with <dt>
+                7.5.2.2 The class, dir, id, lang, style, title, and event attributes
+            7.5.3 The <dd> Tag
+                7.5.3.1 The class, dir, id, lang, style, title, and event attributes
+        7.6 Appropriate List Usage
+        7.7 Directory Lists
+            7.7.1 The <dir> Tag (Deprecated)
+                7.7.1.1 The <dir> attributes
+        7.8 Menu Lists
+            7.8.1 The <menu> Tag (Deprecated)
+    Cascading Style Sheets
+        8.1 The Elements of Styles
+            8.1.1 Inline Styles: The style Attribute
+            8.1.2 Document-Level Stylesheets
+                8.1.2.1 The type attribute
+                8.1.2.2 The media attribute
+                8.1.2.3 The dir, lang, and title attributes
+            8.1.3 Style-Free Browsers
+            8.1.4 External Stylesheets
+                8.1.4.1 Linked external stylesheets
+                8.1.4.2 Imported external stylesheets
+            8.1.5 Media-Specific Styles
+            8.1.6 Linked Versus Imported Stylesheets
+            8.1.7 Limitations of Current Browsers
+            8.1.8 Style Comments
+            8.1.9 Style Precedence
+        8.2 Style Syntax
+            8.2.1 The Basics
+            8.2.2 Multiple Selectors
+            8.2.3 Contextual Selectors
+            8.2.4 Universal, Child, and Adjacent Selectors
+            8.2.5 Attribute Selectors
+            8.2.6 Pseudoelements
+        8.3 Style Classes
+            8.3.1 Regular Classes
+            8.3.2 Generic Classes
+            8.3.3 ID Classes
+            8.3.4 Pseudoclasses
+                8.3.4.1 Hyperlink pseudoclasses
+                8.3.4.2 Interaction pseudoclasses
+                8.3.4.3 Nesting and language pseudoclasses
+                8.3.4.4 Browser support of pseudoclasses
+            8.3.5 Mixing Classes
+            8.3.6 Class Inheritance
+        8.4 Style Properties
+            8.4.1 Property Values
+                8.4.1.1 Keyword property values
+                8.4.1.2 Length property values
+                8.4.1.3 Percentage property values
+                8.4.1.4 URL property values
+                8.4.1.5 Color property values
+                8.4.1.6 Angle, time, and frequency property values
+            8.4.2 Property Inheritance
+            8.4.3 Font Properties
+                8.4.3.1 The font-family property
+                8.4.3.2 The font-size property
+                8.4.3.3 The font-stretch property
+                8.4.3.4 The font-size-adjust property
+                8.4.3.5 The font-style property
+                8.4.3.6 The font-variant property
+                8.4.3.7 The font-weight property
+                8.4.3.8 The font property
+            8.4.4 Font Selection and Synthesis
+                8.4.4.1 CSS2 font-matching steps
+                8.4.4.2 Basic font descriptors
+                8.4.4.3 The src descriptor
+                8.4.4.4 Advanced font descriptors
+            8.4.5 Color and Background Properties
+                8.4.5.1 The background-color property
+                8.4.5.2 The background-image property
+                8.4.5.3 The background-attachment property
+                8.4.5.4 The background-position property
+                8.4.5.5 The background-repeat property
+                8.4.5.6 The background property
+                8.4.5.7 The color property
+            8.4.6 Text Properties
+                8.4.6.1 The letter-spacing property
+                8.4.6.2 The line-height property
+                8.4.6.3 The text-align property
+                8.4.6.4 The text-decoration property
+                8.4.6.5 The text-indent property
+                8.4.6.6 The text-shadow property
+                8.4.6.7 The text-transform property
+                8.4.6.8 The vertical-align property
+                8.4.6.9 The word-spacing property
+            8.4.7 Box Properties
+                8.4.7.1 The CSS2 formatting model
+                8.4.7.2 The border properties
+                8.4.7.3 The border-color property
+                8.4.7.4 The border-width property
+                8.4.7.5 The border-style property
+                8.4.7.6 Borders in shorthand
+                8.4.7.7 The clear property
+                8.4.7.8 The clip property
+                8.4.7.9 The float property
+                8.4.7.10 The height property
+                8.4.7.11 The margin properties
+                8.4.7.12 The padding properties
+                8.4.7.13 The overflow property
+                8.4.7.14 The position properties
+                8.4.7.15 The visibility property
+                8.4.7.16 The width property
+                8.4.7.17 The z-index property
+            8.4.8 List Properties
+                8.4.8.1 The list-style-image property
+                8.4.8.2 The list-style-position property
+                8.4.8.3 The list-style-type property
+                8.4.8.4 The list-style property
+                8.4.8.5 Using list properties effectively
+            8.4.9 Table Properties
+                8.4.9.1 The border-collapse, border-spacing, and empty-cells properties
+                8.4.9.2 The caption-side property
+                8.4.9.3 The speak-header property
+                8.4.9.4 The table-layout property
+            8.4.10 Classification Properties
+                8.4.10.1 The display property
+                8.4.10.2 The white-space property
+            8.4.11 Generated Content Properties
+                8.4.11.1 The :before and :after pseudoelements
+                8.4.11.2 The content property
+                8.4.11.3 Specifying quotation marks
+                8.4.11.4 Creating counters
+                8.4.11.5 Using counters in your documents
+                8.4.11.6 Creating markers
+            8.4.12 Audio Properties
+                8.4.12.1 The volume property
+                8.4.12.2 Speaking properties
+                8.4.12.3 Voice characteristics
+                8.4.12.4 Pause properties
+                8.4.12.5 Cue properties
+                8.4.12.6 Audio mixing
+                8.4.12.7 Spatial positioning
+            8.4.13 Paged Media
+                8.4.13.1 Defining pages
+                8.4.13.2 Left, right, and first pages
+                8.4.13.3 Using named pages
+                8.4.13.4 Controlling pagination
+                8.4.13.5 Controlling widows and orphans
+        8.5 Tagless Styles: The <span> Tag
+        8.6 Applying Styles to Documents
+            8.6.1 To Style or Not to Style
+            8.6.2 Which Type of Stylesheet, and When
+                8.6.2.1 The pros and cons of external styles
+                8.6.2.2 The pros and cons of document-level styles
+                8.6.2.3 The pros and cons of inline styles
+    Forms
+        9.1 Form Fundamentals
+        9.2 The <form> Tag
+            9.2.1 The action Attribute
+            9.2.2 The enctype Attribute
+                9.2.2.1 The application/x-www-form-urlencoded encoding
+                9.2.2.2 The multipart/form-data encoding
+                9.2.2.3 The text/plain encoding
+            9.2.3 The accept-charset Attribute
+            9.2.4 The method Attribute
+                9.2.4.1 POST or GET?
+                9.2.4.2 Passing parameters explicitly
+            9.2.5 The target Attribute
+            9.2.6 The id, name, and title Attributes
+            9.2.7 The class, style, lang, and dir Attributes
+            9.2.8 The Event Attributes
+        9.3 A Simple Form Example
+        9.4 Using Email to Collect Form Data
+            9.4.1 Problems with Email Forms
+        9.5 The <input> Tag
+            9.5.1 Text Fields in Forms
+                9.5.1.1 Conventional text fields
+                9.5.1.2 Masked text controls
+                9.5.1.3 File-selection controls
+            9.5.2 Checkboxes
+            9.5.3 Radio Buttons
+            9.5.4 Action Buttons
+                9.5.4.1 Submission buttons
+                9.5.4.2 Reset buttons
+                9.5.4.3 Custom image buttons
+                9.5.4.4 Push buttons
+                9.5.4.5 Multiple buttons in a single form
+            9.5.5 Hidden Fields
+        9.6 The <button> Tag
+            9.6.1 The <button> Button
+            9.6.2 The type Attribute
+        9.7 Multiline Text Areas
+            9.7.1 The <textarea> Tag
+                9.7.1.1 The rows and cols attributes
+                9.7.1.2 The wrap attribute
+        9.8 Multiple-Choice Elements
+            9.8.1 The <select> Tag
+                9.8.1.1 The multiple attribute
+                9.8.1.2 The size attribute
+            9.8.2 The <option> Tag
+                9.8.2.1 The value attribute
+                9.8.2.2 The selected attribute
+                9.8.2.3 The label attribute
+            9.8.3 The <optgroup> Tag
+                9.8.3.1 The label attribute
+        9.9 General Form-Control Attributes
+            9.9.1 The id and title Attributes
+            9.9.2 The event Attributes
+            9.9.3 The style, class, lang, and dir Attributes
+            9.9.4 The tabindex, taborder , and notab Attributes
+            9.9.5 The accesskey Attribute
+            9.9.6 The disabled and readonly Attributes
+        9.10 Labeling and Grouping Form Elements
+            9.10.1 The <label> Tag
+                9.10.1.1 Implicit and explicit associations
+                9.10.1.2 Other label attributes
+            9.10.2 Forming a Group
+                9.10.2.1 The <fieldset> tag
+                9.10.2.2 The <legend> tag
+        9.11 Creating Effective Forms
+            9.11.1 Browser Constraints
+            9.11.2 Handling Limited Displays
+            9.11.3 User-Interface Considerations
+            9.11.4 Creating Forms That Flow
+            9.11.5 Good Form, Old Chap
+        9.12 Forms Programming
+            9.12.1 Returning Results
+            9.12.2 Handling GET Forms
+                9.12.2.1 Using named parameters with GET applications
+                9.12.2.2 Using unnamed parameters with GET applications
+            9.12.3 Handling POST Forms
+    Tables
+        10.1 The Standard Table Model
+            10.1.1 Table Contents
+            10.1.2 An Example Table
+            10.1.3 Missing Features
+        10.2 Basic Table Tags
+            10.2.1 The <table> Tag
+                10.2.1.1 The align attribute (deprecated)
+                10.2.1.2 The bgcolor and background attributes
+                10.2.1.3 The border attribute
+                10.2.1.4 The frame and rules attributes
+                10.2.1.5 The bordercolor, bordercolorlight, and bordercolordark attributes
+                10.2.1.6 The cellspacing attribute
+                10.2.1.7 The cellpadding attribute
+                10.2.1.8 Combining the border, cellspacing, and cellpadding attributes
+                10.2.1.9 The cols attribute
+                10.2.1.10 The valign and nowrap attributes
+                10.2.1.11 The width and height attributes
+                10.2.1.12 The summary attribute
+                10.2.1.13 The hspace and vspace attributes
+            10.2.2 Common Table Attributes
+                10.2.2.1 The id and title attributes
+                10.2.2.2 The dir and lang attributes
+                10.2.2.3 The class and style attributes
+                10.2.2.4 The event attributes
+            10.2.3 The <tr> Tag
+                10.2.3.1 The align and valign attributes
+                10.2.3.2 The char and charoff attributes
+                10.2.3.3 The bgcolor and background attributes
+                10.2.3.4 The bordercolor, bordercolorlight, and bordercolordark attributes
+                10.2.3.5 The nowrap attribute
+            10.2.4 The <th> and <td> Tags
+                10.2.4.1 The align and valign attributes
+                10.2.4.2 The width attribute
+                10.2.4.3 The height attribute
+                10.2.4.4 The colspan attribute
+                10.2.4.5 The rowspan attribute
+                10.2.4.6 Combining the colspan and rowspan attributes
+                10.2.4.7 The nowrap attribute
+                10.2.4.8 The bgcolor and background attributes
+                10.2.4.9 The bordercolor, bordercolorlight, and bordercolordark attributes
+                10.2.4.10 The char and charoff attributes
+                10.2.4.11 The headers and scope attributes
+                10.2.4.12 The abbr attribute
+                10.2.4.13 The axis attribute
+            10.2.5 The <caption> Tag
+                10.2.5.1 The align and valign attributes
+                10.2.5.2 The many other attributes
+        10.3 Advanced Table Tags
+            10.3.1 Defining Table Sections
+            10.3.2 The <thead> Tag
+            10.3.3 The <tfoot> Tag
+            10.3.4 The <tbody> Tag
+            10.3.5 Using Table Sections
+            10.3.6 Defining Column Groups
+            10.3.7 The <colgroup> Tag
+                10.3.7.1 The span attribute
+                10.3.7.2 When to span and col
+                10.3.7.3 The other <colgroup> attributes
+            10.3.8 The <col> tag
+                10.3.8.1 The span attribute
+                10.3.8.2 The other <col> attributes
+            10.3.9 Using Column Groups
+        10.4 Beyond Ordinary Tables
+    Frames
+        11.1 An Overview of Frames
+        11.2 Frame Tags
+            11.2.1 What’s in a Frame?
+        11.3 Frame Layout
+            11.3.1 The <frameset> Tag
+                11.3.1.1 The rows and cols attributes
+                11.3.1.2 The border, frameborder, framespacing, and bordercolor attributes
+                11.3.1.3 Frames and JavaScript
+                11.3.1.4 Other <frameset> attributes
+            11.3.2 Nesting <frameset> Tags
+        11.4 Frame Contents
+            11.4.1 The <frame> Tag
+                11.4.1.1 The src attribute
+                11.4.1.2 The name and id attributes
+                11.4.1.3 The noresize attribute
+                11.4.1.4 The scrolling attribute
+                11.4.1.5 The marginheight and marginwidth attributes
+                11.4.1.6 The frameborder and bordercolor attributes
+                11.4.1.7 The title and longdesc attributes
+        11.5 The <noframes> Tag
+            11.5.1 <noframes> Attributes
+        11.6 Inline Frames
+            11.6.1 The <iframe> Tag
+                11.6.1.1 The align attribute
+                11.6.1.2 The height and width attributes
+            11.6.2 Using Inline Frames
+        11.7 Named Frame or Window Targets
+            11.7.1 The target Attribute for the <a> Tag
+            11.7.2 Special Targets
+            11.7.3 The <base> Default Target
+            11.7.4 Traditional Link Behavior
+        11.8 XFrames
+            11.8.1 An XFrames Document
+            11.8.2 XFrames URLs
+    Executable Content
+        12.1 Applets and Objects
+            12.1.1 The Object Model
+                12.1.1.1 The applet model
+                12.1.1.2 The applet advantage
+                12.1.1.3 Using applets correctly
+                12.1.1.4 Writing applets
+        12.2 Embedded Content
+            12.2.1 The <object> Tag
+                12.2.1.1 The classid attribute
+                12.2.1.2 The codebase attribute
+                12.2.1.3 The archive attribute
+                12.2.1.4 The codetype attribute
+                12.2.1.5 The data attribute
+                12.2.1.6 The type attribute
+                12.2.1.7 The align, class, border, height, hspace, style, vspace, and width attributes
+                12.2.1.8 The declare attribute
+                12.2.1.9 The id, name, and title attributes
+                12.2.1.10 The shapes and usemap attributes
+                12.2.1.11 The standby attribute
+                12.2.1.12 The tabindex and notab attributes
+                12.2.1.13 The dir and lang attributes
+                12.2.1.14 Object event handling
+                12.2.1.15 Supporting incompatible browsers
+            12.2.2 The <param> Tag
+                12.2.2.1 The id, name, and value attributes
+                12.2.2.2 The type and valuetype attributes
+            12.2.3 The <applet> Tag (Deprecated)
+                12.2.3.1 Applet rendering
+                12.2.3.2 The align attribute
+                12.2.3.3 The alt attribute
+                12.2.3.4 The archive attribute
+                12.2.3.5 The code and codebase attributes
+                12.2.3.6 The name attribute
+                12.2.3.7 The height, hspace, vspace, and width attributes
+                12.2.3.8 The mayscript attribute
+                12.2.3.9 The title attribute
+                12.2.3.10 The object attribute
+            12.2.4 The <embed> Tag (Extension)
+                12.2.4.1 The align, border, height, hspace, vspace, and width attributes
+                12.2.4.2 The hidden attribute
+                12.2.4.3 The name attribute
+                12.2.4.4 The palette attribute
+                12.2.4.5 The pluginspage attribute
+                12.2.4.6 The src attribute
+                12.2.4.7 The type attribute
+                12.2.4.8 The units attribute
+            12.2.5 The <noembed> Tag (Extension)
+        12.3 JavaScript
+            12.3.1 The <script> Tag
+                12.3.1.1 The language and type attributes
+                12.3.1.2 The src and charset attributes
+                12.3.1.3 The defer attribute
+            12.3.2 The <noscript> Tag
+            12.3.3 JavaScript Event Handlers
+                12.3.3.1 Standard event handler attributes
+                12.3.3.2 The mouse-related events
+                12.3.3.3 The keyboard events
+                12.3.3.4 Document events
+            12.3.4 javascript URLs
+            12.3.5 JavaScript Entities
+            12.3.6 The <server> Tag
+        12.4 JavaScript Stylesheets (Antiquated)
+            12.4.1 JavaScript Stylesheet Syntax
+                12.4.1.1 External, document-level, and inline JSS
+                12.4.1.2 JSS values
+                12.4.1.3 Defining styles for tags
+                12.4.1.4 Defining style classes
+                12.4.1.5 Using contextual styles
+            12.4.2 JavaScript Stylesheet Properties
+    Dynamic Documents
+        13.1 An Overview of Dynamic Documents
+            13.1.1 Another Word of Caution
+        13.2 Client-Pull Documents
+            13.2.1 Uniquely Refreshing
+            13.2.2 The Refresh Header Contents
+                13.2.2.1 Refreshing the same document
+                13.2.2.2 Refreshing with a different document
+                13.2.2.3 Cycling between documents
+            13.2.3 Pulling Non-HTML Content
+            13.2.4 Combining Refresh with Other HTTP Header Fields
+                13.2.4.1 A random URL generator
+            13.2.5 Performance Considerations
+        13.3 Server-Push Documents
+            13.3.1 The Multipart/Mixed Media Type
+            13.3.2 The Multipart/X-Mixed-Replace Media Type
+            13.3.3 Exploiting Multipart Documents
+                13.3.3.1 Efficiency considerations
+            13.3.4 Creating a Server-Push Document
+                13.3.4.1 Server-push example application for NCSA and Apache httpd
+    Mobile Devices
+        14.1 The Mobile Web
+            14.1.1 Devices
+                14.1.1.1 Mobile phones
+                14.1.1.2 PDAs
+                14.1.1.3 Convergence devices
+            14.1.2 Cellular Access
+                14.1.2.1 Low speed
+                14.1.2.2 High-speed cellular access
+                14.1.2.3 WiFi
+        14.2 Device Considerations
+            14.2.1 Browser Constraints
+            14.2.2 Input Constraints
+            14.2.3 Network Constraints
+            14.2.4 Display Constraints
+        14.3 XHTML Basic
+            14.3.1 Supported Tags
+                14.3.1.1 Basic content
+                14.3.1.2 Images, objects, and scripting
+                14.3.1.3 Lists
+                14.3.1.4 Forms
+                14.3.1.5 Tables
+                14.3.1.6 Document header
+            14.3.2 Design Versus Intent
+        14.4 Effective Mobile Web Design
+            14.4.1 Understand Your User
+            14.4.2 Links and Navigation
+            14.4.3 Forms
+            14.4.4 Layout and Presentation
+                14.4.4.1 Stylesheets
+                14.4.4.2 Text fonts
+                14.4.4.3 Margins and spacing
+            14.4.5 Images
+            14.4.6 General Advice
+    XML
+        15.1 Languages and Metalanguages
+            15.1.1 Creation Versus Display
+            15.1.2 A Little History
+        15.2 Documents and DTDs
+        15.3 Understanding XML DTDs
+            15.3.1 Comments
+            15.3.2 Entities
+            15.3.3 Entity Declarations
+            15.3.4 Elements
+        15.4 Element Grammar
+            15.4.1 Sequence, Choice, Grouping, and Repetition
+            15.4.2 Multiple Grammar Rules
+            15.4.3 XML Element Grammar
+            15.4.4 Mixed Element Content
+            15.4.5 Empty Elements
+        15.5 Element Attributes
+            15.5.1 Attribute Values
+            15.5.2 Required and Default Attributes
+        15.6 Conditional Sections
+        15.7 Building an XML DTD
+            15.7.1 An XML Address DTD
+            15.7.2 Using the Address DTD
+        15.8 Using XML
+            15.8.1 Creating Your Own Markup Language
+            15.8.2 Document Exchange
+            15.8.3 Connecting Systems
+            15.8.4 Standardizing HTML
+    XHTML
+        16.1 Why XHTML?
+            16.1.1 XHTML Document Type Definitions
+        16.2 Creating XHTML Documents
+            16.2.1 Declaring Document Types
+            16.2.2 Understanding Namespaces
+            16.2.3 A Minimal XHTML Document
+        16.3 HTML Versus XHTML
+            16.3.1 Correctly Nested Elements
+            16.3.2 End Tags
+            16.3.3 Handling Empty Elements
+            16.3.4 Case Sensitivity
+            16.3.5 Quoted Attribute Values
+            16.3.6 Explicit Attribute Values
+            16.3.7 Handling Special Characters
+            16.3.8 The id and name Attributes
+        16.4 XHTML 1.1
+            16.4.1 Differences in XHTML 1.1
+        16.5 Should You Use XHTML?
+            16.5.1 The Dusty Deck Problem
+            16.5.2 Automatic Conversion
+            16.5.3 Lenient Browsers and Lazy Authors
+            16.5.4 Time, Money, and Standards
+            16.5.5 Man Versus Machine
+            16.5.6 What to Do?
+    Tips, Tricks, and Hacks
+        17.1 Top of the Tips
+            17.1.1 Design for Your Audience
+            17.1.2 Consistent Documents
+        17.2 Cleaning Up After Your HTML Editor
+            17.2.1 Where Did My Document Go?
+            17.2.2 When and Why to Edit the Editor
+            17.2.3 Use the Best
+        17.3 Tricks with Tables
+            17.3.1 Multicolumn Pages
+                17.3.1.1 Basic multicolumn layout
+                17.3.1.2 Straddle heads
+            17.3.2 Side Heads
+            17.3.3 Better Forms Layout
+                17.3.3.1 Basic forms layout
+                17.3.3.2 Building forms with nested tables
+        17.4 Tricks with Windows and Frames
+            17.4.1 Targeting Windows
+            17.4.2 Overriding Others’ Targets
+            17.4.3 Multiple Frames in One Link
+    HTML Grammar
+        Grammatical Conventions
+            Typographic and Naming Conventions
+            Punctuation Conventions
+                Alternation
+                Repetition
+                Optional elements
+            More Details
+            Predefined Nonterminals
+        The Grammar
+    HTML/XHTML Tag Quick Reference
+        Core Attributes
+        HTML Quick Reference
+    Cascading Style Sheet Properties Quick\x11Reference
+    The HTML 4.01 DTD
+    The XHTML 1.0 DTD
+    Character Entities
+    Color Names and Values
+        Color Values
+        Color Names
+        The Standard Color Map
+    Netscape Layout Extensions
+        Creating Whitespace
+            The <spacer> Tag (Antiquated)
+                Creating horizontal space
+                Creating vertical space
+                Creating blocks of space
+            Mimicking the <spacer> Tag
+        Multicolumn Layout
+            The <multicol> Tag (Antiquated)
+                The cols attribute
+                The gutter attribute
+                The width attribute
+                The style and class attributes
+            Multiple Columns and Other Browsers
+            Effective Multicolumn Layouts
+        Layers
+            The <layer> Tag (Antiquated)
+                The name attribute
+                The left and top attributes
+                The above, below, and z-index attributes
+                The background and bgcolor attributes
+                The visibility attribute
+                The width attribute
+                The src attribute
+                The clip attribute
+                The style and class attributes
+            The <ilayer> Tag (Antiquated)
+                The top and left attributes
+                Combining <layer> and <ilayer>

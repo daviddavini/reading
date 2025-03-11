@@ -1,0 +1,241 @@
+HTML: MDN Web Docs
+    Beginner's tutorials
+        Your first website: Creating the content
+        Structuring content with HTML
+            Basic HTML syntax
+            What's in the head? Webpage metadata
+            Headings and paragraphs in HTML
+            Emphasis and importance
+            Lists
+            Structuring documents
+            Advanced text features
+            Creating links
+            Challenge: Marking up a letter
+            Challenge: Structuring a page of content
+            HTML images
+            HTML video and audio
+            Challenge: Mozilla splash page
+            HTML table basics
+            HTML table accessibility
+            Challenge: Structuring a planet data table
+            Forms and buttons in HTML
+            Debugging HTML
+    Guides
+x       Content categories
+        Block-level elements
+        Inline elements
+        Quirks Mode and Standards Mode
+        Date and time formats used in HTML
+        Constraint validation
+        Microdata
+        Microformats
+        Viewport meta tag
+        Allowing cross-origin use of images and canvas
+    References
+        HTML elements
+            <a>
+x           <abbr>
+x           <acronym> Deprecated
+            <address>
+            <area>
+            <article>
+            <aside>
+            <audio>
+            <b>
+            <base>
+x           <bdi>
+x           <bdo>
+            <big> Deprecated
+            <blockquote>
+            <body>
+            <br>
+            <button>
+            <canvas>
+            <caption>
+            <center> Deprecated
+            <cite>
+            <code>
+            <col>
+            <colgroup>
+            <data>
+            <datalist>
+            <dd>
+            <del>
+            <details>
+            <dfn>
+            <dialog>
+            <dir> Deprecated
+            <div>
+            <dl>
+            <dt>
+            <em>
+            <embed>
+            <fencedframe> Experimental
+            <fieldset>
+            <figcaption>
+            <figure>
+            <font> Deprecated
+            <footer>
+            <form>
+x           <frame> Deprecated
+x           <frameset> Deprecated
+            <h1>
+            <head>
+            <header>
+            <hgroup>
+            <hr>
+            <html>
+            <i>
+            <iframe>
+            <img>
+            <input>
+            <ins>
+            <kbd>
+            <label>
+            <legend>
+            <li>
+            <link>
+            <main>
+            <map>
+            <mark>
+            <marquee> Deprecated
+            <menu>
+            <meta>
+            <meter>
+            <nav>
+            <nobr> Deprecated
+            <noembed> Deprecated
+            <noframes> Deprecated
+            <noscript>
+            <object>
+            <ol>
+            <optgroup>
+            <option>
+            <output>
+            <p>
+            <param> Deprecated
+            <picture>
+            <plaintext> Deprecated
+            <portal> Experimental
+            <pre>
+            <progress>
+            <q>
+            <rb> Deprecated
+            <rp>
+            <rt>
+            <rtc> Deprecated
+            <ruby>
+            <s>
+            <samp>
+            <script>
+            <search>
+            <section>
+            <select>
+            <slot>
+            <small>
+            <source>
+            <span>
+            <strike> Deprecated
+x           <strong>
+            <style>
+            <sub>
+            <summary>
+            <sup>
+            <table>
+            <tbody>
+            <td>
+            <template>
+            <textarea>
+            <tfoot>
+            <th>
+            <thead>
+            <time>
+            <title>
+            <tr>
+            <track>
+            <tt> Deprecated
+            <u>
+            <ul>
+            <var>
+            <video>
+            <wbr>
+            <xmp> Deprecated 
+        Global attributes
+            accesskey
+            anchor Experimental Non-standard
+            autocapitalize
+            autocorrect Experimental
+            autofocus
+            class
+            contenteditable
+            data-*
+            dir
+            draggable
+            enterkeyhint
+            exportparts
+            hidden
+            id
+            inert
+            inputmode
+            is
+            itemid
+            itemprop
+            itemref
+            itemscope
+            itemtype
+            lang
+            nonce
+            part
+            popover
+            slot
+            spellcheck
+            style
+            tabindex
+            title
+            translate
+            virtualkeyboardpolicy Experimental
+            writingsuggestions
+        Attributes
+            accept
+            autocomplete
+            capture
+            crossorigin
+            dirname
+            disabled
+            elementtiming
+            for
+            max
+            maxlength
+            min
+            minlength
+            multiple
+            pattern
+            placeholder
+            readonly
+            rel
+            required
+            size
+            step
+        <input> types
+            <input type="button">
+            <input type="checkbox">
+            <input type="color">
+            <input type="date">
+            <input type="datetime-local">
+            <input type="email">
+            <input type="file">
+            <input type="hidden">
+            <input type="image">
+            <input type="month">
+            <input type="number">
+            <input type="password">
+            <input type="radio">
+            <input type="range">
+            <input type="reset">
+            <input type="search">
+            <input type="submit">
+            <input type="tel">
+            <input type="text">
+            <input type="time">
+            <input type="url">
+            <input type="week">

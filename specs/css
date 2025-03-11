@@ -1,0 +1,35 @@
+CSS Snapshot
+    1 Introduction
+        1.1 What is CSS?
+        1.2 Background: The W3C Process and CSS
+    2 Classification of CSS Specifications
+        2.1 Cascading Style Sheets (CSS) — The Official Definition
+        2.2 Fairly Stable Modules with limited implementation experience
+        2.3 Modules with Rough Interoperability
+        2.4 CSS Levels
+        2.5 CSS Profiles
+    3 Requirements for Responsible Implementation of CSS
+        3.1 Partial Implementations
+        3.2 Implementations of Unstable and Proprietary Features
+            3.2.1 Experimentation and Unstable Features
+            3.2.2 Proprietary and Non-standardized Features
+            3.2.3 Market Pressure and De Facto Standards
+        3.3 Implementations of CR-level Features
+    4 Safe to Release pre-CR Exceptions
+    5 Indices
+        5.1 Terms Index
+        5.2 Selector Index
+        5.3 At-Rule Index
+        5.4 Property Index
+        5.5 Values Index
+    6 Acknowledgements
+    Conformance
+        Document conventions
+        Conformance classes
+        Partial implementations
+            Implementations of Unstable and Proprietary Features
+        Non-experimental implementations
+    References
+        Normative References
+        Informative References
+

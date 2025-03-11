@@ -1,0 +1,34 @@
+JAX Documentation
+    Getting started
+        Installation
+        Quickstart
+        Tutorials
+        🔪 JAX - The Sharp Bits 🔪
+        Frequently asked questions (FAQ)
+    More guides/resources
+        User guides
+        How to think in JAX
+        Profiling computation
+        Profiling device memory
+        Debugging runtime values
+        GPU performance tips
+        Persistent compilation cache
+        Pytrees
+        Errors
+        Ahead-of-time lowering and compilation
+        Exporting and serialization
+        Type promotion semantics
+        Transfer guard
+        Pallas: a JAX kernel language
+        Foreign function interface (FFI)
+        Training a simple neural network, with tensorflow/datasets data loading
+        Training a simple neural network, with PyTorch data loading
+        Autobatching for Bayesian inference
+        Advanced guides
+        Developer notes
+        Extension guides
+        Notes
+        Public API: jax package
+        About the project
+        Change log
+        Glossary of terms

@@ -1,0 +1,692 @@
+Linux Kernel Documentation
+    Development process
+    
+        1. Introduction
+        2. How the development process works
+        3. Early-stage planning
+        4. Getting the code right
+        5. Posting patches
+        6. Followthrough
+        7. Advanced topics
+        8. For more information
+        9. Conclusion
+    
+    Submitting patches
+    
+        Obtain a current source tree
+        Describe your changes
+        Separate your changes
+        Style-check your changes
+        Select the recipients for your patch
+        No MIME, no links, no compression, no attachments. Just plain text
+        Respond to review comments
+        Use trimmed interleaved replies in email discussions
+        Don’t get discouraged - or impatient
+        Include PATCH in the subject
+        Sign your work - the Developer’s Certificate of Origin
+            Developer’s Certificate of Origin 1.1
+        When to use Acked-by:, Cc:, and Co-developed-by:
+        Using Reported-by:, Tested-by:, Reviewed-by:, Suggested-by: and Fixes:
+            Reviewer’s statement of oversight
+        The canonical patch format
+            Backtraces in commit messages
+        Explicit In-Reply-To headers
+        Providing base tree information
+        Tooling
+        References
+    
+    Code of conduct
+    
+        Our Pledge
+        Our Standards
+        Our Responsibilities
+        Scope
+        Enforcement
+        Attribution
+        Interpretation
+    
+    Maintainer handbook
+    
+        Feature and driver maintainers
+        Configuring Git
+        Rebasing and merging
+        Creating Pull Requests
+        Handling messy pull-request diffstats
+        Maintainer Entry Profile
+        Modifying Patches
+    
+    All development-process docs
+    
+        An introduction to how kernel development works
+            HOWTO do Linux kernel development
+            A guide to the Kernel Development Process
+            Submitting patches: the essential guide to getting your code into the kernel
+            Linux Kernel patch submission checklist
+        Tools and technical guides for kernel developers
+            Minimal requirements to compile the Kernel
+            Programming Language
+            Linux kernel coding style
+            Kernel Maintainer PGP guide
+            Email clients info for Linux
+            Applying Patches To The Linux Kernel
+            Backporting and conflict resolution
+            Adding a New System Call
+            Why the “volatile” type class should not be used
+            (How to avoid) Botching up ioctls
+        Policy guides and developer statements
+            Linux kernel licensing rules
+            Contributor Covenant Code of Conduct
+            Linux Kernel Contributor Covenant Code of Conduct Interpretation
+            Linux Kernel Contribution Maturity Model
+            Linux Kernel Enforcement Statement
+            Kernel Driver Statement
+            The Linux Kernel Driver Interface
+            Everything you ever wanted to know about Linux -stable releases
+            Linux kernel management style
+            Researcher Guidelines
+        Dealing with bugs
+            Debugging advice for Linux Kernel developers
+            Handling regressions
+            Security bugs
+            CVEs
+            Embargoed hardware issues
+        Maintainer information
+            Subsystem and maintainer tree specific development process notes
+            List of maintainers
+        Other material
+            Index of Further Kernel Documentation
+            Deprecated Interfaces, Language Features, Attributes, and Conventions
+    
+    Core API
+    
+        Core utilities
+            The Linux Kernel API
+            Workqueue
+            General notification mechanism
+            Message logging with printk
+            How to get printk format specifiers right
+            Printk Index
+            Symbol Namespaces
+            Assembler Annotations
+        Data structures and low-level utilities
+            Everything you never wanted to know about kobjects, ksets, and ktypes
+            Adding reference counters (krefs) to kernel objects
+            Scope-based Cleanup Helpers
+            Generic Associative Array Implementation
+            Folio Queue
+            XArray
+            Maple Tree
+            ID Allocation
+            Circular Buffers
+            Red-black Trees (rbtree) in Linux
+            Generic radix trees/sparse arrays
+            Generic bitfield packing and unpacking functions
+            this_cpu operations
+            ktime accessors
+            The errseq_t datatype
+            Atomic types
+            Atomic bitops
+            Floating-point API
+            Union-Find in Linux
+            Min Heap API
+        Low level entry and exit
+            Entry/exit handling for exceptions, interrupts, syscalls and KVM
+        Concurrency primitives
+            refcount_t API compared to atomic_t
+            IRQs
+            Semantics and Behavior of Local Atomic Operations
+            The padata parallel execution mechanism
+            RCU concepts
+            Linux kernel memory barriers
+        Low-level hardware management
+            Cache and TLB Flushing Under Linux
+            CPU hotplug in the Kernel
+            Memory hotplug
+            Linux generic IRQ handling
+            Memory Protection Keys
+        Memory management
+            Memory Allocation Guide
+            Unaligned Memory Accesses
+            Dynamic DMA mapping using the generic device
+            Dynamic DMA mapping Guide
+            DMA attributes
+            DMA with ISA and LPC devices
+            DMA and swiotlb
+            Memory Management APIs
+            The genalloc/genpool subsystem
+            pin_user_pages() and related calls
+            Boot time memory management
+            GFP masks used from FS/IO context
+        Interfaces for kernel debugging
+            The object-lifetime debugging infrastructure
+            The Linux Kernel Tracepoint API
+            Using physical DMA provided by OHCI-1394 FireWire controllers for debugging
+        Everything else
+            Reed-Solomon Library Programming Interface
+            Netlink notes for kernel developers
+    
+    Driver APIs
+    
+        General information for driver authors
+            Driver Basics
+            Driver Model
+            Device links
+            Device drivers infrastructure
+            ioctl based interfaces
+            CPU and Device Power Management
+        Useful support libraries
+            Early Userspace
+            Kernel Connector
+            Bus-Independent Device Accesses
+            Device Frequency Scaling
+            Buffer Sharing and Synchronization (dma-buf)
+            Component Helper for Aggregate Drivers
+            The io_mapping functions
+            Ordering I/O writes to memory-mapped addresses
+            The Userspace I/O HOWTO
+            VFIO Mediated devices
+            VFIO - “Virtual Function I/O”
+            Acceptance criteria for vfio-pci device specific driver variants
+        Bus-level documentation
+            Auxiliary Bus
+            Compute Express Link
+            EISA bus support
+            Firewire (IEEE 1394) driver Interface Guide
+            I3C subsystem
+            ISA Drivers
+            MEN Chameleon Bus
+            The Linux PCI driver implementer’s API guide
+            The Linux RapidIO Subsystem
+            Linux kernel SLIMbus support
+            Linux USB API
+            Virtio
+            VME Device Drivers
+            W1: Dallas’ 1-wire bus
+            Xillybus driver for generic FPGA interface
+        Subsystem-specific APIs
+            Linux 802.11 Driver Developer’s Guide
+            ACPI Support
+            Kernel driver lp855x
+            The Common Clk Framework
+            Console Drivers
+            Crypto Drivers
+            DMAEngine documentation
+            The Linux kernel dpll subsystem
+            Error Detection And Correction (EDAC) Devices
+            Linux Firmware API
+            FPGA Subsystem
+            Frame Buffer Library
+            Managing Ownership of the Framebuffer Aperture
+            Generic Counter Interface
+            General Purpose Input/Output (GPIO)
+            High Speed Synchronous Serial Interface (HSI)
+            The Linux Hardware Timestamping Engine (HTE)
+            I2C and SMBus Subsystem
+            Industrial I/O
+            InfiniBand and Remote DMA (RDMA) Interfaces
+            Input Subsystem
+            Generic System Interconnect Subsystem
+            IPMB Driver for a Satellite MC
+            The Linux IPMI Driver
+            libATA Developer’s Guide
+            The Common Mailbox Framework
+            RAID
+            Media subsystem kernel internal API
+            Intel(R) Management Engine Interface (Intel(R) MEI)
+            Memory Controller drivers
+            Message-based devices
+            Miscellaneous Devices
+            Parallel Port Devices
+            16x50 UART Driver
+            Pulse-Width Modulation (PWM)
+            MMC/SD/SDIO card support
+            Memory Technology Device (MTD)
+            MTD NAND Driver Programming Interface
+            Near Field Communication
+            NTB Drivers
+            Non-Volatile Memory Device (NVDIMM)
+            NVMEM Subsystem
+            PARPORT interface documentation
+            Generic PHY Framework
+            PINCTRL (PIN CONTROL) subsystem
+            PLDM Firmware Flash Update Library
+            Overview of the pldmfw library
+            PPS - Pulse Per Second
+            PTP hardware clock infrastructure for Linux
+            Pulse Width Modulation (PWM) interface
+            Power Sequencing API
+            Voltage and current regulator API
+            Reset controller API
+            rfkill - RF kill switch support
+            Writing s390 channel device drivers
+            SCSI Interfaces Guide
+            Support for Serial devices
+            SM501 Driver
+            SoundWire Documentation
+            Serial Peripheral Interface (SPI)
+            Surface System Aggregator Module (SSAM)
+            Linux Switchtec Support
+            Sync File API Guide
+            target and iSCSI Interfaces Guide
+            TEE (Trusted Execution Environment) driver API
+            Thermal
+            TTY
+            WBRF - Wifi Band RFI Mitigations
+            WMI Driver API
+            Xilinx FPGA
+            Writing Device Drivers for Zorro Devices
+    
+    Subsystems
+    
+        Core subsystems
+            Core API Documentation
+            Driver implementer’s API guide
+            Memory Management Documentation
+            Power Management
+            Scheduler
+            Timers
+            Locking
+        Human interfaces
+            Input Documentation
+            Human Interface Devices (HID)
+            Sound Subsystem Documentation
+            GPU Driver Developer’s Guide
+            Frame Buffer
+            LEDs
+        Networking interfaces
+            Networking
+            NetLabel
+            InfiniBand
+            ISDN
+            MHI
+        Storage interfaces
+            Filesystems in the Linux kernel
+            Block
+            CD-ROM
+            SCSI Subsystem
+            TCM Virtual Device
+        Other subsystems
+            Accounting
+            CPUFreq - CPU frequency and voltage scaling code in the Linux(TM) kernel
+            FPGA
+            I2C/SMBus Subsystem
+            Industrial I/O
+            PCMCIA
+            Serial Peripheral Interface (SPI)
+            1-Wire Subsystem
+            Watchdog Support
+            Virtualization Support
+            Hardware Monitoring
+            Compute Accelerators
+            Security Documentation
+            Crypto API
+            BPF Documentation
+            USB support
+            PCI Bus Subsystem
+            Assorted Miscellaneous Devices Documentation
+            PECI Subsystem
+            WMI Subsystem
+            TEE Subsystem
+    
+    Locking
+    
+        Lock types and their rules
+        Runtime locking correctness validator
+        Lock Statistics
+        Kernel Lock Torture Test Operation
+        Generic Mutex Subsystem
+        RT-mutex implementation design
+        RT-mutex subsystem with PI support
+        Sequence counters and sequential locks
+        Locking lessons
+        Wound/Wait Deadlock-Proof Mutex Design
+        Proper Locking Under a Preemptible Kernel: Keeping Kernel Code Preempt-Safe
+        Lightweight PI-futexes
+        Futex Requeue PI
+        Hardware Spinlock Framework
+        Percpu rw semaphores
+        A description of what robust futexes are
+        The robust futex ABI
+    
+    Licensing rules
+    
+        License identifier syntax
+        License identifiers
+        MODULE_LICENSE
+    
+    Writing documentation
+    
+        Using Sphinx for kernel documentation
+        Writing kernel-doc comments
+        Including kernel-doc comments
+        Including uAPI header files
+        How to help improve kernel documentation
+        Documentation subsystem maintainer entry profile
+        Checking for needed translation updates
+    
+    Development tools
+    
+        Kernel Testing Guide
+        Checkpatch
+        clang-format
+        Coccinelle
+        Sparse
+        KCOV: code coverage for fuzzing
+        Using gcov with the Linux kernel
+        Kernel Address Sanitizer (KASAN)
+        Kernel Memory Sanitizer (KMSAN)
+        Undefined Behavior Sanitizer - UBSAN
+        Kernel Memory Leak Detector
+        Kernel Concurrency Sanitizer (KCSAN)
+        Kernel Electric-Fence (KFENCE)
+        Debugging kernel and modules via gdb
+        Using kgdb, kdb and the kernel debugger internals
+        Linux Kernel Selftests
+        KUnit - Linux Kernel Unit Testing
+        The Kernel Test Anything Protocol (KTAP), version 1
+        UAPI Checker
+        Linux Kernel GPIO based sloppy logic analyzer
+        Using AutoFDO with the Linux kernel
+        Using Propeller with the Linux kernel
+    
+    Testing guide
+    
+        Writing and Running Tests
+            The Difference Between KUnit and kselftest
+        Code Coverage Tools
+        Dynamic Analysis Tools
+        Static Analysis Tools
+            When to use Sparse and Smatch
+            Strong points of Smatch and Coccinelle
+    
+    Hacking guide
+    
+        Unreliable Guide To Hacking The Linux Kernel
+        Unreliable Guide To Locking
+        False Sharing
+    
+    Tracing
+    
+        Function Tracer Design
+        Notes on Analysing Behaviour Using Events and Tracepoints
+        ftrace - Function Tracer
+        Using ftrace to hook to functions
+        Fprobe - Function entry/exit probe
+        Kernel Probes (Kprobes)
+        Kprobe-based Event Tracing
+        Uprobe-tracer: Uprobe-based Event Tracing
+        Fprobe-based Event Tracing
+        Using the Linux Kernel Tracepoints
+        Event Tracing
+        Subsystem Trace Points: kmem
+        Subsystem Trace Points: power
+        NMI Trace Events
+        MSR Trace Events
+        In-kernel memory-mapped I/O tracing
+        Event Histograms
+        Histogram Design Notes
+        Boot-time tracing
+        Using the tracer for debugging
+        Hardware Latency Detector
+        OSNOISE Tracer
+        Timerlat tracer
+        Intel(R) Trace Hub (TH)
+        Lockless Ring Buffer Design
+        Tracefs ring-buffer memory mapping
+        System Trace Module
+        MIPI SyS-T over STP
+        CoreSight - ARM Hardware Trace
+        user_events: User-based Event Tracing
+        Runtime Verification
+        HiSilicon PCIe Tune and Trace device
+    
+    Fault injection
+    
+        Fault injection capabilities infrastructure
+        Notifier error injection
+        NVMe Fault Injection
+        Provoking crashes with Linux Kernel Dump Test Module (LKDTM)
+    
+    Livepatching
+    
+        Livepatch
+        (Un)patching Callbacks
+        Atomic Replace & Cumulative Patches
+        Livepatch module ELF format
+        Shadow Variables
+        System State Changes
+        Reliable Stacktrace
+        Livepatching APIs
+    
+    Rust
+    
+        The Rust experiment
+        Code documentation
+            Quick Start
+            General Information
+            Coding Guidelines
+            Arch Support
+            Testing
+    
+    Administration
+    
+        Linux kernel release 6.x <http://kernel.org/>
+        The kernel’s command-line parameters
+        Linux allocated devices (4.x+ version)
+        Documentation for /proc/sys
+        Linux ABI description
+        Feature status on all architectures
+        Hardware vulnerabilities
+        Reporting issues
+        Reporting regressions
+        How to quickly build a trimmed Linux kernel
+        How to verify bugs and bisect regressions
+        Bug hunting
+        Bisecting a regression
+        Tainted kernels
+        Ramoops oops/panic logger
+        Dynamic debug
+        Explaining the “No working init found.” boot hang message
+        Documentation for Kdump - The kexec-based Crash Dumping Solution
+        Performance monitor support
+        pstore block oops/panic logger
+        Rules on how to access information in sysfs
+        Discovering Linux kernel subsystems used by a workload
+        ACPI Support
+        ATA over Ethernet (AoE)
+        Auxiliary Display Support
+        A block layer cache (bcache)
+        The Android binderfs Filesystem
+        Kernel Support for miscellaneous Binary Formats (binfmt_misc)
+        Block Devices
+        Boot Configuration
+        Linux Braille Console
+        btmrvl driver
+        Control Groups version 1
+        Control Group v2
+        CIFS
+        Clearing WARN_ONCE
+        CPU load
+        How CPU topology info is exported via sysfs
+        Dell Remote BIOS Update driver (dell_rbu)
+        Device Mapper
+        EDID
+        The EFI Boot Stub
+        ext4 General Information
+        File system Monitoring with fanotify
+        NFS
+        GPIO
+        Notes on the change from 16-bit UIDs to 32-bit UIDs
+        Hardware random number generators
+        Using the initial RAM disk (initrd)
+        I/O statistics fields
+        Java(tm) Binary Kernel Support for Linux v1.03
+        IBM’s Journaled File System (JFS) for Linux
+        Reducing OS jitter due to per-cpu kthreads
+        Laptop Drivers
+        Parallel port LCD/Keypad Panel support
+        LDM - Logical Disk Manager (Dynamic Disks)
+        Softlockup detector and hardlockup detector (aka nmi_watchdog)
+        Linux Security Module Usage
+        RAID arrays
+        Media subsystem admin and user guide
+        Memory Management
+        Kernel module signing facility
+        Mono(tm) Binary Kernel Support for Linux
+        Namespaces
+        Numa policy hit/miss statistics
+        Parport
+        Perf events and tool security
+        Power Management
+        Linux Plug and Play Documentation
+        RapidIO Subsystem Guide
+        Reliability, Availability and Serviceability (RAS)
+        Error decoding
+        Address translation
+        Real Time Clock (RTC) Drivers for Linux
+        Linux Serial Console
+        Video Mode Selection Support 2.13
+        Syscall User Dispatch
+        Linux Magic System Request Key Hacks
+        Thermal Subsystem
+        USB4 and Thunderbolt
+        Using UFS
+        Unicode support
+        Software cursor for VGA
+        Video Output Switcher Control
+        The SGI XFS Filesystem
+    
+    Build system
+    
+        Kconfig Language
+        Kconfig macro language
+        Kbuild
+        Configuration targets and editors
+        Linux Kernel Makefiles
+        Building External Modules
+        Exporting kernel headers for use by userspace
+        Recursion issues
+        Reproducible builds
+        GCC plugin infrastructure
+        Building Linux with Clang/LLVM
+    
+    Reporting issues
+    
+        The short guide (aka TL;DR)
+        Step-by-step guide how to report issues to the kernel maintainers
+            Reporting regressions within a stable and longterm kernel line
+            Reporting issues only occurring in older kernel version lines
+        Reference section: Reporting issues to the kernel maintainers
+            Make sure you’re using the upstream Linux kernel
+            Search for existing reports, first run
+            Issue of high priority?
+            Ensure a healthy environment
+            Prepare for emergencies
+            Make sure your kernel doesn’t get enhanced
+            Check ‘taint’ flag
+            Document how to reproduce issue
+            Regression in stable or longterm kernel?
+            Check where you need to report your issue
+            Search for existing reports, second run
+            Install a fresh kernel for testing
+            Check ‘taint’ flag
+            Reproduce issue with the fresh kernel
+            Optimize description to reproduce issue
+            Decode failure messages
+            Special care for regressions
+            Write and send the report
+            Duties after the report went out
+            Reference for “Reporting regressions within a stable and longterm kernel line”
+            Reference for “Reporting issues only occurring in older kernel version lines”
+        Why some issues won’t get any reaction or remain unfixed after being reported
+        Closing words
+    
+    Userspace tools
+    
+        The realtime Linux analysis tool
+        Runtime verification (rv) tool
+    
+    Userspace API
+    
+        System calls
+            unshare system call
+            futex2
+            eBPF Userspace API
+            IOCTLs
+            Introduction of mseal
+        Security-related interfaces
+            No New Privileges Flag
+            Seccomp BPF (SECure COMPuting with filters)
+            Landlock: unprivileged access control
+            Linux Security Modules
+            Introduction of non-executable mfd
+            Speculation Control
+            TEE (Trusted Execution Environment) Userspace API
+        Devices and I/O
+            OpenCAPI (Open Coherent Accelerator Processor Interface)
+            Exchanging pixel buffers
+            GPIO
+            IOMMUFD
+            Linux Media Infrastructure userspace API
+            Dell Systems Management Base Driver
+            VDUSE - “vDPA Device in Userspace”
+            ISA Plug & Play support
+        Everything else
+            Linux-specific ELF idiosyncrasies
+            Netlink Handbook
+            Platform Profile Selection (e.g. /sys/firmware/acpi/platform_profile)
+            VDUSE - “vDPA Device in Userspace”
+            futex2
+            Perf ring buffer
+    
+    Firmware
+    
+        ACPI Support
+    
+    Firmware and Devicetree
+    
+        Kernel Devicetree Usage
+            Linux and the Devicetree
+            Open Firmware Devicetree Unittest
+            DeviceTree Kernel API
+        Devicetree Overlays
+            Devicetree Changesets
+            Devicetree Dynamic Resolver Notes
+            Devicetree Overlay Notes
+        Devicetree Bindings
+            Devicetree (DT) ABI
+            Devicetree Sources (DTS) Coding Style
+            DOs and DON’Ts for designing and writing Devicetree bindings
+            Writing Devicetree Bindings in json-schema
+            Submitting Devicetree (DT) binding patches
+    
+    
+    CPU architectures
+        ARC architecture
+        ARM Architecture
+        ARM64 Architecture
+        LoongArch Architecture
+        m68k Architecture
+        MIPS-specific Documentation
+        Nios II Specific Documentation
+        OpenRISC Architecture
+        PA-RISC Architecture
+        powerpc
+        RISC-V architecture
+        s390 Architecture
+        SuperH Interfaces Guide
+        Sparc Architecture
+        x86-specific Documentation
+        Xtensa Architecture
+    
+    Unsorted documentation
+        Brief tutorial on CRC computation
+        LZO stream format as understood by Linux’s LZO decompressor
+        Linux magic numbers
+        Remote Processor Framework
+        Remote Processor Messaging (rpmsg) Framework
+        Speculation
+        Mitigating speculation side-channels
+        Static Keys
+        XZ data compression in Linux
+    
