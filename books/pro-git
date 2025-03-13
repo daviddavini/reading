@@ -11,7 +11,7 @@ x       1.8 Summary
     2. Git Basics
 x       2.1 Getting a Git Repository
 x       2.2 Recording Changes to the Repository
-        2.3 Viewing the Commit History
+x       2.3 Viewing the Commit History
         2.4 Undoing Things
         2.5 Working with Remotes
         2.6 Tagging
