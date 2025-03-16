@@ -17,14 +17,14 @@ x       2.5 Working with Remotes
 x       2.6 Tagging
 x       2.7 Git Aliases
 x       2.8 Summary
-    3. Git Branching
+x   3. Git Branching
 x       3.1 Branches in a Nutshell
-        3.2 Basic Branching and Merging
-        3.3 Branch Management
-        3.4 Branching Workflows
-        3.5 Remote Branches
-        3.6 Rebasing
-        3.7 Summary
+x       3.2 Basic Branching and Merging
+x       3.3 Branch Management
+x       3.4 Branching Workflows
+x       3.5 Remote Branches
+x       3.6 Rebasing
+x       3.7 Summary
     4. Git on the Server
         4.1 The Protocols
         4.2 Getting Git on a Server
