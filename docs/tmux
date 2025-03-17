@@ -1,0 +1,233 @@
+tmux Wiki
+    Home
+        Welcome to tmux!
+    Advanced Use
+        Advanced use
+        About this document
+        Using tmux
+        Socket and multiple servers
+        Alerts and monitoring
+        Working directories
+        Linking windows
+        Respawning panes and windows
+        Window sizes
+        Session groups
+        Piping pane changes
+        Pane titles and the terminal title
+        Mouse key bindings
+        The environment
+        Scripting tmux
+        Basics of scripting
+        Unique identifiers
+        Special environment variables
+        The default target
+        Command targets
+        Targets for new panes, windows and sessions
+        Getting information
+        Sending keys
+        Capturing pane content
+        Empty panes
+        Waiting, signals and locks
+        Advanced configuration
+        Checking configuration files
+        Command parsing
+        Conditional directives
+        Running shell commands
+        Conditions with if-shell
+        Quoting with {}
+        Array options
+        Command aliases
+        User options
+        User keys
+        Custom key tables
+        Automatic rename
+        terminfo(5) and terminal-overrides
+        The system clipboard
+        Running with no sessions
+        Hooks
+    Clipboard
+        The clipboard
+        The set-clipboard option
+        How it works
+        Changing set-clipboard
+        Setting the Ms capability
+        Security concerns
+        Terminal support - tmux inside tmux
+        Terminal support - xterm
+        Terminal support - VTE terminals
+        Terminal support - Kitty
+        Terminal support - rxvt-unicode
+        Terminal support - st
+        Terminal support - iTerm2
+        Quick summary
+        External tools
+        Available tools
+        How to configure - tmux 3.2 and later
+        How to configure - tmux 2.4 to 3.1
+        How to configure - tmux 2.3 and earlier
+        set-clipboard and copy-pipe
+        Common issues - DISPLAY
+        Common issues - xclip(1)
+        Common issues - wrong clipboard
+    Contributing
+        Source code and development process
+        Releases
+        Code contributions
+        Documentation
+        Small things
+        Medium things
+        Large things
+    Control Mode
+        Control mode
+        Entering control mode
+        Commands
+        Getting information
+        Pane output
+        Notifications
+        Special commands
+        Flow control
+        Format subscriptions
+        General notes
+    FAQ
+        What is TERM and what does it do?
+        I found a bug in tmux! What do I do?
+        Why doesn't tmux do $x?
+        How often is tmux released? What is the version number scheme?
+        Why do you use the screen terminal description inside tmux?
+        tmux exited with server exited unexpectedly or lost server. What does this mean?
+        tmux says no sessions when I try to attach but I definitely had sessions!
+        I don't see any colour in my terminal! Help!
+        tmux freezes my terminal when I attach. I have to kill -9 the shell it was started from to recover!
+        Why is C-b the prefix key? How do I change it?
+        How do I use UTF-8?
+        How do I use a 256 colour terminal?
+        How do I use RGB colour?
+        Why are tmux pane separators dashed rather than continuous lines?
+        I want to use the mouse to select panes but the terminal to copy! How?
+        How do I translate -fg, -bg and -attr options into -style options?
+        What is the escape-time option? Is zero a good value?
+        How do I make modified function and arrow keys (like C-Up, M-PageUp) work inside tmux?
+        What is the proper way to escape characters with #(command)?
+        tmux uses too much CPU. What do I do?
+        What is the best way to display the load average? Why no #L?
+        How do I attach the same session to multiple clients but with a different current window, like screen -x?
+        I don't see italics! Or italics and reverse are the wrong way round!
+        How do I see the default configuration?
+        How do I copy a selection from tmux to the system's clipboard?
+        Why do I see dots around a session when I attach to it?
+        How do I use ssh-agent(1) with tmux?
+        What is the passthrough escape sequence and how do I use it?
+        How can I make .tmux.conf portable between tmux versions?
+        Why don't XMODEM, YMODEM and ZMODEM work inside tmux?
+    Formats
+        Working with formats
+        Basic use
+        Options and environment variables
+        Simple modifiers
+        Trimming and padding
+        Comparisons
+        Substitution
+        Expressions
+        Matching and searching
+        Loops
+        Literals and quoting
+        Multiple expansion
+        Using formats together
+        Choose modes and formats
+        Summary of modifiers
+    Getting Started
+        Getting started
+        About tmux
+        About this document
+        Other documentation and help
+        Basic concepts
+        The tmux server and clients
+        Sessions, windows and panes
+        Summary of terms
+        Using tmux interactively
+        Creating sessions
+        The status line
+        The prefix key
+        Help keys
+        Commands and flags
+        The command prompt
+        Attaching and detaching
+        Listing sessions
+        Killing tmux entirely
+        Creating new windows
+        Splitting the window
+        Changing the current window
+        Changing the active pane
+        Choosing sessions, windows and panes
+        Detaching other clients
+        Killing a session, window or pane
+        Renaming sessions and windows
+        Swapping and moving
+        Resizing and zooming panes
+        Window layouts
+        Copy and paste
+        Finding windows and panes
+        Using the mouse
+        Configuring tmux
+        The configuration file
+        Key bindings
+        Copy mode key bindings
+        Types of option
+        Showing options
+        Changing options
+        Formats
+        Embedded commands
+        Colours and styles
+        Embedded styles
+        List of useful options
+        List of style and format options
+        Common configuration changes
+        Changing the prefix key
+        Customizing the status line
+        Configuring the pane border
+        vi(1) key bindings
+        Mouse copying behaviour
+        Other features
+    Installing
+        Installing tmux
+        Binary packages
+        From source tarball
+        Building dependencies
+        From version control
+        Configure options
+        Common problems
+        configure says: libevent not found or ncurses not found
+        configure says: must give --enable-utf8proc or --disable-utf8proc
+        tmux won't run from ~/local
+        autogen.sh complains about AM_BLAH or PKG_MODULES
+        configure says: C compiler cannot create executables
+        The build fails with an error about "conflicting type for forkpty"
+        AppImage package
+        Docker script
+        Red Hat Enterprise Linux / CentOS RPMs
+    Modifier Keys
+        Modifier keys
+        What terminal keys look like
+        How tmux describes keys with modifiers
+        Limitations of Ctrl keys
+        Limitations of Shift keys
+        Limitations of UTF-8 keys
+        The escape key
+        Common function keys
+        Modifiers and function keys
+        Extended keys
+        Why a key might not work
+        Seeing what is sent for a key
+        Troubleshooting steps
+        tmux is not recognizing the key
+        tmux is recognizing the key
+        The number keypad
+    Recipes
+        Configuration file recipes
+        Create new panes in the same working directory
+        Prevent pane movement wrapping
+        Send Up and Down keys for the mouse wheel
+        Make C-b w binding only show the one session
+        Create a new pane to copy
+        C-DoubleClick to open emacs(1)
+        Change shortcut keys in tree mode
